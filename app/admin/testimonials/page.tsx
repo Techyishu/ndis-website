@@ -46,13 +46,19 @@ export default function AdminTestimonials() {
 
   const fetchTestimonials = async () => {
     try {
-      const response = await fetch("/api/testimonials");
+      // Fetch all testimonials (including inactive) for admin panel
+      const response = await fetch("/api/testimonials?all=true");
       if (response.ok) {
         const data = await response.json();
         setTestimonials(data);
+      } else {
+        const errorData = await response.json();
+        console.error("Error fetching testimonials:", errorData);
+        alert("Error fetching testimonials: " + (errorData.error || "Unknown error"));
       }
     } catch (error) {
       console.error("Error fetching testimonials:", error);
+      alert("Error fetching testimonials. Please refresh the page.");
     } finally {
       setLoading(false);
     }
@@ -96,14 +102,20 @@ export default function AdminTestimonials() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this testimonial?")) return;
+    if (!confirm("Are you sure you want to permanently delete this testimonial? This action cannot be undone.")) return;
     try {
       const response = await fetch(`/api/testimonials?id=${id}`, { method: "DELETE" });
       if (response.ok) {
         fetchTestimonials();
+        alert("Testimonial deleted successfully");
+      } else {
+        const errorData = await response.json();
+        alert("Error deleting testimonial: " + (errorData.error || "Unknown error"));
+        console.error("Delete error:", errorData);
       }
     } catch (error) {
-      alert("Error deleting testimonial");
+      console.error("Error deleting testimonial:", error);
+      alert("Error deleting testimonial. Please try again.");
     }
   };
 

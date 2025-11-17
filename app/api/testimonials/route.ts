@@ -1,13 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const { data, error } = await supabase
+    const { searchParams } = new URL(request.url);
+    const all = searchParams.get('all') === 'true';
+
+    let query = supabase
       .from('testimonials')
-      .select('*')
-      .eq('is_active', true)
-      .order('display_order', { ascending: true });
+      .select('*');
+
+    // If 'all' parameter is not set, only get active testimonials (for public API)
+    if (!all) {
+      query = query.eq('is_active', true);
+    }
+
+    query = query.order('display_order', { ascending: true });
+
+    const { data, error } = await query;
 
     if (error) throw error;
 
@@ -63,16 +73,21 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: 'ID is required' }, { status: 400 });
     }
 
+    // Permanently delete the testimonial using anon key
     const { error } = await supabase
       .from('testimonials')
-      .update({ is_active: false, updated_at: new Date().toISOString() })
+      .delete()
       .eq('id', id);
 
-    if (error) throw error;
+    if (error) {
+      console.error('Error deleting testimonial:', error);
+      throw error;
+    }
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error('Delete error:', error);
+    return NextResponse.json({ error: error.message || 'Failed to delete testimonial' }, { status: 500 });
   }
 }
 

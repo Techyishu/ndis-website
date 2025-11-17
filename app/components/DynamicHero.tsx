@@ -44,8 +44,8 @@ export default async function DynamicHero() {
 
   // Fallback to default if no data
   const hero = heroData || {
-    title: "Live Your Best Life",
-    subtitle: "At ECS, we reach out to you wherever you are in Victoria, with exceptional NDIS support right at home.",
+    title: "Live Your Best Life. We're Here to Help.",
+    subtitle: "Welcome to EverCare Community Support (ECS). We are EverCare Community Support (ECS), a new NDIS provider in Victoria. We're here to make your NDIS journey simple. Our clients say we're \"easy as\" to work with.",
     button_text: "GET STARTED",
     button_link: "/contact",
     background_image: "/images/Gemini_Generated_Image_n0seiyn0seiyn0se.png",

@@ -10,25 +10,187 @@ export default function Home() {
       {/* Hero Section - Dynamic */}
       <DynamicHero />
 
-      {/* It's All About You Section */}
+      {/* Welcome Section */}
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              It's all about you and your goals
+              Welcome to EverCare Community Support (ECS)
             </h2>
             <div className="w-24 h-1 bg-emerald-600 mx-auto mb-8"></div>
-            <p className="text-lg text-gray-700 leading-relaxed mb-8">
-              Whatever you want out of life, right now and in the future, we're here to support you and empower you at every stage.
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              We are EverCare Community Support (ECS), a new NDIS provider in Victoria. We're here to make your NDIS journey simple. Our clients say we're "easy as" to work with.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed mb-8">
-              At EverCare Community Support, there's nothing we love more than helping our clients to shine.
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Our company is led by a Registered Nurse with 5 years of experience. This means your support is guided by professional health expertise. We are compassionate, understanding, and ready to help you reach your goals.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose ECS Section */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 animate-fade-in-up">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Why Choose ECS?
+            </h2>
+            <div className="w-24 h-1 bg-emerald-600 mx-auto"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                title: "Nurse-Led Care",
+                description: "Your support is guided by a Registered Nurse, so you're always in safe hands.",
+                icon: "nurse",
+              },
+              {
+                title: '"Easy As" to Work With',
+                description: 'We make NDIS simple. We are friendly, clear, and focus on what you want.',
+                icon: "easy",
+              },
+              {
+                title: "We Genuinely Care",
+                description: "We listen to you and put your well-being first. You are not just a number to us.",
+                icon: "care",
+              },
+              {
+                title: "We Respect Your Culture",
+                description: "We come from a diverse cultural background and understand the importance of your beliefs and values.",
+                icon: "culture",
+              },
+              {
+                title: "We Serve All of Victoria",
+                description: "We are based in Melbourne but provide services across the entire state.",
+                icon: "victoria",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="group bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-emerald-300 transform hover:-translate-y-2 animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}
+              >
+                <div className="w-16 h-16 mx-auto mb-4 bg-emerald-100 rounded-full flex items-center justify-center group-hover:bg-emerald-600 group-hover:scale-110 transition-all duration-300">
+                  {item.icon === "nurse" && (
+                    <svg className="w-8 h-8 text-emerald-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  )}
+                  {item.icon === "easy" && (
+                    <svg className="w-8 h-8 text-emerald-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  )}
+                  {item.icon === "care" && (
+                    <svg className="w-8 h-8 text-emerald-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  )}
+                  {item.icon === "culture" && (
+                    <svg className="w-8 h-8 text-emerald-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  )}
+                  {item.icon === "victoria" && (
+                    <svg className="w-8 h-8 text-emerald-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  )}
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 text-center group-hover:text-emerald-600 transition-colors duration-300">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed text-center">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What We Do Section */}
+      <section className="py-16 lg:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center animate-fade-in-up">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              What We Do
+            </h2>
+            <div className="w-24 h-1 bg-emerald-600 mx-auto mb-8"></div>
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              We offer a wide range of supports to help you at home and in the community. We can help you with:
+            </p>
+            <div className="text-left max-w-2xl mx-auto space-y-3 mb-8">
+              <div className="flex items-start">
+                <svg className="w-6 h-6 text-emerald-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="text-lg text-gray-700">Help with Daily Life (like self-care and household tasks)</p>
+              </div>
+              <div className="flex items-start">
+                <svg className="w-6 h-6 text-emerald-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="text-lg text-gray-700">Support Coordination (we help you manage your plan)</p>
+              </div>
+              <div className="flex items-start">
+                <svg className="w-6 h-6 text-emerald-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="text-lg text-gray-700">Community & Social Support (getting out and about)</p>
+              </div>
+              <div className="flex items-start">
+                <svg className="w-6 h-6 text-emerald-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="text-lg text-gray-700">Transport (getting to appointments or activities)</p>
+              </div>
+              <div className="flex items-start">
+                <svg className="w-6 h-6 text-emerald-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="text-lg text-gray-700">Therapeutic Supports (accessing therapists)</p>
+              </div>
+              <div className="flex items-start">
+                <svg className="w-6 h-6 text-emerald-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="text-lg text-gray-700">And much more...</p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-600 italic">
+              (Please note: We are also in the process of adding housing and accommodation to our services!)
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Promise to You Section */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center animate-fade-in-up">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Our Promise to You
+            </h2>
+            <div className="w-24 h-1 bg-emerald-600 mx-auto mb-8"></div>
+            <p className="text-xl text-gray-700 leading-relaxed">
+              At ECS, we see you, we hear you, and we respect you. We promise to be a reliable, compassionate, and understanding team that you can trust, every step of the way.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Let's Get Started Section */}
+      <section className="py-16 lg:py-24 bg-emerald-600 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="animate-scale-in">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Let's Get Started
+            </h2>
+            <p className="text-xl mb-8 text-emerald-50 max-w-2xl mx-auto">
+              Ready to talk? Contact our friendly team for a free chat. We'd love to hear from you.
             </p>
             <Link
-              href="/about"
-              className="inline-block text-emerald-600 font-semibold hover:text-emerald-700 text-lg transition-all duration-300 hover:translate-x-2"
+              href="/contact"
+              className="inline-block bg-white text-emerald-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
-              LEARN MORE →
+              Contact Us Today
             </Link>
           </div>
         </div>

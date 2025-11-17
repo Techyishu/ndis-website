@@ -169,6 +169,82 @@ export default function Services() {
         </div>
       </section>
 
+      {/* Capital Supports Section */}
+      <section id="capital" className="py-16 lg:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="animate-fade-in-up">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+              Capital Supports
+            </h2>
+            <div className="w-24 h-1 bg-emerald-600 mx-auto mb-12"></div>
+            <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto text-center">
+              Capital Supports cover the purchase of assistive technology or modifications to your home to help you live more safely and independently.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {[
+              {
+                title: "Assistive Technology (AT)",
+                description: "This is any equipment or technology that helps you do something you couldn't otherwise, or makes it easier. We help you source, set up, and learn to use everything from simple aids (like kitchen gadgets or shower chairs) to more complex technology like communication devices.",
+                image: "/images/Gemini_Generated_Image_1y0aeb1y0aeb1y0a.png",
+              },
+              {
+                title: "Home Modifications",
+                description: "We can help you arrange minor changes to your home environment to make it safer and more accessible. We can coordinate the installation of grab rails in the bathroom, non-slip flooring, or a simple ramp to help you access your home.",
+                image: "/images/Gemini_Generated_Image_pmdnl2pmdnl2pmdn.png",
+              },
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 border-2 border-gray-100 hover:border-emerald-300 animate-fade-in-up"
+                style={{ animationDelay: `${(index + 12) * 0.1}s`, opacity: 0 }}
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <ImagePlaceholder
+                    src={service.image}
+                    alt={service.title}
+                    width={400}
+                    height={200}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors duration-300">{service.title}</h3>
+                  <p className="text-gray-700 leading-relaxed">{service.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Future: Accommodation & Housing Section */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-emerald-50 rounded-xl p-8 md:p-12 shadow-lg border-2 border-emerald-200 animate-fade-in-up">
+              <div className="text-center mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  Our Future: Accommodation & Housing
+                </h2>
+                <div className="w-24 h-1 bg-emerald-600 mx-auto mb-6"></div>
+                <span className="inline-block bg-emerald-600 text-white px-6 py-2 rounded-full text-sm font-semibold mb-6">
+                  Coming Soon
+                </span>
+              </div>
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                EvereCare Community Support is committed to growing with our participants. We are currently in the advanced stages of the registration process to provide a full range of accommodation services, including Supported Independent Living (SIL) and Specialist Disability Accommodation (SDA).
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                While this service is not active just yet, our expert Support Coordinators are ready today to help you navigate your housing goals. We can help you explore your options, connect with accommodation providers, and plan for your future.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 lg:py-24 bg-emerald-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
