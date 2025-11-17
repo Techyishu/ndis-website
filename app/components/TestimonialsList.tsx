@@ -46,7 +46,7 @@ export default function TestimonialsList() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
       {testimonials.map((testimonial, index) => (
         <div
           key={testimonial.id}
@@ -54,7 +54,7 @@ export default function TestimonialsList() {
           style={{ animationDelay: `${index * 0.15}s`, opacity: 0 }}
         >
           {testimonial.image && (
-            <div className="relative h-64 overflow-hidden">
+            <div className="relative h-48 sm:h-64 overflow-hidden">
               <ImagePlaceholder
                 src={testimonial.image}
                 alt={testimonial.name}
@@ -63,22 +63,22 @@ export default function TestimonialsList() {
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-              <div className="absolute top-4 left-4">
-                <div className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.432.917-3.996 3.638-3.996 5.849h4v10h-10z" />
                   </svg>
                 </div>
               </div>
             </div>
           )}
-          <div className="p-8">
+          <div className="p-5 sm:p-6 md:p-8">
             {testimonial.rating && (
-              <div className="flex items-center gap-1 mb-4">
+              <div className="flex items-center gap-1 mb-3 sm:mb-4">
                 {[...Array(5)].map((_, i) => (
                   <svg
                     key={i}
-                    className={`w-5 h-5 ${i < testimonial.rating! ? "text-yellow-400" : "text-gray-300"}`}
+                    className={`w-4 h-4 sm:w-5 sm:h-5 ${i < testimonial.rating! ? "text-yellow-400" : "text-gray-300"}`}
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -87,16 +87,16 @@ export default function TestimonialsList() {
                 ))}
               </div>
             )}
-            <p className="text-gray-700 text-lg leading-relaxed italic mb-6">
+            <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed italic mb-4 sm:mb-6">
               "{testimonial.content}"
             </p>
-            <div className="border-t border-gray-200 pt-4">
-              <p className="font-bold text-gray-900 text-lg">{testimonial.name}</p>
+            <div className="border-t border-gray-200 pt-3 sm:pt-4">
+              <p className="font-bold text-gray-900 text-base sm:text-lg">{testimonial.name}</p>
               {testimonial.role && testimonial.role !== "Reviewer" && (
-                <p className="text-gray-600">{testimonial.role}</p>
+                <p className="text-sm sm:text-base text-gray-600">{testimonial.role}</p>
               )}
               {testimonial.location && (
-                <p className="text-gray-500 text-sm mt-1">{testimonial.location}</p>
+                <p className="text-xs sm:text-sm text-gray-500 mt-1">{testimonial.location}</p>
               )}
             </div>
           </div>

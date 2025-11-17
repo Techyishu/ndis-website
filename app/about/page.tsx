@@ -9,13 +9,13 @@ export default function About() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="bg-white py-16 lg:py-24">
+      <section className="bg-white py-12 sm:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">
               Our Story: Support with Heart and Expertise
             </h1>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto text-center leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto text-center leading-relaxed">
               Welcome to EverCare Community Support (ECS). We're here to do things differently.
             </p>
           </div>
@@ -23,23 +23,23 @@ export default function About() {
       </section>
 
       {/* Introduction */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-12 sm:py-16 lg:py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up">
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
               EverCare Community Support (ECS) was founded on a simple but powerful belief: that
               everyone deserves to be supported with genuine compassion, dignity, and a deep level
               of understanding.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
               We know the NDIS world can be complex. We know that finding the right provider can feel
               overwhelming. Too often, people feel like just a number in a system, and their NDIS journey
               feels anything but simple.
             </p>
-            <p className="text-lg text-gray-900 leading-relaxed mb-6 font-semibold">
+            <p className="text-base sm:text-lg text-gray-900 leading-relaxed mb-4 sm:mb-6 font-semibold">
               ECS was created to be the answer to that.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
               We are a Melbourne-based provider with a fresh perspective and a clear mission: to be your
               partner, not just your provider. We are here to listen, to understand your unique story, and to
               make your NDIS journey as "easy as" it should be. We serve participants across all of
@@ -50,20 +50,20 @@ export default function About() {
       </section>
 
       {/* Director's Message */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-12 sm:py-16 lg:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
               A Message from Our Director
             </h2>
           </div>
-          <div className="bg-gray-50 p-8 md:p-12 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-emerald-200 transform hover:-translate-y-1 animate-fade-in-up animation-delay-200">
-            <div className="mb-6">
-              <p className="text-lg font-semibold text-gray-900 mb-2">
+          <div className="bg-gray-50 p-6 sm:p-8 md:p-12 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-100 hover:border-emerald-200 transform hover:-translate-y-1 animate-fade-in-up animation-delay-200">
+            <div className="mb-4 sm:mb-6">
+              <p className="text-base sm:text-lg font-semibold text-gray-900 mb-2">
                 "Hello, I'm Nav, the founder of EverCare Community Support.
               </p>
             </div>
-            <div className="space-y-4 text-gray-700 leading-relaxed">
+            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-700 leading-relaxed">
               <p>
                 My journey to creating ECS wasn't a typical business decision; it was a deeply personal one.
                 As a Registered Nurse, I've spent the last five years working on the front lines of the health
@@ -99,10 +99,10 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-12 sm:py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8 sm:mb-12 text-center">
               Our Mission & Vision
             </h2>
           </div>
@@ -148,19 +148,19 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-12 sm:py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 text-center">
               ECS Values
             </h2>
-            <div className="w-24 h-1 bg-emerald-600 mx-auto mb-12"></div>
-            <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+            <div className="w-24 h-1 bg-emerald-600 mx-auto mb-8 sm:mb-12"></div>
+            <p className="text-base sm:text-lg text-gray-700 text-center mb-8 sm:mb-12 max-w-3xl mx-auto">
               Our values are not just words on a website; they are the principles we live by every single
               day.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {[
               {
                 title: "Inclusiveness",
@@ -184,8 +184,8 @@ export default function About() {
                 className="text-center p-6 bg-gray-50 rounded-xl hover:bg-emerald-50 transition-all duration-300 border-2 border-transparent hover:border-emerald-200 transform hover:-translate-y-1 animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-emerald-600 transition-colors duration-300">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 hover:text-emerald-600 transition-colors duration-300">{value.title}</h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -193,19 +193,19 @@ export default function About() {
       </section>
 
       {/* The ECS Difference */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-12 sm:py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
               The EverCare Difference
             </h2>
           </div>
           <div className="max-w-4xl mx-auto">
-            <p className="text-lg text-gray-700 mb-6 font-semibold text-center animate-fade-in-up animation-delay-200">
+            <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 font-semibold text-center animate-fade-in-up animation-delay-200">
               What does "Nurse-Led" really mean for you? It means we're able to support you with a
               higher level of expertise.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
               {[
                 {
                   title: "Peace of Mind",
@@ -245,8 +245,8 @@ export default function About() {
                       </svg>
                     )}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors duration-300">{benefit.title}</h3>
-                  <p className="text-gray-700 text-sm">{benefit.description}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors duration-300">{benefit.title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-700">{benefit.description}</p>
                 </div>
               ))}
             </div>
@@ -268,16 +268,16 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-emerald-600 text-white">
+      <section className="py-12 sm:py-16 lg:py-24 bg-emerald-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-scale-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get Started?</h2>
-            <p className="text-lg mb-8 text-emerald-50 max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">Ready to Get Started?</h2>
+            <p className="text-base sm:text-lg mb-6 sm:mb-8 text-emerald-50 max-w-2xl mx-auto">
               Contact our friendly team for a free, no-obligation chat. We'd love to hear from you.
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-white text-emerald-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="inline-block bg-white text-emerald-600 px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base"
             >
               Contact Us Today
             </Link>

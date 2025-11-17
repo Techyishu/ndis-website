@@ -76,13 +76,13 @@ export default function Services() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="bg-white py-16 lg:py-24">
+      <section className="bg-white py-12 sm:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-center">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">
               Our NDIS Services & Supports
             </h1>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto text-center leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto text-center leading-relaxed">
               At EverCare Community Support (ECS), we provide a comprehensive suite of NDIS services designed to meet your individual goals. Our mission is to make your NDIS journey as "easy as" possible.
             </p>
           </div>
@@ -90,19 +90,19 @@ export default function Services() {
       </section>
 
       {/* Core Supports Section */}
-      <section id="core" className="py-16 lg:py-24 bg-gray-50">
+      <section id="core" className="py-12 sm:py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 text-center">
               Core Supports
             </h2>
-            <div className="w-24 h-1 bg-emerald-600 mx-auto mb-12"></div>
-            <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto text-center">
+            <div className="w-24 h-1 bg-emerald-600 mx-auto mb-8 sm:mb-12"></div>
+            <p className="text-base sm:text-lg text-gray-700 mb-8 sm:mb-12 max-w-3xl mx-auto text-center">
               Core Supports help you with your everyday activities, your personal goals, and your life at home. We are flexible, reliable, and always put your needs first.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {coreSupports.map((service, index) => (
               <div
                 key={index}
@@ -119,9 +119,9 @@ export default function Services() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors duration-300">{service.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">{service.description}</p>
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-emerald-600 transition-colors duration-300">{service.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{service.description}</p>
                 </div>
               </div>
             ))}
@@ -130,19 +130,19 @@ export default function Services() {
       </section>
 
       {/* Capacity Building Section */}
-      <section id="capacity" className="py-16 lg:py-24 bg-white">
+      <section id="capacity" className="py-12 sm:py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 text-center">
               Capacity Building
             </h2>
-            <div className="w-24 h-1 bg-emerald-600 mx-auto mb-12"></div>
-            <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto text-center">
+            <div className="w-24 h-1 bg-emerald-600 mx-auto mb-8 sm:mb-12"></div>
+            <p className="text-base sm:text-lg text-gray-700 mb-8 sm:mb-12 max-w-3xl mx-auto text-center">
               This is where we focus on your long-term goals. These supports are designed to build your skills, confidence, and independence for the future.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {capacityBuilding.map((service, index) => (
               <div
                 key={index}
@@ -159,9 +159,9 @@ export default function Services() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors duration-300">{service.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">{service.description}</p>
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-emerald-600 transition-colors duration-300">{service.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{service.description}</p>
                 </div>
               </div>
             ))}
@@ -170,19 +170,19 @@ export default function Services() {
       </section>
 
       {/* Capital Supports Section */}
-      <section id="capital" className="py-16 lg:py-24 bg-gray-50">
+      <section id="capital" className="py-12 sm:py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 text-center">
               Capital Supports
             </h2>
-            <div className="w-24 h-1 bg-emerald-600 mx-auto mb-12"></div>
-            <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto text-center">
+            <div className="w-24 h-1 bg-emerald-600 mx-auto mb-8 sm:mb-12"></div>
+            <p className="text-base sm:text-lg text-gray-700 mb-8 sm:mb-12 max-w-3xl mx-auto text-center">
               Capital Supports cover the purchase of assistive technology or modifications to your home to help you live more safely and independently.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
             {[
               {
                 title: "Assistive Technology (AT)",
@@ -210,9 +210,9 @@ export default function Services() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors duration-300">{service.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">{service.description}</p>
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-emerald-600 transition-colors duration-300">{service.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{service.description}</p>
                 </div>
               </div>
             ))}
@@ -221,23 +221,23 @@ export default function Services() {
       </section>
 
       {/* Future: Accommodation & Housing Section */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-12 sm:py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-emerald-50 rounded-xl p-8 md:p-12 shadow-lg border-2 border-emerald-200 animate-fade-in-up">
-              <div className="text-center mb-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <div className="bg-emerald-50 rounded-xl p-6 sm:p-8 md:p-12 shadow-lg border-2 border-emerald-200 animate-fade-in-up">
+              <div className="text-center mb-4 sm:mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
                   Our Future: Accommodation & Housing
                 </h2>
-                <div className="w-24 h-1 bg-emerald-600 mx-auto mb-6"></div>
-                <span className="inline-block bg-emerald-600 text-white px-6 py-2 rounded-full text-sm font-semibold mb-6">
+                <div className="w-24 h-1 bg-emerald-600 mx-auto mb-4 sm:mb-6"></div>
+                <span className="inline-block bg-emerald-600 text-white px-4 py-1.5 sm:px-6 sm:py-2 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
                   Coming Soon
                 </span>
               </div>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
                 EvereCare Community Support is committed to growing with our participants. We are currently in the advanced stages of the registration process to provide a full range of accommodation services, including Supported Independent Living (SIL) and Specialist Disability Accommodation (SDA).
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                 While this service is not active just yet, our expert Support Coordinators are ready today to help you navigate your housing goals. We can help you explore your options, connect with accommodation providers, and plan for your future.
               </p>
             </div>
@@ -246,18 +246,18 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-emerald-600 text-white">
+      <section className="py-12 sm:py-16 lg:py-24 bg-emerald-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-scale-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
               Your Plan is Unique. Your Support Should Be Too.
             </h2>
-            <p className="text-lg mb-8 text-emerald-50 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg mb-6 sm:mb-8 text-emerald-50 max-w-2xl mx-auto">
               Don't see something on this list? Is your plan confusing? Contact our friendly team. We'll listen to your needs and show you just how "easy as" your NDIS journey can be.
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-white text-emerald-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="inline-block bg-white text-emerald-600 px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base"
             >
               Contact Us Today
             </Link>

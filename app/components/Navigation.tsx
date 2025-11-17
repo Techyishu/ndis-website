@@ -32,10 +32,10 @@ const Navigation = () => {
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-emerald-600">ECS</span>
-            <span className="ml-2 text-sm text-gray-600 hidden sm:inline">
+            <span className="text-xl sm:text-2xl font-bold text-emerald-600">ECS</span>
+            <span className="ml-2 text-xs sm:text-sm text-gray-600 hidden sm:inline">
               EverCare Community Support
             </span>
           </Link>
@@ -54,7 +54,7 @@ const Navigation = () => {
             ))}
             <Link
               href="/contact"
-              className="bg-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors duration-200"
+              className="bg-emerald-600 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors duration-200 text-sm sm:text-base"
             >
               CALL NOW
             </Link>

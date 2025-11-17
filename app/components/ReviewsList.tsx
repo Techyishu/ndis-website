@@ -44,24 +44,24 @@ export default function ReviewsList() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {testimonials.map((testimonial) => (
         <div
           key={testimonial.id}
-          className="bg-white rounded-lg shadow-md p-6 border-2 border-gray-100 hover:border-emerald-300 transition-all duration-300"
+          className="bg-white rounded-lg shadow-md p-4 sm:p-6 border-2 border-gray-100 hover:border-emerald-300 transition-all duration-300"
         >
-          <div className="flex items-start justify-between mb-4">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 sm:mb-4 gap-2">
             <div>
-              <h4 className="font-bold text-gray-900 text-lg mb-1">{testimonial.name}</h4>
+              <h4 className="font-bold text-gray-900 text-base sm:text-lg mb-1">{testimonial.name}</h4>
               {testimonial.role && testimonial.role !== "Reviewer" && (
-                <p className="text-sm text-gray-600 mb-1">{testimonial.role}</p>
+                <p className="text-xs sm:text-sm text-gray-600 mb-1">{testimonial.role}</p>
               )}
               {testimonial.rating && (
                 <div className="flex items-center gap-1 mt-1">
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
-                      className={`w-5 h-5 ${i < testimonial.rating! ? "text-yellow-400" : "text-gray-300"}`}
+                      className={`w-4 h-4 sm:w-5 sm:h-5 ${i < testimonial.rating! ? "text-yellow-400" : "text-gray-300"}`}
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -71,11 +71,11 @@ export default function ReviewsList() {
                 </div>
               )}
             </div>
-            <span className="text-sm text-gray-500">
+            <span className="text-xs sm:text-sm text-gray-500">
               {new Date(testimonial.created_at).toLocaleDateString()}
             </span>
           </div>
-          <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">{testimonial.content}</p>
+          <p className="text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-wrap">{testimonial.content}</p>
         </div>
       ))}
     </div>

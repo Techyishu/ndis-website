@@ -73,19 +73,19 @@ export default function ReviewForm({ onSuccess }: ReviewFormProps) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
-      <h3 className="text-2xl font-bold text-gray-900 mb-6">Share Your Review</h3>
+    <div className="bg-white rounded-lg shadow-md p-5 sm:p-6 md:p-8">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Share Your Review</h3>
       {submitStatus === "success" && (
-        <div className="mb-6 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
+        <div className="mb-4 sm:mb-6 bg-green-50 border border-green-200 text-green-700 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-sm sm:text-base">
           Thank you for your review! It has been posted.
         </div>
       )}
       {submitStatus === "error" && (
-        <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+        <div className="mb-4 sm:mb-6 bg-red-50 border border-red-200 text-red-700 px-3 py-2 sm:px-4 sm:py-3 rounded-lg text-sm sm:text-base">
           There was an error submitting your review. Please try again.
         </div>
       )}
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
         <div>
           <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
             Your Name <span className="text-red-500">*</span>
@@ -156,7 +156,7 @@ export default function ReviewForm({ onSuccess }: ReviewFormProps) {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-emerald-600 text-white px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
         >
           {submitting ? "Submitting..." : "Submit Review"}
         </button>

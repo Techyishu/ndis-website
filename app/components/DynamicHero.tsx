@@ -53,7 +53,7 @@ export default async function DynamicHero() {
   };
 
   return (
-    <section className="relative h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden">
+    <section className="relative h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <ImagePlaceholder
@@ -75,18 +75,18 @@ export default async function DynamicHero() {
       {/* Content */}
       <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
         <div className="max-w-2xl animate-fade-in-up">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
             {hero.title}
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 leading-relaxed">
             {hero.subtitle}
           </p>
           <Link
             href={hero.button_link}
-            className="inline-flex items-center gap-2 bg-emerald-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-emerald-700 transition-all duration-300 text-lg uppercase tracking-wide group"
+            className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold hover:bg-emerald-700 transition-all duration-300 text-sm sm:text-base md:text-lg uppercase tracking-wide group"
           >
             <span>{hero.button_text}</span>
-            <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
