@@ -45,62 +45,79 @@ export default async function DynamicHero() {
   // Fallback to default if no data
   const hero = heroData || {
     title: "Live Your Best Life. We're Here to Help.",
-    subtitle: "Welcome to EverCare Community Support (ECS). We are EverCare Community Support (ECS), a new NDIS provider in Victoria. We're here to make your NDIS journey simple. Our clients say we're \"easy as\" to work with.",
-    button_text: "GET STARTED",
+    subtitle: "Compassionate, nurse-led NDIS support in Victoria. We make your journey simple, personalized, and dignified.",
+    button_text: "Get Started",
     button_link: "/contact",
-    background_image: "/images/Gemini_Generated_Image_n0seiyn0seiyn0se.png",
-    overlay_opacity: 0.7,
+    background_image: "/images/hero-bg.png", // We will need to ensure this image exists or use a placeholder
+    overlay_opacity: 0.75,
   };
 
   return (
-    <section className="relative h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden">
+    <section className="relative h-[600px] lg:h-[700px] overflow-hidden flex items-center">
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         <ImagePlaceholder
           src={hero.background_image}
           alt="Diverse community celebrating together"
           width={1920}
-          height={800}
+          height={1080}
           className="w-full h-full object-cover"
           priority
         />
       </div>
-      
-      {/* Dark Overlay on Left Side */}
-      <div 
-        className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"
-        style={{ opacity: hero.overlay_opacity }}
-      ></div>
-      
+
+      {/* Enhanced Dark Overlay for Better Text Contrast */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60 z-10" />
+
+      {/* Decorative Accent Line */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-secondary to-transparent z-20" />
+
       {/* Content */}
-      <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
-        <div className="max-w-2xl animate-fade-in-up">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="max-w-3xl animate-fade-in-up">
+          {/* Main Heading - Force White with Strong Shadow */}
+          <h1
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight"
+            style={{
+              color: '#FFFFFF',
+              textShadow: '0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3)'
+            }}
+          >
             {hero.title}
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 leading-relaxed">
+
+          {/* Subtitle - White with Shadow */}
+          <p
+            className="text-lg sm:text-xl md:text-2xl mb-10 leading-relaxed max-w-2xl font-medium"
+            style={{
+              color: '#FFFFFF',
+              textShadow: '0 2px 8px rgba(0, 0, 0, 0.4)'
+            }}
+          >
             {hero.subtitle}
           </p>
-          <Link
-            href={hero.button_link}
-            className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold hover:bg-emerald-700 transition-all duration-300 text-sm sm:text-base md:text-lg uppercase tracking-wide group"
-          >
-            <span>{hero.button_text}</span>
-            <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
+
+          {/* Buttons with Enhanced Styling */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href={hero.button_link}
+              className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-accent rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl shadow-xl"
+            >
+              <span className="relative z-10">{hero.button_text}</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-accent to-accent-hover opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-white/10 backdrop-blur-sm border-2 border-white/50 rounded-lg hover:bg-white hover:text-primary hover:border-white transition-all duration-300 shadow-lg"
+            >
+              Our Services
+            </Link>
+          </div>
         </div>
       </div>
-      
-      {/* Accessibility Icon in Upper Right */}
-      <div className="absolute top-8 right-8 hidden lg:block animate-fade-in-up animation-delay-300">
-        <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center shadow-lg">
-          <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-        </div>
-      </div>
+
+      {/* Bottom Decorative Element */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/10 to-transparent z-15 pointer-events-none" />
     </section>
   );
 }

@@ -1,70 +1,22 @@
-"use client";
+import { Metadata } from "next";
+import ContactForm from "../components/ContactForm";
 
-import { useState } from "react";
-import Link from "next/link";
+export const metadata: Metadata = {
+  title: "Contact Us | EverCare Community Support",
+  description: "Get in touch with our friendly team to discuss your NDIS needs. We're here to help.",
+};
 
-export default function Contact() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    inquiryType: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const [submitting, setSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSubmitStatus("success");
-        setFormData({
-          fullName: "",
-          email: "",
-          phone: "",
-          inquiryType: "",
-          message: "",
-        });
-      } else {
-        setSubmitStatus("error");
-      }
-    } catch (error) {
-      setSubmitStatus("error");
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
+export default function ContactPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
       <section className="bg-white py-12 sm:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            Let's Connect
+            Let&apos;s Connect
           </h1>
           <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            We're so glad you're here. Whether you are a participant or family member looking for
+            We&apos;re so glad you&apos;re here. Whether you are a participant or family member looking for
             support, a support coordinator with a referral, or someone passionate about a career in care,
             this is the right place.
           </p>
@@ -114,111 +66,7 @@ export default function Contact() {
               This is the first step. Contact our friendly team for a free, no-obligation chat.
             </p>
           </div>
-          <div className="bg-gray-50 p-6 sm:p-8 md:p-12 rounded-lg shadow-md">
-            {submitStatus === "success" && (
-              <div className="mb-6 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
-                Thank you for your message! We'll get back to you soon.
-              </div>
-            )}
-            {submitStatus === "error" && (
-              <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                There was an error submitting your form. Please try again.
-              </div>
-            )}
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="fullName" className="block text-sm font-semibold text-gray-900 mb-2">
-                  Full Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="fullName"
-                  name="fullName"
-                  required
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-colors"
-                  placeholder="Your full name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
-                  Email Address <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-colors"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
-                  Phone Number <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-colors"
-                  placeholder="04XX XXX XXX"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="inquiryType" className="block text-sm font-semibold text-gray-900 mb-2">
-                  I am a... <span className="text-red-500">*</span>
-                </label>
-                <select
-                  id="inquiryType"
-                  name="inquiryType"
-                  required
-                  value={formData.inquiryType}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-colors bg-white"
-                >
-                  <option value="">Please select...</option>
-                  <option value="participant">NDIS Participant</option>
-                  <option value="family">Family Member</option>
-                  <option value="support-coordinator">Support Coordinator</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
-                  Your Message <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={6}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-colors resize-none"
-                  placeholder="Tell us how we can help you..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={submitting}
-                className="w-full bg-emerald-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-emerald-700 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {submitting ? "Submitting..." : "Submit Enquiry"}
-              </button>
-            </form>
-          </div>
+          <ContactForm />
         </div>
       </section>
 
@@ -228,24 +76,24 @@ export default function Contact() {
           <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6 text-center">Other Ways to Reach Us</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div className="bg-white p-5 sm:p-6 rounded-lg shadow-md text-center">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-emerald-100 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
               </div>
               <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-2">Phone</h4>
-              <a href="tel:1300000000" className="text-emerald-600 hover:text-emerald-700 font-semibold text-base sm:text-lg">
+              <a href="tel:1300000000" className="text-primary hover:text-primary-light font-semibold text-base sm:text-lg">
                 1300 XXX XXX
               </a>
             </div>
             <div className="bg-white p-5 sm:p-6 rounded-lg shadow-md text-center">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-emerald-100 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-2">Email</h4>
-              <a href="mailto:hello@everecare.com.au" className="text-emerald-600 hover:text-emerald-700 font-semibold text-sm sm:text-base md:text-lg break-all">
+              <a href="mailto:hello@everecare.com.au" className="text-primary hover:text-primary-light font-semibold text-sm sm:text-base md:text-lg break-all">
                 hello@everecare.com.au
               </a>
             </div>

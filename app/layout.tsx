@@ -1,29 +1,28 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "EverCare Community Support | NDIS Provider Victoria",
-  description: "Nurse-led NDIS provider in Victoria. Making your NDIS journey simple with compassionate, professional support. We're easy as to work with.",
+  title: "EverCare Community Support",
+  description: "Compassionate NDIS support services.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+      </head>
+      <body>
         <Navigation />
-        <main className="min-h-screen">{children}</main>
+        <main className="pt-[120px]">{children}</main>
         <Footer />
       </body>
     </html>

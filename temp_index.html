@@ -1,0 +1,1575 @@
+<!doctype html >
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      class="">
+<head>
+    <meta charset="utf-8">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    window._currentDevice = 'desktop';
+    window.Parameters = window.Parameters || {
+        HomeUrl: 'https://www.alliedprioritycare.com.au/',
+        AccountUUID: 'f61dbe62867443d9b758e98aa2870e7d',
+        SystemID: 'US_DIRECT_PRODUCTION',
+        SiteAlias: '6f4dfe18',
+        SiteType: atob('RFVEQU9ORQ=='),
+        PublicationDate: 'Thu Sep 05 01:48:28 UTC 2024',
+        ExternalUid: null,
+        IsSiteMultilingual: false,
+        InitialPostAlias: '',
+        InitialPostPageUuid: '',
+        InitialDynamicItem: '',
+        DynamicPageInfo: {
+            isDynamicPage: false,
+            base64JsonRowData: 'null',
+        },
+        InitialPageAlias: 'home',
+        InitialPageUuid: '628e47da97b242b5b8e38e6316cf1e46',
+        InitialPageId: '1115332764',
+        InitialEncodedPageAlias: 'aG9tZQ==',
+        InitialHeaderUuid: 'c8a6a00aa7d847d3a37ab5515d10d8c3',
+        CurrentPageUrl: '',
+        IsCurrentHomePage: true,
+        AllowAjax: false,
+        AfterAjaxCommand: null,
+        HomeLinkText: 'Back To Home',
+        UseGalleryModule: false,
+        CurrentThemeName: 'Layout Theme',
+        ThemeVersion: '47240',
+        DefaultPageAlias: '',
+        RemoveDID: true,
+        WidgetStyleID: null,
+        IsHeaderFixed: false,
+        IsHeaderSkinny: false,
+        IsBfs: true,
+        StorePageAlias: 'null',
+        StorePagesUrls: 'e30=',
+        IsNewStore: 'false',
+        StorePath: '',
+        StoreId: 'null',
+        StoreVersion: 0,
+        StoreBaseUrl: '',
+        StoreCleanUrl: true,
+        StoreDisableScrolling: true,
+        IsStoreSuspended: false,
+        HasCustomDomain: true,
+        SimpleSite: false,
+        showCookieNotification: false,
+        cookiesNotificationMarkup: 'null',
+        translatedPageUrl: '',
+        isFastMigrationSite: false,
+        sidebarPosition: 'LEFT',
+        currentLanguage: 'en',
+        currentLocale: 'en',
+        NavItems: '{}',
+        errors: {
+            general: 'There was an error connecting to the page.<br/> Make sure you are not offline.',
+            password: 'Incorrect name/password combination',
+            tryAgain: 'Try again'
+        },
+        NavigationAreaParams: {
+            ShowBackToHomeOnInnerPages: true,
+            NavbarSize: 4,
+            NavbarLiveHomePage: 'https://www.alliedprioritycare.com.au/',
+            BlockContainerSelector: '.dmBody',
+            NavbarSelector: '#dmNav:has(a)',
+            SubNavbarSelector: '#subnav_main'
+        },
+        hasCustomCode: true,
+        planID: '7',
+        customTemplateId: 'null',
+        siteTemplateId: 'null',
+        productId: 'DM_DIRECT',
+        disableTracking: false,
+        pageType: 'FROM_SCRATCH',
+        isRuntimeServer: true,
+        isInEditor: false,
+        hasNativeStore: false,
+        defaultLang: 'en',
+        hamburgerMigration: null,
+        isFlexSite: false
+    };
+
+    window.Parameters.LayoutID = {};
+    window.Parameters.LayoutID[window._currentDevice] = 6;
+    window.Parameters.LayoutVariationID = {};
+    window.Parameters.LayoutVariationID[window._currentDevice] = 5;
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Injecting site-wide to the head -->
+
+
+
+
+<!-- End Injecting site-wide to the head -->
+
+<!-- Inject secured cdn script -->
+
+
+<!-- ========= Meta Tags ========= -->
+<!-- PWA settings -->
+<script>
+    function toHash(str) {
+        var hash = 5381, i = str.length;
+        while (i) {
+            hash = hash * 33 ^ str.charCodeAt(--i)
+        }
+        return hash >>> 0
+    }
+</script>
+<script>
+    (function (global) {
+    //const cacheKey = global.cacheKey;
+    const isOffline = 'onLine' in navigator && navigator.onLine === false;
+    const hasServiceWorkerSupport = 'serviceWorker' in navigator;
+    if (isOffline) {
+        console.log('offline mode');
+    }
+    if (!hasServiceWorkerSupport) {
+        console.log('service worker is not supported');
+    }
+    if (hasServiceWorkerSupport && !isOffline) {
+        window.addEventListener('load', function () {
+            const serviceWorkerPath = '/runtime-service-worker.js?v=3';
+            navigator.serviceWorker
+                .register(serviceWorkerPath, { scope: './' })
+                .then(
+                    function (registration) {
+                        // Registration was successful
+                        console.log(
+                            'ServiceWorker registration successful with scope: ',
+                            registration.scope
+                        );
+                    },
+                    function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    }
+                )
+                .catch(function (err) {
+                    console.log(err);
+                });
+        });
+
+        // helper function to refresh the page
+        var refreshPage = (function () {
+            var refreshing;
+            return function () {
+                if (refreshing) return;
+                // prevent multiple refreshes
+                var refreshkey = 'refreshed' + location.href;
+                var prevRefresh = localStorage.getItem(refreshkey);
+                if (prevRefresh) {
+                    localStorage.removeItem(refreshkey);
+                    if (Date.now() - prevRefresh < 30000) {
+                        return; // dont go into a refresh loop
+                    }
+                }
+                refreshing = true;
+                localStorage.setItem(refreshkey, Date.now());
+                console.log('refereshing page');
+                window.location.reload();
+            };
+        })();
+
+        function messageServiceWorker(data) {
+            return new Promise(function (resolve, reject) {
+                if (navigator.serviceWorker.controller) {
+                    var worker = navigator.serviceWorker.controller;
+                    var messageChannel = new MessageChannel();
+                    messageChannel.port1.onmessage = replyHandler;
+                    worker.postMessage(data, [messageChannel.port2]);
+                    function replyHandler(event) {
+                        resolve(event.data);
+                    }
+                } else {
+                    resolve();
+                }
+            });
+        }
+    }
+})(window);
+</script>
+<!-- Add manifest -->
+<!-- End PWA settings -->
+
+
+
+<link rel="canonical" href="https://www.alliedprioritycare.com.au/">
+
+<meta id="view" name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<!--Add favorites icons-->
+
+<link rel="apple-touch-icon"
+      href="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/Allied-Priority-Care-Logo-f29db7c4.png"/>
+
+<link rel="icon" type="image/x-icon" href="https://irp.cdn-website.com/6f4dfe18/site_favicon_16_1637140391016.ico"/>
+
+<!-- End favorite icons -->
+<link rel="preconnect" href="https://lirp.cdn-website.com/"/>
+
+
+
+<!-- render the required CSS and JS in the head section -->
+<script id='d-js-dmapi'>
+    window.SystemID = 'US_DIRECT_PRODUCTION';
+
+    if (!window.dmAPI) {
+        window.dmAPI = {
+            registerExternalRuntimeComponent: function () {
+            },
+            getCurrentDeviceType: function () {
+                return window._currentDevice;
+            },
+            runOnReady: (ns, fn) => {
+                const safeFn = dmAPI.toSafeFn(fn);
+                ns = ns || 'global_' + Math.random().toString(36).slice(2, 11);
+                const eventName = 'afterAjax.' + ns;
+
+                if (document.readyState === 'complete') {
+                    $.DM.events.off(eventName).on(eventName, safeFn);
+                    setTimeout(function () {
+                        safeFn({
+                            isAjax: false,
+                        });
+                    }, 0);
+                } else {
+                    window?.waitForDeferred?.('dmAjax', () => {
+                        $.DM.events.off(eventName).on(eventName, safeFn);
+                        safeFn({
+                            isAjax: false,
+                        });
+                    });
+                }
+            },
+            toSafeFn: (fn) => {
+                if (fn?.safe) {
+                    return fn;
+                }
+                const safeFn = function (...args) {
+                    try {
+                        return fn?.apply(null, args);
+                    } catch (e) {
+                        console.log('function failed ' + e.message);
+                    }
+                };
+                safeFn.safe = true;
+                return safeFn;
+            }
+        };
+    }
+
+    if (!window.requestIdleCallback) {
+        window.requestIdleCallback = function (fn) {
+            setTimeout(fn, 0);
+        }
+    }
+</script>
+
+<!-- loadCSS function header.jsp-->
+
+
+
+
+
+
+<script id="d-js-load-css">
+/**
+ * There are a few <link> tags with CSS resource in them that are preloaded in the page
+ * in each of those there is a "onload" handler which invokes the loadCSS callback
+ * defined here.
+ * We are monitoring 3 main CSS files - the runtime, the global and the page.
+ * When each load we check to see if we can append them all in a batch. If threre
+ * is no page css (which may happen on inner pages) then we do not wait for it
+ */
+(function () {
+  let cssLinks = {};
+  function loadCssLink(link) {
+    link.onload = null;
+    link.rel = "stylesheet";
+    link.type = "text/css";
+  }
+  
+    function checkCss() {
+      const pageCssLink = document.querySelector("[id*='CssLink']");
+      const widgetCssLink = document.querySelector("[id*='widgetCSS']");
+
+        if (cssLinks && cssLinks.runtime && cssLinks.global && (!pageCssLink || cssLinks.page) && (!widgetCssLink || cssLinks.widget)) {
+            const storedRuntimeCssLink = cssLinks.runtime;
+            const storedPageCssLink = cssLinks.page;
+            const storedGlobalCssLink = cssLinks.global;
+            const storedWidgetCssLink = cssLinks.widget;
+
+            storedGlobalCssLink.disabled = true;
+            loadCssLink(storedGlobalCssLink);
+
+            if (storedPageCssLink) {
+                storedPageCssLink.disabled = true;
+                loadCssLink(storedPageCssLink);
+            }
+
+            if(storedWidgetCssLink) {
+                storedWidgetCssLink.disabled = true;
+                loadCssLink(storedWidgetCssLink);
+            }
+
+            storedRuntimeCssLink.disabled = true;
+            loadCssLink(storedRuntimeCssLink);
+
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    storedRuntimeCssLink.disabled = false;
+                    storedGlobalCssLink.disabled = false;
+                    if (storedPageCssLink) {
+                      storedPageCssLink.disabled = false;
+                    }
+                    if (storedWidgetCssLink) {
+                      storedWidgetCssLink.disabled = false;
+                    }
+                    // (SUP-4179) Clear the accumulated cssLinks only when we're
+                    // sure that the document has finished loading and the document 
+                    // has been parsed.
+                    if(document.readyState === 'interactive') {
+                      cssLinks = null;
+                    }
+                }, 0);
+            });
+        }
+    }
+  
+
+  function loadCSS(link) {
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      var noCSS = !!urlParams.get("nocss");
+      var cssTimeout = urlParams.get("cssTimeout") || 0;
+
+      if (noCSS) {
+        return;
+      }
+      if (link.href && link.href.includes("d-css-runtime")) {
+        cssLinks.runtime = link;
+        checkCss();
+      } else if (link.id === "siteGlobalCss") {
+        cssLinks.global = link;
+        checkCss();
+      } 
+      
+      else if (link.id && link.id.includes("CssLink")) {
+        cssLinks.page = link;
+        checkCss();
+      } else if (link.id && link.id.includes("widgetCSS")) {
+        cssLinks.widget = link;
+        checkCss();
+      }
+      
+      else {
+        requestIdleCallback(function () {
+          window.setTimeout(function () {
+            loadCssLink(link);
+          }, parseInt(cssTimeout, 10));
+        });
+      }
+    } catch (e) {
+      throw e
+    }
+  }
+  window.loadCSS = window.loadCSS || loadCSS;
+})();
+</script>
+
+
+
+<script data-role="deferred-init" type="text/javascript">
+    /* usage: window.getDeferred(<deferred name>).resolve() or window.getDeferred(<deferred name>).promise.then(...)*/
+    function Def() {
+        this.promise = new Promise((function (a, b) {
+            this.resolve = a, this.reject = b
+        }).bind(this))
+    }
+
+    const defs = {};
+    window.getDeferred = function (a) {
+        return null == defs[a] && (defs[a] = new Def), defs[a]
+    }
+    window.waitForDeferred = function (b, a, c) {
+        let d = window?.getDeferred?.(b);
+        d
+            ? d.promise.then(a)
+            : c && ["complete", "interactive"].includes(document.readyState)
+                ? setTimeout(a, 1)
+                : c
+                    ? document.addEventListener("DOMContentLoaded", a)
+                    : console.error(`Deferred  does not exist`);
+    };
+</script>
+<style id="forceCssIncludes">
+    /* This file is auto-generated from a `scss` file with the same name */
+
+.videobgwrapper{overflow:hidden;position:absolute;z-index:0;width:100%;height:100%;top:0;left:0;pointer-events:none;border-radius:inherit}.videobgframe{position:absolute;width:101%;height:100%;top:50%;left:50%;transform:translateY(-50%) translateX(-50%);object-fit:fill}#dm video.videobgframe{margin:0}@media (max-width:767px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:80vh}}@media (min-width:1025px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}@media (min-width:768px) and (max-width:1024px){.responsiveTablet .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}#dm [data-show-on-page-only]{display:none!important}#dmRoot div.stickyHeaderFix div.site_content{margin-top:0!important}#dmRoot div.stickyHeaderFix div.hamburger-header-container{position:relative}
+    
+
+</style>
+<style id="cssVariables" type="text/css">
+    
+</style>
+
+
+<style id="hideAnimFix">
+  .dmDesktopBody:not(.editGrid) [data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) [data-anim-extended] {
+    visibility: hidden;
+  }
+
+  .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-extended] {
+    visibility: hidden !important;
+  }
+
+
+  #dmRoot:not(.editGrid) .flex-element [data-anim-extended] {
+    visibility: hidden;
+  }
+
+</style>
+
+
+
+<style id="criticalCss">
+    @charset "UTF-8";.display_None,.dmPopupMask{display:none}@font-face{font-family:Poppins;font-style:normal;font-weight:300;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/poppins/v21/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:FontAwesome;font-display:block;src:url(https://static.cdn-website.com/fonts/fontawesome-webfont.eot?v=6);src:url(https://static.cdn-website.com/fonts/fontawesome-webfont.eot?#iefix&v=6) format("embedded-opentype"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.woff?v=6) format("woff"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.ttf?v=6) format("truetype"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.svg#fontawesomeregular?v=6) format("svg");font-weight:400;font-style:normal}@font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/poppins/v21/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:italic;font-weight:400;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/poppins/v21/pxiGyp8kv8JHgFVrJJLucHtA.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Poppins;font-style:normal;font-weight:700;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/poppins/v21/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}.dmInner{min-height:100vh!important;position:relative}.dmPopup,.dmPopupMask{position:fixed;left:0}.dmDisplay_None,body:not(.responsiveTablet) #dm .dmInner #fcontainer .hide-for-large,body:not(.responsiveTablet) #dm .dmInner .dmBody .hide-for-large,body:not(.responsiveTablet) .hide-for-large{display:none!important}#dm .dmWidget .icon{font-size:26px}body.dmRoot #dm .dmOuter .dmInner .dmWidget .icon.hasFontIcon{height:26px;margin-top:-13px;line-height:normal;text-align:center;background-image:none}#dm .dmBody div.u_1414742659,#dm .dmBody div.u_1476041970,.dmRoot .hasFontIcon{background-image:none!important}.dmPopupMask{margin:0;width:10px;z-index:1000000999;top:0}#dmRoot .dmPopup,.dmPopup,.dmPopupClose:before,[data-display-type=block]{display:block}.dmPopup{text-align:left;top:10px;width:93%;z-index:1000009999!important;box-sizing:border-box;background:#f5f5f5;overflow-y:auto;height:100%}.dmPopup .dmPopupTitle{text-align:left;font:700 19px Helvetica,Arial;margin:20px 20px 35px;color:#999}#dmPopup{opacity:0}.dmPopupClose,.dmPopupClose:before{position:absolute;visibility:visible}.dmPopupClose{border-radius:25px;width:27px;height:27px;z-index:1;background-color:rgba(255,255,255,.4);top:12px;right:12px}.dmPopupClose:before{font-size:20px;color:#000;top:3px;right:3px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar{width:5px;height:5px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-track{background:rgba(0,0,0,.1)}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-thumb{background:#c8c8c8;box-shadow:inset 0 1px 2px #454545;border-radius:45px}.dmRespRow.fullBleedMode>.dmRespColsWrapper{width:100%!important;max-width:100%!important}.dmRespRow.fullBleedMode{padding-left:0!important;padding-right:0!important}#dm .dmRespRow .dmRespColsWrapper{display:flex}#dm .dmInner .dmWidget.align-center,.align-center{margin-left:auto;margin-right:auto}.text-align-center{text-align:center}body.fix-mobile-scrolling{overflow:initial}#hcontainer[has-shadow=true]{position:relative;z-index:1}#dmRoot{text-decoration-skip-ink:none}@media (min-width:1025px) and (max-width:1399px){[data-hidden-on-desktop]{display:none!important}}body{-webkit-overflow-scrolling:touch}@media (min-width:1025px){:root{--btn-text-font-size:15px}}@media (min-width:768px) and (max-width:1024px){[data-hidden-on-tablet]{display:none!important}:root{--btn-text-font-size:15px}}nav{display:block}html{font-family:Source Sans Pro;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}hr{box-sizing:content-box;height:0}img{border:0;max-width:100%;-ms-interpolation-mode:bicubic;display:inline-block}button{font-family:inherit;font-size:100%;margin:0;line-height:normal;text-transform:none;-webkit-appearance:button}button::-moz-focus-inner{border:0;padding:0}*,:after,:before{box-sizing:border-box}.dmRespRow.dmRespRowNoPadding{padding:0}.dmRespRow{padding-top:15px;padding-bottom:15px}.dmRespRow:after,.dmRespRow:before{content:' ';display:table}.dmRespRow:after{clear:both}.dmRespRow,.dmRespRow .dmRespColsWrapper{max-width:960px;position:relative;margin:0 auto;width:100%}.dmRespRow .dmRespCol{position:relative;width:100%;display:inline-block;vertical-align:top;float:left}.dmRespRow .dmRespCol>*{max-width:100%}.dmDesktopBody .dmRespRow .large-2{position:relative;width:16.66667%}.dmDesktopBody .dmRespRow .large-3{position:relative;width:25%}.dmDesktopBody .dmRespRow .large-6{position:relative;width:50%}.dmDesktopBody .dmRespRow .large-7{position:relative;width:58.33333%}.dmDesktopBody .dmRespRow .large-12{position:relative;width:100%}[class*=' dm-common-icons-']{speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-family:dm-common-icons!important}.dm-common-icons-close:before{content:'\e901'}#dm div.dmContent [class*=' icon-'],[class*=' icon-']{font-family:FontAwesome!important;font-weight:400;font-style:normal;text-decoration:inherit;-webkit-font-smoothing:antialiased}[class*=' icon-']:before{text-decoration:none;display:inline-block;speak:none}a [class*=' icon-']{display:inline}[class*=' icon-']{display:inline;width:auto;height:auto;line-height:normal;vertical-align:baseline;background-image:none;background-position:0 0;background-repeat:repeat;margin-top:0}.icon-star:before{content:'\f005'}.icon-angle-right:before{content:'\f105'}.icon-angle-down:before{content:'\f107'}#dm .dmRespRow .dmRespCol>.dmWidget{overflow:initial}@media (min-width:768px){#dm .dmRespRow .dmRespCol>.dmWidget{width:280px;max-width:100%}#dm .dmRespRow .dmRespCol.large-2>.dmWidget{width:100%}}@media (max-width:767px){#dm .dmInner .dmWidget{width:100%}}#dm .dmInner .dmWidget:not(.displayNone){display:inline-block}#dm .dmInner .dmWidget:not(.flexButton):not(.displayNone)[data-display-type=block]{display:block}#dm .dmInner .dmWidget{text-decoration:none;margin:10px 0;clear:both;position:relative;text-align:center;line-height:22px;box-shadow:none;background-image:none;padding:0;height:auto;border-style:solid;white-space:nowrap}#dm .dmInner .dmWidget:after{content:'';display:inline-block;height:100%;vertical-align:middle;width:0;margin-right:-.25em}#dm .dmInner .dmWidget .iconBg{position:absolute;left:0;width:50px;top:50%;margin-top:-13px}#dm .dmWidget .text{display:inline-block;vertical-align:middle;font-size:1.125em;line-height:normal;white-space:normal;padding:10px 7px;max-width:98%}.dmInner{min-width:768px!important;font-size:16px;background:#fff;color:#666}html:not(.ios-preview) #dm .hasStickyHeader .dmInner div.dmHeaderContainer{position:fixed!important;z-index:101;width:100%;min-width:768px}.dmNewParagraph[data-version]{line-height:initial}.dmNewParagraph[data-version] .text-align-center{text-align:center!important}.dmNewParagraph[data-version] h2,.dmNewParagraph[data-version] h5,.dmNewParagraph[data-version] p{margin-top:0;margin-bottom:0}.dmNewParagraph[data-version] a{vertical-align:initial}@media (max-width:767px){.dmRoot .dmNewParagraph[data-version] .m-text-align-left{text-align:left!important}}.imageWidget{position:relative}*{border:0 solid #333;scrollbar-arrow-color:#fff;scrollbar-track-color:#F2F2F2;scrollbar-face-color:silver;scrollbar-highlight-color:silver;scrollbar-3dlight-color:silver;scrollbar-shadow-color:silver;scrollbar-darkshadow-color:silver;scrollbar-width:12px}body{width:100%;overflow:hidden;-webkit-text-size-adjust:100%!important;-ms-text-size-adjust:100%!important}h2,h5,ul{margin-left:0;margin-right:0}.dmInner *{-webkit-font-smoothing:antialiased}a,img,li,ul{vertical-align:top}#iscrollBody,#site_content{position:relative}.dmOuter{word-wrap:break-word}.dmDesktopBody .dmInner{min-width:960px}.dmInner a{color:#463939}.dmInner ul:not(.defaultList){padding:0}.dmHeader{background:#68ccd1;color:#666;text-align:center;position:relative;width:100%;max-width:100%}DIV.dmBody{padding:0;clear:both}.dmContent{margin:0;padding:0}#site_content ul:not(.defaultList){-webkit-padding-start:0;-moz-padding-start:0;list-style-position:inside}#innerBar{position:relative;height:36px;width:100%;font-size:20px;margin:0;z-index:80}#dm .dmRespRow.dmRespRowNoPadding{padding:0}.dmRespRowsWrapper{max-width:960px;margin:0 auto}.dmLargeBody .imageWidget:not(.displayNone){display:inline-block;max-width:100%}.imageWidget:not(.displayNone) img{width:100%}#dm .dmRespColsWrapper{display:block}.dmNewParagraph{text-align:left;margin:8px 0;padding:2px 0}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol,.dmLargeBody .fHeader .dmRespRow .dmRespCol{padding-left:.75%;padding-right:.75%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:first-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:first-child{padding-left:0;padding-right:1.5%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:last-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:last-child{padding-right:0;padding-left:1.5%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:only-child{padding-left:0;padding-right:0}#innerBar.lineInnerBar{display:table;width:100%;box-shadow:none;-webkit-box-shadow:none;-moz-box-shadow:none;font-size:20px;margin-top:30px;margin-bottom:30px;background-color:transparent;color:#666}#innerBar .titleLine{display:table-cell;vertical-align:middle;width:50%}.dmPageTitleRow:not(#innerBar){display:none}.titleLine hr{min-height:1px;background-color:rgba(102,102,102,.2)}.dmStandardDesktop{display:block}#dmFirstContainer .dmRespRowsWrapper:after,#dmFirstContainer .dmRespRowsWrapper:before{content:"";display:table}.dmInner a{outline:0;vertical-align:inherit}.dmLinksMenu>ul{display:block;margin:0;font-size:inherit}.standardHeaderLayout .dmHeader{float:none;display:block;height:auto}.dmStandardDesktop{margin:0 auto}body{background-color:#eee}.main-navigation.unifiednav{display:flex;justify-content:flex-start;align-items:stretch;overflow:visible}.main-navigation.unifiednav ul{list-style:none;padding:0;margin:0;font-size:1rem}.main-navigation.unifiednav .unifiednav__container{display:flex;justify-content:flex-start;list-style:none}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap{display:flex;justify-content:flex-start;position:relative;font-weight:400}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::before{content:'';-ms-grid-row-align:center;align-self:center;font-weight:700}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item{display:flex;justify-content:flex-start;align-items:center;flex-direction:row;color:inherit;text-decoration:none;position:relative;padding:12px 15px;margin:0;font-weight:inherit;letter-spacing:.03em}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:0 15px}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item .nav-item-text{white-space:nowrap}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{content:'';width:100%;height:0;border:0 solid transparent;border-top-color:currentColor;display:block;opacity:0}.main-navigation.unifiednav.effect-float{padding:12px 15px}.main-navigation.unifiednav .unifiednav__container .unifiednav__item:not(.unifiednav__item_has-sub-nav) .icon{display:none}.main-navigation.unifiednav .unifiednav__container[data-depth]{position:absolute;top:0;left:0;flex-direction:column;opacity:0;z-index:100;background-color:#faf9f9}.main-navigation.unifiednav .unifiednav__container[data-depth='0']{top:100%;transform:translateY(-10px)}.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container[data-depth='0']{left:15px}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap .unifiednav__container>.unifiednav__item-wrap{flex-direction:column}.main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap .unifiednav__item{padding:15px 30px 15px 15px;margin:0}.main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap:not(:last-child)::after{content:''!important;width:100%;height:0;color:#ececec;-ms-grid-row-align:center;align-self:center;border:0 solid currentColor}.main-navigation.unifiednav[layout-sub=submenu_horizontal_2] .unifiednav__container[data-depth]{color:#999}.main-navigation.unifiednav[layout-sub=submenu_horizontal_2] .unifiednav__container[data-depth]>.unifiednav__item-wrap:not(:last-child)::after{border-top-width:1px}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item.unifiednav__item_has-sub-nav .icon{display:initial;padding-left:10px;margin-left:0}.main-navigation.unifiednav:not(.unifiednav_vertical)>.unifiednav__container{justify-content:inherit}#dm .p_hfcontainer nav.main-navigation.unifiednav{min-width:9em!important;text-align:initial!important}#dm .main-navigation.unifiednav .unifiednav__container[data-depth]{background-color:transparent}#dm .main-navigation.unifiednav[layout-sub=submenu_horizontal_2] .unifiednav__container[data-depth]{background-color:#faf9f9}#dm .main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap:not(:last-child)::after{color:#d1d1d1}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL])>.unifiednav__container{flex-wrap:wrap;justify-content:inherit}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL])>.unifiednav__container .nav-item-text::before{text-align:left}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{content:''}#dm .dmBody .dmRespRowsWrapper{max-width:none;background-color:transparent}.dmLargeBody .dmRespRow{width:100%;max-width:none;margin-left:0;margin-right:0;padding-left:40px;padding-right:40px}.dm-bfs.dm-layout-home div.dmInner{background-color:#fff}.dmStandardDesktop .dmHeader{background-color:#68ccd1;max-width:100%}#dm div.dmRespCol>*{line-height:normal}#dm div.dmContent h2,#dm div.dmContent h2 *,#dm div.dmContent h5,#dm div.dmContent h5 *,#dm div.dmInner{line-height:initial}#dm div.dmInner h2{font-family:Montserrat,"Montserrat Fallback"}#dm div.dmInner h5{font-family:Roboto,"Roboto Fallback"}#dm div.dmContent h2{color:#333}#dm DIV.dmInner{background-repeat:no-repeat;background-image:url(https://irt-cdn.multiscreensite.com/ce0bb35f932b47bb809d0e37905542ba/dms3rep/multi/site_background_education-2087x1173.jpg);background-size:cover;background-position:50% 0}#dm div.dmOuter div.dmInner{background-position:center center;background-repeat:repeat;background-size:auto}#dm div.dmContent h5{color:#333;font-family:Poppins,"Poppins Fallback";font-weight:400}.dmLargeBody .dmBody .dmRespRowsWrapper{background-color:transparent}#dm div.dmContent h2{font-weight:700;color:rgba(0,117,190,1);direction:ltr;font-family:Poppins,"Poppins Fallback";font-style:normal;text-decoration:none}#dm div.dmContent h5{color:rgba(61,72,82,1)}#dm .dmRespCol div.dmNewParagraph,#dm div.dmInner,#dm div.dmInner .dmRespCol{color:rgba(4,5,7,1);font-family:Poppins,"Poppins Fallback";font-weight:400}#dm .dmNewParagraph a,#dm div.dmNewParagraph a{text-decoration:none;color:rgba(0,117,190,1)}#dm div.dmContent .dmNewParagraph[data-version] h2{text-decoration:inherit}#dm div.dmContent .dmNewParagraph[data-version] h2 *{text-decoration:none}#dm DIV.dmOuter DIV.dmInner{background-image:none;background-color:rgba(255,255,255,1)}#dm div.dmInner,#dm div.dmInner .dmRespCol{font-size:16px}#dm div.dmContent h5{font-size:20px}#dm div.dmContent h2{font-size:45px}@media all{:root{--btn-text-direction:ltr;--btn-border-r-color:var(--btn-border-color);--btn-border-l-color:var(--btn-border-color);--btn-border-b-width:var(--btn-border-width);--btn-border-width:0px;--btn-border-radius:19px;--btn-border-t-width:var(--btn-border-width);--btn-border-tl-radius:var(--btn-border-radius);--btn-border-br-radius:var(--btn-border-radius);--btn-border-bl-radius:var(--btn-border-radius);--btn-bg-color:rgb(242, 147, 106);--btn-border-color:rgba(0, 0, 0, 0);--btn-border-tr-radius:var(--btn-border-radius);--btn-border-r-width:var(--btn-border-width);--btn-bg-image:none;--btn-border-b-color:var(--btn-border-color);--btn-border-l-width:var(--btn-border-width);--btn-border-t-color:var(--btn-border-color);--btn-text-align:center;--btn-text-color:rgb(255, 255, 255);--btn-text-decoration:none;--btn-text-font-weight:400;--btn-icon-color:rgb(247, 247, 247);--btn-icon-fill:rgb(247, 247, 247);--btn-icon-wrpr-display:none;--btn-hover-border-b-color:var(--btn-hover-border-color);--btn-hover-bg:rgb(165, 121, 137);--btn-hover-border-t-color:var(--btn-hover-border-color);--btn-hover-border-r-color:var(--btn-hover-border-color);--btn-hover-border-l-color:var(--btn-hover-border-color);--btn-hover-border-color:var(--btn-border-color);--btn-hover-text-color:var(--btn-text-color);--btn-hover-text-font-weight:400;--btn-hover-text-decoration:none;--btn-hover-text-font-style:normal}}@media (min-width:0px) and (max-width:767px){:root{--btn-text-font-size:15px}}#dm .dmWidget:not([data-buttonstyle]){overflow:initial;background-clip:border-box;border-radius:1px}#dm .dmWidget:not([data-buttonstyle]) .text{padding:16px 0}#dm .dmWidget:not([data-buttonstyle]) .iconBg{display:none}@media (min-width:768px){#dm .dmRespRow .dmRespCol>.dmWidget{width:222px}}#dm div.dmInner #site_content .dmWidget,#dm div.dmInner .dmHeader .dmWidget{background-color:var(--btn-bg-color);background-image:var(--btn-bg-image);border-color:var(--btn-border-color);border-bottom-color:var(--btn-border-b-color);border-left-color:var(--btn-border-l-color);border-right-color:var(--btn-border-r-color);border-top-color:var(--btn-border-t-color);border-radius:var(--btn-border-radius);border-bottom-left-radius:var(--btn-border-bl-radius);border-bottom-right-radius:var(--btn-border-br-radius);border-top-left-radius:var(--btn-border-tl-radius);border-top-right-radius:var(--btn-border-tr-radius);border-width:var(--btn-border-width);border-bottom-width:var(--btn-border-b-width);border-left-width:var(--btn-border-l-width);border-right-width:var(--btn-border-r-width);border-top-width:var(--btn-border-t-width);direction:var(--btn-text-direction);text-align:var(--btn-text-align)}#dm div.dmInner #site_content .dmWidget span.text{color:var(--btn-text-color);font-size:var(--btn-text-font-size);font-weight:var(--btn-text-font-weight);text-decoration:var(--btn-text-decoration)}#dm div.dmInner #site_content .dmWidget span.icon,#dm div.dmInner .dmHeader .dmWidget span.icon{color:var(--btn-icon-color);fill:var(--btn-icon-fill)}#dm div.dmInner #site_content .dmWidget:not([data-buttonstyle]) .iconBg,#dm div.dmInner .dmHeader .dmWidget:not([data-buttonstyle]) .iconBg{display:var(--btn-icon-wrpr-display)}#dm .p_hfcontainer .main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer .main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{font-size:14px!important}#dm .dmInner div.dmHeader,#dm .dmInner div.dmHeader.u_hcontainer,#dm .dmInner div.u_hcontainer{background-color:rgba(255,255,255,1)!important;box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important;-moz-box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important;-webkit-box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important}#dm .p_hfcontainer div.u_1575933686 img{border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important}#dm .p_hfcontainer .u_1654949388.main-navigation.unifiednav .unifiednav__container[data-depth="0"]{top:calc(100% - 0px - 0px)!important}#dm .dmInner div.u_hcontainer,#dm .p_hfcontainer a.u_1752793592,#dm .p_hfcontainer div.u_1575933686,#dm .p_hfcontainer nav.u_1654949388{top:0!important;position:relative!important;float:none!important}#dm .p_hfcontainer .u_1654949388.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child) .unifiednav__container[data-depth="0"]{left:20px!important}#dm .p_hfcontainer .u_1654949388.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer .u_1654949388.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before,#dm .p_hfcontainer .u_1654949388.main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer .u_1654949388.main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{font-size:15px!important}#dm .p_hfcontainer .u_1654949388.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:0 20px!important;margin:0!important}#dm .dmInner div.u_hcontainer{left:0!important;width:100%!important;height:auto!important;max-width:100%!important;min-width:0!important;text-align:center!important;padding:25px 0 20px!important;margin:0 auto!important}#dm .dmInner div.dmHeader.u_hcontainer{padding-bottom:20px!important;padding-top:25px!important}#dm .dmInner div.fHeader.dmHeaderContainer #hcontainer.dmHeader[freeheader=true]{margin:0!important;padding:15px 0!important}#dm .dmInner div.fHeader .dmHeader[freeheader=true]{padding:15px 0!important}.fHeader #hcontainer.dmHeader[freeheader=true]{padding-top:initial!important;padding-bottom:initial!important}#dm .p_hfcontainer div.u_1862837863{padding-left:0!important}#dm .p_hfcontainer a.u_1752793592 span.text{font-size:16px!important}#dm .p_hfcontainer nav.u_1654949388.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item,#dm .p_hfcontainer nav.u_1654949388.main-navigation.unifiednav .unifiednav__container[data-depth] .unifiednav__item{font-size:15px!important}#dm .p_hfcontainer nav.u_1654949388.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer nav.u_1654949388.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{padding-top:0!important;padding-bottom:0!important;margin-top:0!important;margin-bottom:0!important}#dm .p_hfcontainer div.u_1575933686{left:0!important;width:calc(100% - 16px)!important;max-width:240px!important;min-width:25px!important;text-align:center!important;display:block!important;height:auto!important;important:true!important;padding:0!important;margin:0 auto!important}#dm .p_hfcontainer div.u_1486056042{width:auto!important;padding:0 15px!important;margin:0!important}#dm .p_hfcontainer a.u_1752793592{display:block!important;left:0!important;width:calc(100% - 3px)!important;height:54px!important;max-width:176px!important;min-width:25px!important;text-align:center!important;margin:13px auto 0!important;padding:0!important}#dm .p_hfcontainer nav.u_1654949388{left:0!important;width:calc(100% - 0px)!important;height:auto!important;max-width:100%!important;justify-content:center!important;align-items:stretch!important;min-width:25px!important;text-align:start!important;padding:7px 0!important;margin:21px 0 0!important}#dm .dmBody div.u_1680223170,#dm .dmBody div.u_pa_8552430{max-width:100%!important;width:auto!important;min-width:0!important;background-size:cover!important;background-attachment:fixed!important}#dm .p_hfcontainer div.u_1626821209{padding:0!important}#dm .p_hfcontainer div.u_1924359422{padding-left:10px!important}.stickyHeaderSpacer{height:121.49px!important}#dm .dmBody div.u_1415672860,#dm .dmBody div.u_pa_8552430{height:auto!important;top:0!important;position:relative!important}#dm .dmBody div.u_1414742659{background-color:rgba(0,0,0,0)!important}#dm .dmBody .u_pa_8552430:before{opacity:.5!important;background-color:#000!important}#dm .dmBody div.u_pa_8552430:before{background-color:rgba(0,117,190,.31)!important;opacity:.79!important}#dm .dmBody div.u_1476041970{background-color:rgba(0,0,0,0)!important}#dm .dmBody .u_1680223170:before{opacity:.5!important;background-color:#000!important}#dm .dmBody div.u_1680223170:before{background-color:rgba(0,117,190,.31)!important;opacity:.79!important}#dm .dmBody a.u_1218974366{background-color:rgba(250,115,77,1)!important}#dm .dmBody div.u_1680223170,#dm .dmBody div.u_pa_8552430{background-color:rgba(0,0,0,0)!important;background-image:url(https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Untitled+design+%2816%29-1920w.png),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important}#dm .dmBody div.u_1693105269{background-color:rgba(165,121,137,.25)!important;border-radius:25px!important;-moz-border-radius:25px!important;-webkit-border-radius:25px!important}#dm .dmBody div.u_1488242070{background-color:rgba(0,117,190,.16)!important;border-radius:25px!important;-moz-border-radius:25px!important;-webkit-border-radius:25px!important}#dm .dmBody div.u_1202895097{background-color:rgba(255,229,150,.31)!important;border-radius:25px!important;-moz-border-radius:25px!important;-webkit-border-radius:25px!important}#dm .dmBody div.u_1428280692{background-color:rgba(0,117,190,.16)!important;border-radius:25px!important;-moz-border-radius:25px!important;-webkit-border-radius:25px!important}#dm .dmBody div.u_1529119431{background-color:rgba(165,121,137,.25)!important;border-radius:25px!important;-moz-border-radius:25px!important;-webkit-border-radius:25px!important}#dm .dmBody div.u_1007282780{background-color:rgba(255,229,150,.31)!important;border-radius:25px!important;-moz-border-radius:25px!important;-webkit-border-radius:25px!important}#dm .dmBody div.u_1232836359{background-color:rgba(0,117,190,.16)!important;border-radius:25px!important;-moz-border-radius:25px!important;-webkit-border-radius:25px!important}#dm .dmBody div.u_1597115848{background-color:rgba(255,255,255,1)!important}#dm .dmBody div.u_1722998024{width:auto!important;margin:0!important;padding:15px 0!important}#dm .dmBody div.u_pa_8552430{float:none!important;left:0!important;text-align:center!important;background-repeat:no-repeat!important;padding:180px 0 0 1px!important;margin:0!important}#dm .dmBody div.u_1414742659{background-repeat:repeat!important;background-size:auto!important;background-position:center center!important;padding:0!important;margin:0!important}#dm .dmBody div.u_1415672860,#dm .dmBody div.u_1810569357{float:none!important;padding:2px 0!important;margin:8px 689.33px 8px 52px!important;width:calc(100% - 52px)!important}#dm .dmBody div.u_1415672860{display:block!important;left:0!important;max-width:414px!important;min-width:25px!important}#dm .dmBody a.u_1731309537,#dm .dmBody div.u_1505645280{padding:0!important;text-align:center!important;min-width:25px!important;display:block!important}#dm .dmBody a.u_1731309537{float:none!important;top:0!important;left:0!important;width:calc(100% - 52px)!important;position:relative!important;height:55px!important;max-width:222px!important;margin:38px 902.33px 10px 52px!important}#dm .dmBody div.u_1505645280,#dm .dmBody div.u_1680223170,#dm .dmBody div.u_1810569357{left:0!important;height:auto!important;top:0!important;position:relative!important}#dm .dmBody div.u_1505645280{float:none!important;width:calc(100% - 52px)!important;max-width:298.84px!important;margin:0 768.33px 0 52px!important}#dm .dmBody div.u_1680223170{float:none!important;text-align:center!important;background-repeat:no-repeat!important;padding:180px 0 0 1px!important;margin:0!important}#dm .dmBody div.u_1476041970{background-repeat:repeat!important;background-size:auto!important;background-position:center center!important;padding:0!important;margin:0!important}#dm .dmBody div.u_1810569357{display:block!important;max-width:414px!important;min-width:25px!important}#dm .dmBody a.u_1218974366,#dm .dmBody div.u_1884579367{left:0!important;min-width:25px!important;text-align:center!important;padding:0!important;float:none!important}#dm .dmBody a.u_1218974366{top:0!important;width:calc(100% - 52px)!important;position:relative!important;height:55px!important;max-width:222px!important;display:block!important;margin:38px 902.33px 10px 52px!important}#dm .dmBody div.u_1884579367{top:0!important;width:calc(100% - 52px)!important;position:relative!important;max-width:298.84px!important;display:block!important;height:auto!important;margin:0 768.33px 0 52px!important}#dm .dmBody div.u_1040142028,#dm .dmBody div.u_1267539675,#dm .dmBody div.u_1765738564{height:auto!important;display:block!important;top:0!important;left:0!important;position:relative!important;max-width:100%!important;min-width:0!important;text-align:start!important}#dm .dmBody div.u_1428280692{margin:0!important;padding:0 0 120px!important}#dm .dmBody div.u_1652855718{width:auto!important;margin:0!important;padding:15px 200px!important}#dm .dmBody div.u_1693105269{margin:0!important;padding:0 10px 30px 0!important}#dm .dmBody div.u_1488242070{margin:0 0 0 20px!important;padding:0 0 0 10px!important}#dm .dmBody div.u_1119038220{width:auto!important;margin:0!important;padding:15px 200px!important}#dm .dmBody div.u_1007282780{margin:0 0 0 150px!important;padding:0 10px 30px 0!important}#dm .dmBody div.u_1765738564{float:none!important;width:281px!important;padding:0!important;margin:0 auto!important}#dm .dmBody div.u_1202895097{margin:0 5px!important;padding:15px 10px 0!important}#dm .dmBody div.u_1040142028,#dm .dmBody div.u_1267539675{width:100px!important;float:none!important;padding:0!important;margin:0 auto!important}.font-size-30,.size-30{font-size:30px!important}.font-size-36,.size-36{font-size:36px!important} #dm .dmPhotoGallery.newPhotoGallery .dmPhotoGalleryHolder {display: none;} @media (max-width:767px){ [data-hidden-on-mobile] {display:none!important}}
+    .dmDesktopBody [data-anim-desktop]:not([data-anim-desktop='none']) {
+      visibility: hidden;
+    }
+
+    
+</style>
+
+
+
+<style id="fontFallbacks">
+    @font-face {
+  font-family: "Roboto Fallback";
+  src: local('Arial');
+  ascent-override: 92.6709%;
+  descent-override: 24.3871%;
+  size-adjust: 100.1106%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Montserrat Fallback";
+  src: local('Arial');
+  ascent-override: 84.9466%;
+  descent-override: 22.0264%;
+  size-adjust: 113.954%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Poppins Fallback";
+  src: local('Arial');
+  ascent-override: 92.326%;
+  descent-override: 30.7753%;
+  line-gap-override: 8.793%;
+  size-adjust: 113.7274%;
+}@font-face {
+  font-family: "Work Sans Fallback";
+  src: local('Arial');
+  ascent-override: 82.1016%;
+  descent-override: 21.4523%;
+  size-adjust: 113.2743%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Merriweather Fallback";
+  src: local('Arial');
+  ascent-override: 88.6416%;
+  descent-override: 24.5926%;
+  size-adjust: 111.0088%;
+  line-gap-override: 0%;
+ }
+</style>
+
+
+<!-- End render the required css and JS in the head section -->
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.alliedprioritycare.com.au/">
+<script type="application/ld+json">
+    {
+        "@context" : "https://schema.org",
+        "@type" : "WebSite",
+        "name" : "Allied Priority Care Pty Ltd",
+        "url" : "https://www.alliedprioritycare.com.au/"
+    }
+</script>
+  <meta property="og:image" content="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Untitled+design+%2813%29-1920w.png"/>
+  <title>
+    Allied Priority Care | Personalised NDIS Support Melbourne
+  </title>
+  <meta name="keywords" content="NDIS Services Melbourne"/>
+  <meta name="description" content="Allied Priority Care offers personalised NDIS support in Melbourne and throughout Victoria. Our team is multi-lingual with years of professional experience."/>
+
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Allied Priority Care | Personalised NDIS Support Melbourne"/>
+  <meta name="twitter:description" content="Allied Priority Care offers personalised NDIS support in Melbourne and throughout Victoria. Our team is multi-lingual with years of professional experience."/>
+  <meta property="og:description" content="Allied Priority Care offers personalised NDIS support in Melbourne and throughout Victoria. Our team is multi-lingual with years of professional experience."/>
+  <meta property="og:title" content="Allied Priority Care | Personalised NDIS Support Melbourne"/>
+
+
+
+
+<!-- SYS- VVNfRElSRUNUX1BST0RVQ1RJT04= -->
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body id="dmRoot" data-page-alias="home"  class="dmRoot dmDesktopBody fix-mobile-scrolling addCanvasBorder dmResellerSite dmLargeBody "
+      style="padding:0;margin:0;"
+      
+    >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========= Site Content ========= -->
+<div id="dm" class='dmwr'>
+    
+    <div class="dm_wrapper standard-var5 widgetStyle-3 standard">
+         <div dmwrapped="true" id="1901957768" class="dm-home-page" themewaschanged="true"> <div dmtemplateid="StandardLayoutMultiD" class="standardHeaderLayout dm-bfs dm-layout-home hasAnimations hasStickyHeader inMiniHeaderMode dmPageBody d-page-1716942098 inputs-css-clean dmFreeHeader" id="dm-outer-wrapper" data-page-class="1716942098" data-soch="true" data-background-parallax-selector=".dmHomeSection1, .dmSectionParallex"> <div id="dmStyle_outerContainer" class="dmOuter"> <div id="dmStyle_innerContainer" class="dmInner"> <div class="dmLayoutWrapper standard-var dmStandardDesktop"> <div> <div id="iscrollBody"> <div id="site_content"> <div class="dmHeaderContainer fHeader d-header-wrapper"> <div id="hcontainer" class="u_hcontainer dmHeader p_hfcontainer" freeheader="true" headerlayout="b58ba5b5703b4cd7b5f5f7951565dc87===horizontal-layout-5" preserve-sticky-header="true" has-shadow="true" layout="7f3c1de367df47d5b45ab63d33101c7b===header" data-scrollable-target="body" data-scrollable-target-threshold="1" data-scroll-responder-id="1" logo-size-target="84%"> <div dm:templateorder="85" class="dmHeaderResp dmHeaderStack noSwitch" id="1709005236"> <div class="dmRespRow dmDefaultListContentRow u_1486056042 fullBleedChanged fullBleedMode" style="text-align:center" id="1486056042"> <div class="dmRespColsWrapper" id="1925890645"> <div class="u_1626821209 small-12 dmRespCol large-3 medium-3" id="1626821209"> <div class="u_1575933686 imageWidget align-center" data-widget-type="image" id="1575933686" data-element-type="image"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Allied-Priority-Care-Logo-fcb601e1-1920w.png" id="1147977263" class="" data-dm-image-path="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Allied-Priority-Care-Logo-fcb601e1-1920w.png" alt="Allied Priority Care - Personalised NDIS Support in Melbourne and throughout Victoria" onerror="handleImageLoadError(this)" height="91.515625" width="240.0"/></div> 
+</div> 
+ <div class="u_1924359422 dmRespCol small-12 large-7 medium-7" id="1924359422"> <nav class="u_1654949388 effect-float main-navigation unifiednav dmLinksMenu" role="navigation" layout-main="horizontal_nav_layout_2" layout-sub="submenu_horizontal_2" data-show-vertical-sub-items="HOVER" id="1654949388" dmle_extension="onelinksmenu" data-element-type="onelinksmenu" data-nav-structure="HORIZONTAL" wr="true" icon="true" surround="true" adwords="" navigation-id="unifiedNav"> <ul role="menubar" class="unifiednav__container  " data-auto="navigation-pages"> <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/" class="unifiednav__item  dmNavItemSelected    " target="" data-target-page-alias="home" aria-current="page" data-auto="selected-page"> <span class="nav-item-text " data-link-text="
+         Home
+        " data-auto="page-text-style">Home<span class="icon icon-angle-down" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" aria-haspopup="true" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/ndis-services" class="unifiednav__item    unifiednav__item_has-sub-nav" target="" data-target-page-alias="ndis-services"> <span class="nav-item-text " data-link-text="
+         NDIS Services
+        " data-auto="page-text-style">NDIS Services<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+ <ul role="menu" aria-expanded="false" class="unifiednav__container unifiednav__container_sub-nav" data-depth="0" data-auto="sub-pages"> <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/ndis-core-supports" class="unifiednav__item    " target="" data-target-page-alias="core-supports"> <span class="nav-item-text " data-link-text="
+           Core Supports
+          " data-auto="page-text-style">Core Supports<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/ndis-support-coordination" class="unifiednav__item    " target="" data-target-page-alias="ndis-support-coordination"> <span class="nav-item-text " data-link-text="
+           Support Co-ordination
+          " data-auto="page-text-style">Support Co-ordination<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/ndis-positive-behaviour-support" class="unifiednav__item    " target="" data-target-page-alias="positive-behaviour-support"> <span class="nav-item-text " data-link-text="
+           Positive Behaviour Support
+          " data-auto="page-text-style">Positive Behaviour Support<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/ndis-community-nursing" class="unifiednav__item    " target="" data-target-page-alias="community-nursing"> <span class="nav-item-text " data-link-text="
+           Community Nursing
+          " data-auto="page-text-style">Community Nursing<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/ndis-therapeutic-functional-support" class="unifiednav__item    " target="" data-target-page-alias="newpage"> <span class="nav-item-text " data-link-text="
+           Therapeutic & Functional Support
+          " data-auto="page-text-style">Therapeutic &amp; Functional Support<span class="icon icon-angle-right" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/our-community" class="unifiednav__item    " target="" data-target-page-alias="our-community"> <span class="nav-item-text " data-link-text="
+         Our Community
+        " data-auto="page-text-style">Our Community<span class="icon icon-angle-down" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/contact-us" class="unifiednav__item    " target="" data-target-page-alias="Contact"> <span class="nav-item-text " data-link-text="
+         Contact
+        " data-auto="page-text-style">Contact<span class="icon icon-angle-down" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</nav> 
+</div> 
+ <div class="u_1862837863 dmRespCol small-12 large-2 medium-2" id="1862837863"> <a data-display-type="block" class="u_1752793592 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient" file="false" href="/request-support" id="1752793592" data-element-type="dButtonLinkId"> <span class="iconBg" id="1909200472"> <span class="icon hasFontIcon icon-star" id="1258866123"></span> 
+</span> 
+ <span class="text" id="1709336418">Request Support</span> 
+</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="stickyHeaderSpacer" id="stickyHeaderSpacer" data-new="true"></div> 
+ <div class="dmRespRow dmRespRowStable dmRespRowNoPadding dmPageTitleRow "> <div class="dmRespColsWrapper"> <div class="large-12 dmRespCol"> <div id="innerBar" class="innerBar lineInnerBar dmDisplay_None"> <div class="titleLine display_None"><hr/></div> 
+<!-- Page title is hidden in css for new responsive sites. It is left here only so we don't break old sites. Don't copy it to new layouts --> <div id="pageTitleText"></div> 
+ <div class="titleLine display_None"><hr/></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div dmwrapped="true" id="dmFirstContainer" class="dmBody u_dmStyle_template_home dm-home-page" themewaschanged="true"> <div id="allWrapper" class="allWrapper"><!-- navigation placeholders --> <div id="dm_content" class="dmContent" role="main"> <div dm:templateorder="170" class="dmHomeRespTmpl mainBorder dmRespRowsWrapper dmFullRowRespTmpl" id="1716942098"> <div class="u_pa_8552430 dmRespRow fullBleedChanged fullBleedMode dmSectionParallaxNew hide-for-small" style="text-align: center;" id="pa_8552430" mode="1" data-gallery-bg="eyJzbGlkZXMiOlsiaHR0cHM6Ly9saXJwLmNkbi13ZWJzaXRlLmNvbS9tZC9kbXRtcGwvYjgwYTUxNjAtNjhmNC00ZDBmLTg5ZTctYTdmNGI2NDFkMGY3L2RtczNyZXAvbXVsdGkvb3B0L2ZvdG9saWFfODUxMzM0NTMtMTkyMHcuanBnIl0sInNwZWVkIjoiNCJ9"> <div class="dmRespColsWrapper u_1568127116" id="1568127116"> <div class="u_1414742659 dmRespCol small-12 medium-12 large-12" id="1414742659"> <span id="1346630203"></span> 
+ <div class="u_1505645280 imageWidget align-center hide-for-small" data-element-type="image" data-widget-type="image" id="1505645280"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Allied-Priority-Care-Logo-f29db7c4-358w.png" alt="Allied Priority Care - Personalised NDIS Support in Melbourne and throughout Victoria" id="1165945650" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/Allied-Priority-Care-Logo-f29db7c4.png" onerror="handleImageLoadError(this)" height="183.015625" width="298.84375"/></div> 
+ <div class="u_1415672860 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1415672860" style="transition: none 0s ease 0s; text-align: left; display: block;" data-uw-styling-context="true"> <h2 class="m-size-24 size-30"><span class="font-size-30 m-font-size-24" style="color: rgb(255, 255, 255); display: unset;">Personalised NDIS Support in Melbourne and throughout Victoria</span></h2> 
+</div> 
+ <a data-display-type="block" class="u_1731309537 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient" file="false" href="tel:1300272365" data-element-type="dButtonLinkId" id="1731309537"> <span class="iconBg" id="1000218125"> <span class="icon hasFontIcon icon-star" id="1560247430"></span> 
+</span> 
+ <span class="text" id="1016712310">Call Us on 1300 272 365</span> 
+</a> 
+ <div class="imageWidget align-center u_1993461810" data-element-type="image" data-widget-type="image" id="1993461810"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/landing_page_white_background-2302w.png" alt="" id="1184633143" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/landing_page_white_background.png" onerror="handleImageLoadError(this)" height="237.875" width="1919.0"/></div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1680223170 dmRespRow fullBleedChanged fullBleedMode dmSectionParallaxNew hide-for-large hide-for-medium" style="text-align: center;" id="1680223170" mode="1" data-gallery-bg="eyJzbGlkZXMiOlsiaHR0cHM6Ly9saXJwLmNkbi13ZWJzaXRlLmNvbS9tZC9kbXRtcGwvYjgwYTUxNjAtNjhmNC00ZDBmLTg5ZTctYTdmNGI2NDFkMGY3L2RtczNyZXAvbXVsdGkvb3B0L2ZvdG9saWFfODUxMzM0NTMtMTkyMHcuanBnIl0sInNwZWVkIjoiNCJ9"> <div class="dmRespColsWrapper u_1683189616" id="1683189616"> <div class="u_1476041970 dmRespCol small-12 medium-12 large-12" id="1476041970"> <span id="1320409661"></span> 
+ <div class="u_1884579367 imageWidget align-center hide-for-small" data-element-type="image" data-widget-type="image" id="1884579367"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Allied-Priority-Care-Logo-f29db7c4-1920w.png" alt="" id="1423514498" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/Allied-Priority-Care-Logo-f29db7c4.png" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/></div> 
+ <div class="u_1810569357 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1810569357" style="" data-styletopreserve="{" background-image":""}"=""> <h2 class="m-size-16 size-36"><span class="m-font-size-16 font-size-36" m-font-size-set="true" style="display: unset; color: rgb(255, 255, 255);" data-uw-styling-context="true">Personalised NDIS Support in Melbourne and throughout Victoria</span></h2> 
+</div> 
+ <a data-display-type="block" class="u_1218974366 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient" file="false" href="tel:1300272365" data-element-type="dButtonLinkId" id="1218974366"> <span class="iconBg" id="1687302203"> <span class="icon hasFontIcon icon-star" id="1710028429"></span> 
+</span> 
+ <span class="text" id="1275621940">Call us on 1300 272 365</span> 
+</a> 
+ <div class="imageWidget align-center u_1127767903" data-element-type="image" data-widget-type="image" id="1127767903"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/landing_page_white_background-1920w.png" alt="" id="1835371318" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/landing_page_white_background.png" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow fullBleedChanged fullBleedMode u_1722998024" id="1722998024"> <div class="dmRespColsWrapper" id="1421534632"> <div class="u_1044921857 dmRespCol empty-column large-12 medium-12 small-12 hide-for-small" id="1044921857"></div> 
+</div> 
+</div> 
+ <div class="u_1116261307 dmRespRow" style="text-align: center;" id="1116261307"> <div class="dmRespColsWrapper" id="1382674668"> <div class="dmRespCol small-12 medium-12 large-12" id="1440967577"> <span id="1639891243"></span> 
+ <div class="u_1673827128 dmNewParagraph" id="1673827128" style="transition: opacity 1s ease-in-out 0s; line-height: initial; text-align: center;" data-element-type="paragraph" data-version="5"> <h1><span style="display: initial;">Our vision</span></h1> 
+</div> <div class="u_1622649007 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1622649007"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Allied-Priority-Care-Logo-f29db7c4-3dd88885-b8d97ac7-146w.png" alt="Allied Priority Care is committed to creating a community where all individuals are recognised for their unique abilities." id="1133522715" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/Allied-Priority-Care-Logo-f29db7c4-3dd88885-b8d97ac7.png" onerror="handleImageLoadError(this)" height="24.5625" width="122.0"/></div> 
+ <div class="u_1390559202 dmNewParagraph" id="1390559202" style="transition: opacity 1s ease-in-out; display: block;" data-version="5" data-uw-styling-context="true"> <h5 class="text-align-center"><span style="display: initial; color: rgb(4, 5, 7);">Allied Priority Care is proudly an Australian owned and operated organisation. We're committed to creating a community where all individuals are recognised for their unique abilities and have their needs taken care of by an expert team. As a large Australian-owned enterprise, we&rsquo;re passionate about caring for you in the most meaningful way and assisting you to achieve your dreams, no matter how big or small they might be.&nbsp;</span></h5> 
+</div></div> 
+</div> 
+</div> 
+ <div class="u_Firstrow dmRespRow mobile-columns-reversed" style="text-align: center;" id="Firstrow" data-anchor="First row"> <div class="dmRespColsWrapper" id="1803822067"> <div class="u_1168769386 dmRespCol small-12 large-6 medium-6" id="1168769386" data-anim-desktop="none"> <span id="1744189700"></span> 
+ <div class="u_1223738369 dmNewParagraph" id="1223738369" style="transition: none; display: block;" data-element-type="paragraph" data-version="5"> <h3 class="m-size-28 m-text-align-center"><span class="m-font-size-28" style="display: initial; color: rgb(0, 117, 190);">Experience is our middle name</span></h3> 
+</div> <div class="u_1391464888 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1391464888"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Allied-Priority-Care-Logo-f29db7c4-3dd88885-b8d97ac7-145w.png" id="1784902938" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/Allied-Priority-Care-Logo-f29db7c4-3dd88885-b8d97ac7.png" alt="Allied Priority Care - Experienced NDIS provider in Melbourne and Victoria" onerror="handleImageLoadError(this)" height="24.359375" width="121.0"/></div> 
+ <div class="u_1133585218 dmNewParagraph text-align-left" id="1133585218" style="display: block; transition: opacity 1s ease-in-out 0s; direction: ltr; text-align: center;" data-version="5" data-uw-styling-context="true"><p class="m-text-align-justify text-align-left"><span class="" style="color: rgb(4, 5, 7); display: initial;"><span style="color: rgb(4, 5, 7); display: initial;">One of the most outstanding attributes of our team is that we have a wealth of experience between us. Since we also operate registered training and labour hire organisations, we know how important expertise and qualifications are in delivering exceptional services.</span> 
+</span></p><p class="m-text-align-justify text-align-left"><span style="color: rgb(4, 5, 7); display: initial;"><br/></span></p><p class="m-text-align-justify text-align-left"><span class="" style="color: rgb(4, 5, 7); display: initial;"><span style="color: rgb(4, 5, 7); display: initial;">We understand the needs of people living with disability and are able to provide the right kind of support so you can enjoy your life in the most fulfilling way.</span> 
+</span></p><p class="m-text-align-justify text-align-left"><span style="color: rgb(4, 5, 7); display: initial;"><br/></span></p><p class="m-text-align-justify text-align-left"><span class="" style="color: rgb(4, 5, 7); display: initial;"><span style="color: rgb(4, 5, 7); display: initial;">Caring for someone with a unique ability is not the same as other forms of care and our team knows exactly what this means and what specific supports are required to help you overcome your daily challenges.</span> 
+</span></p><p class="m-text-align-justify text-align-left"><span style="color: rgb(4, 5, 7); display: initial;"><br/></span></p><p class="m-text-align-justify text-align-left"><span style="color: rgb(4, 5, 7); display: initial;">Our team is multi-lingual, and we specialise in trauma recovery for youth in residential care.</span></p></div></div> 
+ <div class="u_1273249706 dmRespCol small-12 large-6 medium-6" id="1273249706"> <div class="u_1308875054 imageWidget align-center hasFullWidth" data-element-type="image" data-widget-type="image" id="1308875054" data-anim-desktop="none"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Allied-Priority-Care-SQ-Images-686h.png" id="1609476611" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/Allied-Priority-Care-SQ-Images.png" data-hover-effect="float" alt="Allied Priority Care - Experienced NDIS provider in Melbourne and Victoria also operates registered training and labour hire organisations" onerror="handleImageLoadError(this)" height="572.390625" width="465.0"/></div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1357649028 dmRespRow" style="text-align: center;" id="1357649028"> <div class="dmRespColsWrapper" id="1491692957"> <div class="dmRespCol small-12 medium-12 large-12 u_1039560488" id="1039560488"> <span id="1243071863"></span> 
+ <div class="u_1249275573 dmNewParagraph" id="1249275573" style="transition: opacity 1s ease-in-out; display: block;" data-element-type="paragraph" data-version="5"> <h3 class="text-align-center"><span style="color: rgb(0, 117, 190); display: initial;">Our NDIS Services</span></h3> 
+</div> <div class="u_1959875666 dmNewParagraph" id="1959875666" style="transition: opacity 1s ease-in-out; display: block;" data-version="5"><p class="text-align-center"><span style="display: initial; color: rgb(4, 5, 7);">Reassuring Support Services For Plan-Managed &amp; Self-Managed Participants In Melbourne &amp; Regional Victoria</span></p></div> <div class="u_1332685269 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1332685269"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Allied-Priority-Care-Logo-f29db7c4-3dd88885-b8d97ac7-146w.png" alt="Allied Priority Care - NDIS Services in Melbourne and Victoria" id="1676341116" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/Allied-Priority-Care-Logo-f29db7c4-3dd88885-b8d97ac7.png" onerror="handleImageLoadError(this)" height="24.5625" width="122.0"/></div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1781495393 dmRespRow hide-for-large hide-for-medium" id="1781495393"> <div class="dmRespColsWrapper" id="1003917579"> <div class="dmRespCol large-12 medium-12 small-12 u_1232836359" id="1232836359"> <div class="u_1480988265 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1480988265"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_help_4394332+%281%29-1920w.png" alt="" id="1943220923" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_help_4394332+%281%29.png" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/></div> 
+ <div class="dmNewParagraph u_1663119000" data-element-type="paragraph" data-version="5" id="1663119000" style="transition: opacity 1s ease-in-out 0s; text-align: left; display: block;"> <h5 class="text-align-center"><span style="color: rgb(0, 117, 190); font-weight: bold; display: unset;">Core Supports</span></h5> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1188273098 dmRespRow hide-for-large hide-for-medium" id="1188273098"> <div class="dmRespColsWrapper" id="1989495128"> <div class="dmRespCol small-12 u_1202895097 medium-12 large-12" id="1202895097"> <div class="u_1765738564 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1765738564"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_change_1596887+%283%29-1920w.png" alt="" id="1723914007" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_change_1596887+%283%29.png" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/></div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1588124765" style="transition: opacity 1s ease-in-out 0s;"> <h5 class="text-align-center"><span style="color: rgb(240, 130, 98); font-weight: bold; display: unset;">Support Co-ordination</span></h5> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1378212210 dmRespRow hide-for-large hide-for-medium" id="1378212210"> <div class="dmRespColsWrapper" id="1600860241"> <div class="dmRespCol large-12 medium-12 small-12 u_1529119431" id="1529119431"> <div class="u_1488825652 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1488825652"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_positive_2079019-1920w.png" alt="" id="1130229389" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_positive_2079019.png" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/></div> 
+ <div class="u_1918542111 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1918542111" style="transition: opacity 1s ease-in-out 0s;"> <h5 class="text-align-center"><span style="display: unset; font-weight: bold; color: rgb(165, 121, 137);">Positive Behavior Support</span></h5> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1119038220 dmRespRow hide-for-large hide-for-medium" id="1119038220"> <div class="dmRespColsWrapper" id="1314087080"> <div class="u_1007282780 dmRespCol small-12 medium-12 large-12" id="1007282780"> <div class="imageWidget align-center u_1518890588" data-element-type="image" data-widget-type="image" id="1518890588"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_nursing_3739257+%283%29-1920w.png" alt="" id="1592889979" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_nursing_3739257+%283%29.png" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/></div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1927275828" style="transition: opacity 1s ease-in-out 0s;"> <h5 class="text-align-center"><span style="display: unset; font-weight: bold; color: rgb(240, 130, 98);">Community Nursing</span></h5> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1044658824 dmRespRow hide-for-small" id="1044658824"> <div class="dmRespColsWrapper" id="1058536149"> <div class="dmRespCol small-12 large-4 medium-4 u_1569701025" id="1569701025"> <div class="u_1402562096 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1402562096"> <a href="/ndis-core-supports" id="1108856727" file="false"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_help_4394332+%281%29-120w.png" alt="Allied Care Priority - NDIS Core Supports in Melbourne and Victoria" id="1920268257" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_help_4394332+%281%29.png" onerror="handleImageLoadError(this)" height="100.0" width="100.0"/></a> 
+</div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1650904646" style="transition: opacity 1s ease-in-out 0s;"> <h5 class="text-align-center"><a href="/ndis-core-supports" runtime_url="/core-supports" type="page" style="font-weight: bold; display: unset;">Core Supports</a></h5> 
+</div> 
+</div> 
+ <div class="dmRespCol small-12 large-4 medium-4 u_1343535596" id="1343535596"> <div class="u_1152592817 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1152592817"> <a href="/ndis-support-coordination" id="1255035245" file="false"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_change_1596887+%283%29-124w.png" alt="Allied Care Priority - NDIS Support Co-ordination in Melbourne and Victoria" id="1452546855" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_change_1596887+%283%29.png" onerror="handleImageLoadError(this)" height="104.0" width="104.0"/></a> 
+</div> 
+ <div class="u_1992314906 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1992314906" style="transition: opacity 1s ease-in-out 0s;"> <h5 class="text-align-center"><a href="/ndis-support-coordination" runtime_url="/ndis-support-coordination" type="page" style="font-weight: bold; display: unset; color: rgb(240, 130, 98);">Support Co-ordination</a></h5> 
+</div> 
+</div> 
+ <div class="dmRespCol large-4 medium-4 small-12 u_1759649505" id="1759649505"> <div class="u_1973862873 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1973862873"> <a href="/ndis-positive-behaviour-support" id="1645458430" file="false"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_positive_2079019-104w.png" alt="Allied Care Priority - NDIS Positive Behavior Support in Melbourne and Victoria" id="1875218112" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_positive_2079019.png" onerror="handleImageLoadError(this)" height="87.0" width="87.0"/></a> 
+</div> 
+ <div class="u_1158202472 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1158202472" style="transition: opacity 1s ease-in-out 0s;" data-uw-styling-context="true"> <h5 class="text-align-center"><a href="/ndis-positive-behaviour-support" runtime_url="/positive-behaviour-support" type="page" style="color: rgb(165, 121, 137); display: unset; font-weight: bold;">Positive Behavior Support</a></h5> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1652855718 dmRespRow hide-for-large hide-for-small" id="1652855718"> <div class="dmRespColsWrapper" id="1505382094"> <div class="u_1693105269 dmRespCol small-12 large-6 medium-6" id="1693105269"> <div class="u_1267539675 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1267539675"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_nursing_3739257-1920w.png" alt="" id="1284893751" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_nursing_3739257.png" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/></div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1788615801" style="transition: opacity 1s ease-in-out 0s;"> <h5 class="text-align-center"><span style="display: unset; font-weight: bold; color: rgb(165, 121, 137);">Community Nursing</span></h5> 
+</div> 
+</div> 
+ <div class="u_1488242070 dmRespCol small-12 large-6 medium-6" id="1488242070"> <div class="u_1040142028 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1040142028"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_heart+healing_1518385+%281%29-1920w.png" alt="" id="1741699167" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_heart+healing_1518385+%281%29.png" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/></div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1741892157" style="transition: opacity 1s ease-in-out 0s;"> <h5 class="text-align-center"><span style="color: rgb(0, 117, 190); font-weight: bold; display: unset;">Therapeutic &amp;</span></h5> 
+ <h5 class="text-align-center"><span style="color: rgb(0, 117, 190); font-weight: bold; display: unset;">Functional Support</span></h5> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1039052193 dmRespRow hide-for-medium hide-for-small" id="1039052193"> <div class="dmRespColsWrapper" id="1311154044"> <div class="u_1811519567 dmRespCol small-12 large-6 medium-6" id="1811519567"> <div class="u_1929763527 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1929763527"> <a href="/ndis-community-nursing" id="1469702433" file="false"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_nursing_3739257-110w.png" alt="Allied Care Priority - NDIS Community Nursing in Melbourne and Victoria" id="1510722217" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_nursing_3739257.png" onerror="handleImageLoadError(this)" height="92.0" width="92.0"/></a> 
+</div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1647643092" style="transition: opacity 1s ease-in-out 0s;"> <h5 class="text-align-center"><a href="/ndis-community-nursing" runtime_url="/community-nursing" type="page" style="font-weight: bold; display: unset; color: rgb(165, 121, 137);">Community Nursing</a></h5> 
+</div> 
+</div> 
+ <div class="u_1336640077 dmRespCol small-12 large-6 medium-6" id="1336640077"> <div class="u_1382264053 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1382264053"> <a href="/ndis-therapeutic-functional-support" id="1877570841" file="false"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_heart+healing_1518385+%281%29-105w.png" alt="Allied Care Priority - NDIS Therapeutic and Functional Support in Melbourne and Victoria" id="1922228043" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_heart+healing_1518385+%281%29.png" onerror="handleImageLoadError(this)" height="88.0" width="88.0"/></a> 
+</div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1758923316" style="transition: opacity 1s ease-in-out 0s;"> <h5 class="text-align-center"><a href="/ndis-therapeutic-functional-support" runtime_url="/newpage" type="page" style="display: unset; font-weight: bold;">Therapeutic &amp;</a></h5> 
+ <h5 class="text-align-center"><a href="/ndis-therapeutic-functional-support" runtime_url="/newpage" type="page" style="display: unset; font-weight: bold;">Functional Support</a></h5> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1597115848 dmRespRow hide-for-large hide-for-medium" id="1597115848"> <div class="dmRespColsWrapper" id="1135271948"> <div class="dmRespCol large-12 medium-12 small-12 u_1428280692" id="1428280692"> <div class="u_1662848477 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1662848477"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_heart+healing_1518385+%281%29-1920w.png" alt="" id="1462978492" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_heart+healing_1518385+%281%29.png" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/></div> 
+ <div class="u_1839555055 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1839555055" style="transition: opacity 1s ease-in-out 0s;"> <h5 class="text-align-center"><span style="color: rgb(0, 117, 190); font-weight: bold; display: unset;">Therapeutic &amp;</span></h5> 
+ <h5 class="text-align-center"><span style="color: rgb(0, 117, 190); font-weight: bold; display: unset;">Functional Support</span></h5> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1060413718" id="1060413718"> <div class="dmRespColsWrapper" id="1134628499"> <div class="dmRespCol large-12 medium-12 small-12 u_1609792791" id="1609792791"> <a data-display-type="block" class="u_1384301625 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient" file="false" href="/ndis-core-supports" id="1384301625" data-element-type="dButtonLinkId"> <span class="iconBg" id="1152722054"> <span class="icon hasFontIcon icon-star" id="1349352098"></span> 
+</span> 
+ <span class="text" id="1284585287">View Our NDIS Services</span> 
+</a> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1771437952 dmRespRow dmSectionParallaxNew" style="text-align: center;" id="1771437952" data-anim-desktop="none"> <div class="dmRespColsWrapper" id="1151464060"> <div class="u_1375431759 dmRespCol small-12 medium-12 large-12" id="1375431759" data-anim-desktop="fadeInUp"> <span id="1613909608"></span> 
+ <div class="u_1287186695 dmNewParagraph" id="1287186695" style="transition: none 0s ease 0s; text-align: center;" data-element-type="paragraph" data-version="5" data-uw-styling-context="true"> <h3><span style="display: initial; color: rgb(0, 117, 190);">We offer training for NDIS professionals and staff hire for residential disability care</span></h3> 
+</div> <div class="u_1622598050 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1622598050"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Allied-Priority-Care-Logo-f29db7c4-3dd88885-b8d97ac7-145w.png" alt="Allied Priority Care - training for NDIS professionals and staff hire for residential disability care in Melbourne and Victoria" id="1212675809" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/Allied-Priority-Care-Logo-f29db7c4-3dd88885-b8d97ac7.png" onerror="handleImageLoadError(this)" height="24.359375" width="121.0"/></div> 
+ <div class="u_1835189434 dmNewParagraph" data-element-type="paragraph" id="1835189434" style="transition: opacity 1s ease-in-out;" data-version="5"> <h5 class="text-align-center"><span class="" style="color: rgb(4, 5, 7); display: initial;"><span style="color: rgb(4, 5, 7); display: initial;">Through our</span> 
+</span><a href="/our-community" runtime_url="/our-community" type="page" style="display: initial;">partner companies</a><span style="color: rgb(4, 5, 7); display: initial;">, we facilitate the training and placement of only the most highly qualified and experienced support workers to make sure you receive the most trustworthy care.</span></h5> 
+</div> <a data-display-type="block" class="u_1307094038 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient" file="false" href="/our-community" id="1307094038" data-element-type="dButtonLinkId"> <span class="iconBg" id="1178467469"> <span class="icon hasFontIcon icon-star" id="1737295233"></span> 
+</span> 
+ <span class="text" id="1199149495">Learn more</span> 
+</a> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1387722842 dmRespRow hide-for-large hide-for-medium" id="1387722842"> <div class="dmRespColsWrapper" id="1086821164"> <div class="u_1223327553 dmRespCol large-12 medium-12 small-12 hide-for-large hide-for-medium" id="1223327553"> <div class="imageWidget align-center u_1097509485" data-element-type="image" data-widget-type="image" id="1097509485"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Allied+Priority+Care+HZ+Images+%2824%29-1920w.png" alt="" id="1588912087" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/Allied+Priority+Care+HZ+Images+%2824%29.png" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/></div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1484392556 dmRespRow hide-for-small dmSectionNoParallax" id="1484392556"> <div class="dmRespColsWrapper" id="1650368277"> <div class="dmRespCol large-12 medium-12 small-12" id="1246516215"> <div class="dmRespRow" id="1424084029"> <div class="dmRespColsWrapper" id="1613999488"> <div class="dmRespCol small-12 medium-12 large-12" id="1890447982"> <div data-element-type="spacer" class="u_1732085733 dmSpacer" id="1732085733"></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1969927920 dmRespRow" style="text-align: center;" id="1969927920"> <div class="dmRespColsWrapper" id="1538478838"> <div class="u_1224408665 dmRespCol small-12 large-5 medium-5" id="1224408665"> <span id="1886960447"></span> 
+ <div class="u_1037275600 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1037275600" style="transition: none 0s ease 0s; text-align: left; display: block;"> <h2 style="line-height: 1.5;"><span style="display: initial;">Our mission and values</span></h2> 
+</div> 
+</div> 
+ <div class="u_1387805956 dmRespCol small-12 large-7 medium-7" id="1387805956"> <div class="u_1162813665 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1162813665" style="transition: none 0s ease 0s; text-align: left; display: block;" data-uw-styling-context="true"><p><span class="" style="display: initial;"><span style="display: initial;">At Allied Priority Care our mission is to provide individualised support to people living with a disability. We want you to experience a dignified life through our inclusive and collaborative services.</span> 
+</span></p><p><span style="display: initial;"><br/></span></p><p><span class="" style="display: initial;"><span style="display: initial;">Our doors are always open and we welcome</span> 
+</span><a href="/request-support" runtime_url="/request-support" type="page" style="display: initial;">referrals</a><span class="" style="display: initial;"> <span style="display: initial;">from community workers or health professionals in Melbourne or Regional Victoria. Our values include:<br/></span></span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1237112377" id="1237112377"> <div class="dmRespColsWrapper" id="1119311900"> <div class="dmRespCol small-12 large-4 medium-4 u_1183474318" id="1183474318"> <div class="u_1205810434 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1205810434"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_honest_3148313+%282%29-100w.png" alt="Allied Priority Care - Dignity and Respect" id="1177641775" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_honest_3148313+%282%29.png" onerror="handleImageLoadError(this)" height="84.0" width="84.0"/></div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1227255938" style="transition: opacity 1s ease-in-out 0s;"> <h5 class="text-align-center"><span style="color: rgb(0, 117, 190); font-weight: bold; display: unset;">Dignity &amp; Respect</span></h5> 
+</div> 
+ <div class="dmNewParagraph u_1024415625" data-element-type="paragraph" data-version="5" id="1024415625" style="transition: opacity 1s ease-in-out 0s; text-align: left; display: block;"><p class="text-align-center"><span style="display: unset;">Being respectful of diversity and protecting the dignity of participants&nbsp;</span></p></div> 
+</div> 
+ <div class="dmRespCol small-12 large-4 medium-4 u_1259283316" id="1259283316"> <div class="u_1908187704 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1908187704"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_quality_2743147+%281%29-94w.png" alt="Allied Priority Care - Quality" id="1920528202" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_quality_2743147+%281%29.png" onerror="handleImageLoadError(this)" height="79.0" width="79.0"/></div> 
+ <div class="u_1830399146 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1830399146" style="transition: opacity 1s ease-in-out 0s;"> <h5 class="text-align-center"><span style="display: unset; font-weight: bold; color: rgb(240, 130, 98);">Quality</span></h5> 
+</div> 
+ <div class="dmNewParagraph u_1826957939" data-element-type="paragraph" data-version="5" id="1826957939" style="transition: opacity 1s ease-in-out 0s; text-align: left; display: block;"><p class="text-align-center"><span style="display: unset;">Support that is competent, timely, and individualised</span></p></div> 
+</div> 
+ <div class="dmRespCol large-4 medium-4 small-12 u_1056736267" id="1056736267"> <div class="u_1208978972 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1208978972"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/noun_Accountable_1982412+%281%29-84w.png" alt="Allied Priority Care - Choice and Accountability" id="1535466938" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/noun_Accountable_1982412+%281%29.png" onerror="handleImageLoadError(this)" height="70.0" width="70.0"/></div> 
+ <div class="u_1341191629 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1341191629" style="transition: opacity 1s ease-in-out 0s;" data-uw-styling-context="true"> <h5 class="text-align-center"><span style="display: unset; font-weight: bold; color: rgb(165, 121, 137);">Choice &amp; Accountability</span></h5> 
+</div> 
+ <div class="dmNewParagraph u_1197649724" data-element-type="paragraph" data-version="5" id="1197649724" style="transition: opacity 1s ease-in-out 0s; text-align: left; display: block;"><p class="text-align-center"><span style="display: unset;">Enabling individuals to have control over the decisions that affect them. Remaining accountable to each participant for the work we do.</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1352639225" id="1352639225"> <div class="dmRespColsWrapper" id="1744305000"> <div class="dmRespCol large-12 medium-12 small-12 u_1477463319" id="1477463319"> <a data-display-type="block" class="u_1775948209 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient" file="false" href="/request-support" data-element-type="dButtonLinkId" id="1775948209"> <span class="iconBg" id="1398766890"> <span class="icon hasFontIcon icon-star" id="1945359833"></span> 
+</span> 
+ <span class="text" id="1080853470">Refer a participant</span> 
+</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="sticky-widgets-container-global" id="1361363999"></div> 
+ <div class="dmFooterContainer"> <div id="fcontainer" class="u_fcontainer f_hcontainer dmFooter p_hfcontainer"> <div dm:templateorder="250" class="dmFooterResp generalFooter" id="1943048428"> <div class="u_1323888815 dmRespRow dmSectionParallaxNew hasBackgroundOverlay" style="text-align: center;" id="1323888815" data-gallery-bg="eyJzbGlkZXMiOlsiaHR0cHM6Ly9pcnQtY2RuLm11bHRpc2NyZWVuc2l0ZS5jb20vbWQvdW5zcGxhc2gvZG1zM3JlcC9tdWx0aS9waG90by0xNTAyOTE5MDg4NzgzLTExYzg0NTQ1NWNiOS5qcGciXX0="> <div class="dmRespColsWrapper" id="1433435326"> <div class="u_1290788713 dmRespCol small-12 large-5 medium-5" id="1290788713"> <div class="u_1702746770 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1702746770"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Allied+Priority+Care+Logo-259w.png" alt="Allied Priority Care - NDIS Service Provider in Melbourne and Victoria" id="1019906627" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/Allied+Priority+Care+Logo.png" onerror="handleImageLoadError(this)" height="82.375" width="216.0"/></div> 
+ <div class="u_1336689859 widget-b7f1b5 dmCustomWidget" data-lazy-load="" data-title="" id="1336689859" dmle_extension="custom_extension" data-element-type="custom_extension" icon="false" surround="false" data-widget-id="b7f1b57e747c4d16ab3c6ce0e96f364e" data-widget-version="1" data-widget-config="eyJsaXN0MSI6W3siaWNvbk5hbWUiOiJDaGVjayIsImJJbWFnZSI6IjxzdmcgeG1sbnM9XCJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Z1wiIHZpZXdCb3g9XCIwIDAgMTQwOCAxNzkyXCI+PHBhdGggZmlsbD1cImluaGVyaXRcIiBkPVwiTTE0MDggMTI0MHEwIDI3LTEwIDcwLjV0LTIxIDY4LjVxLTIxIDUwLTEyMiAxMDYtOTQgNTEtMTg2IDUxLTI3IDAtNTIuNS0zLjV0LTU3LjUtMTIuNS00Ny41LTE0LjUtNTUuNS0yMC41LTQ5LTE4cS05OC0zNS0xNzUtODMtMTI4LTc5LTI2NC41LTIxNS41dC0yMTUuNS0yNjQuNXEtNDgtNzctODMtMTc1LTMtOS0xOC00OXQtMjAuNS01NS41LTE0LjUtNDcuNS0xMi41LTU3LjUtMy41LTUyLjVxMC05MiA1MS0xODYgNTYtMTAxIDEwNi0xMjIgMjUtMTEgNjguNS0yMXQ3MC41LTEwcTE0IDAgMjEgMyAxOCA2IDUzIDc2IDExIDE5IDMwIDU0dDM1IDYzLjUgMzEgNTMuNXEzIDQgMTcuNSAyNXQyMS41IDM1LjUgNyAyOC41cTAgMjAtMjguNSA1MHQtNjIgNTUtNjIgNTMtMjguNSA0NnEwIDkgNSAyMi41dDguNSAyMC41IDE0IDI0IDExLjUgMTlxNzYgMTM3IDE3NCAyMzV0MjM1IDE3NHEyIDEgMTkgMTEuNXQyNCAxNCAyMC41IDguNSAyMi41IDVxMTggMCA0Ni0yOC41dDUzLTYyIDU1LTYyIDUwLTI4LjVxMTQgMCAyOC41IDd0MzUuNSAyMS41IDI1IDE3LjVxMjUgMTUgNTMuNSAzMXQ2My41IDM1IDU0IDMwcTcwIDM1IDc2IDUzIDMgNyAzIDIxelwiLz4gPC9zdmc+IiwibGlzdElubmVyVGV4dCI6IjxwIGNsYXNzPVwicnRlQmxvY2tcIj4xMzAwIDI3MiAzNjU8L3A+In0seyJpY29uTmFtZSI6IkNoZWNrIiwiYkltYWdlIjoiPHN2ZyB4bWxucz1cImh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnXCIgdmlld0JveD1cIjAgMCAxNzkyIDE3OTJcIj48cGF0aCBmaWxsPVwiaW5oZXJpdFwiIGQ9XCJNMTc5MiA3MTB2Nzk0cTAgNjYtNDcgMTEzdC0xMTMgNDdoLTE0NzJxLTY2IDAtMTEzLTQ3dC00Ny0xMTN2LTc5NHE0NCA0OSAxMDEgODcgMzYyIDI0NiA0OTcgMzQ1IDU3IDQyIDkyLjUgNjUuNXQ5NC41IDQ4IDExMCAyNC41aDEgMXE1MSAwIDExMC0yNC41dDk0LjUtNDggOTIuNS02NS41cTE3MC0xMjMgNDk4LTM0NSA1Ny0zOSAxMDAtODd6TTE3OTIgNDE2cTAgNzktNDkgMTUxdC0xMjIgMTIzcS0zNzYgMjYxLTQ2OCAzMjUtMTAgNy00Mi41IDMwLjV0LTU0IDM4LTUyIDMyLjUtNTcuNSAyNy01MCA5aC0xLTFxLTIzIDAtNTAtOXQtNTcuNS0yNy01Mi0zMi41LTU0LTM4LTQyLjUtMzAuNXEtOTEtNjQtMjYyLTE4Mi41dC0yMDUtMTQyLjVxLTYyLTQyLTExNy0xMTUuNXQtNTUtMTM2LjVxMC03OCA0MS41LTEzMHQxMTguNS01MmgxNDcycTY1IDAgMTEyLjUgNDd0NDcuNSAxMTN6XCIvPiA8L3N2Zz4iLCJsaXN0SW5uZXJUZXh0IjoiPHAgY2xhc3M9XCJydGVCbG9ja1wiPmhlbGxvQGFsbGllZHByaW9yaXR5Y2FyZS5jb20uYXU8L3A+In0seyJpY29uTmFtZSI6IkNoZWNrIiwiYkltYWdlIjoiPHN2ZyB4bWxucz1cImh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnXCIgdmlld0JveD1cIjAgMCAxMDI0IDE3OTJcIj48cGF0aCBmaWxsPVwiaW5oZXJpdFwiIGQ9XCJNNzY4IDY0MHEwLTEwNi03NS0xODF0LTE4MS03NS0xODEgNzUtNzUgMTgxIDc1IDE4MSAxODEgNzUgMTgxLTc1IDc1LTE4MXpNMTAyNCA2NDBxMCAxMDktMzMgMTc5bC0zNjQgNzc0cS0xNiAzMy00Ny41IDUydC02Ny41IDE5LTY3LjUtMTktNDYuNS01MmwtMzY1LTc3NHEtMzMtNzAtMzMtMTc5IDAtMjEyIDE1MC0zNjJ0MzYyLTE1MCAzNjIgMTUwIDE1MCAzNjJ6XCIvPiA8L3N2Zz4iLCJsaXN0SW5uZXJUZXh0IjoiPHAgY2xhc3M9XCJydGVCbG9ja1wiPjEzLTE1IERhdmlkIFN0cmVldCBEYW5kZW5vbmcgMzE3NTwvcD4ifSx7Imljb25OYW1lIjoiQ2hlY2siLCJiSW1hZ2UiOiI8c3ZnIHZlcnNpb249XCIxLjFcIiBpZD1cIkNhcGFfMVwiIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIiB4bWxuczp4bGluaz1cImh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmtcIiB4PVwiMHB4XCIgeT1cIjBweFwiIHdpZHRoPVwiNTEwcHhcIiBoZWlnaHQ9XCI1MTBweFwiIHZpZXdCb3g9XCIwIDAgNTEwIDUxMFwiIHN0eWxlPVwiZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTAgNTEwO1wiIHhtbDpzcGFjZT1cInByZXNlcnZlXCI+XHJcbjxnPlxyXG5cdDxnIGlkPVwiY2hlY2stY2lyY2xlLW91dGxpbmVcIj5cclxuXHRcdDxwYXRoIGQ9XCJNMTUwLjQ1LDIwNi41NWwtMzUuNywzNS43TDIyOS41LDM1N2wyNTUtMjU1bC0zNS43LTM1LjdMMjI5LjUsMjg1LjZMMTUwLjQ1LDIwNi41NXogTTQ1OSwyNTVjMCwxMTIuMi05MS44LDIwNC0yMDQsMjA0XHJcblx0XHRcdFM1MSwzNjcuMiw1MSwyNTVTMTQyLjgsNTEsMjU1LDUxYzIwLjQsMCwzOC4yNSwyLjU1LDU2LjEsNy42NWw0MC44MDEtNDAuOEMzMjEuMyw3LjY1LDI4OC4xNSwwLDI1NSwwQzExNC43NSwwLDAsMTE0Ljc1LDAsMjU1XHJcblx0XHRcdHMxMTQuNzUsMjU1LDI1NSwyNTVzMjU1LTExNC43NSwyNTUtMjU1SDQ1OXpcIj48L3BhdGg+XHJcblx0PC9nPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjxnPlxyXG48L2c+XHJcbjwvc3ZnPiIsImxpc3RJbm5lclRleHQiOiI8cCBjbGFzcz1cInJ0ZUJsb2NrXCI+QUJOOiA3MCA2MzMgNTg4IDY0NjwvcD4ifV0sImxpLXBvc2l0aW9uIjoibGktY2VudGVyIiwibGluZUhlaWdodCI6IjEuNSJ9"> <div class="classWidgetList li-center"> <div class="li-mWrapper"> <div class="wrapListbull "> <div class="containerBullet"> <div class="IconBulletText"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1408 1792"> <path fill="inherit" d="M1408 1240q0 27-10 70.5t-21 68.5q-21 50-122 106-94 51-186 51-27 0-52.5-3.5t-57.5-12.5-47.5-14.5-55.5-20.5-49-18q-98-35-175-83-128-79-264.5-215.5t-215.5-264.5q-48-77-83-175-3-9-18-49t-20.5-55.5-14.5-47.5-12.5-57.5-3.5-52.5q0-92 51-186 56-101 106-122 25-11 68.5-21t70.5-10q14 0 21 3 18 6 53 76 11 19 30 54t35 63.5 31 53.5q3 4 17.5 25t21.5 35.5 7 28.5q0 20-28.5 50t-62 55-62 53-28.5 46q0 9 5 22.5t8.5 20.5 14 24 11.5 19q76 137 174 235t235 174q2 1 19 11.5t24 14 20.5 8.5 22.5 5q18 0 46-28.5t53-62 55-62 50-28.5q14 0 28.5 7t35.5 21.5 25 17.5q25 15 53.5 31t63.5 35 54 30q70 35 76 53 3 7 3 21z"></path> 
+</svg> 
+</div> 
+ <div class="bulltext" style="line-height:1.5;"><p class="rteBlock">1300 272 365</p></div> 
+</div> 
+</div> 
+ <div class="wrapListbull "> <div class="containerBullet"> <div class="IconBulletText"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1792 1792"> <path fill="inherit" d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h1 1q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zM1792 416q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-1-1q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"></path> 
+</svg> 
+</div> 
+ <div class="bulltext" style="line-height:1.5;"><p class="rteBlock">hello@alliedprioritycare.com.au</p></div> 
+</div> 
+</div> 
+ <div class="wrapListbull "> <div class="containerBullet"> <div class="IconBulletText"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1792"> <path fill="inherit" d="M768 640q0-106-75-181t-181-75-181 75-75 181 75 181 181 75 181-75 75-181zM1024 640q0 109-33 179l-364 774q-16 33-47.5 52t-67.5 19-67.5-19-46.5-52l-365-774q-33-70-33-179 0-212 150-362t362-150 362 150 150 362z"></path> 
+</svg> 
+</div> 
+ <div class="bulltext" style="line-height:1.5;"><p class="rteBlock">13-15 David Street Dandenong 3175</p></div> 
+</div> 
+</div> 
+ <div class="wrapListbull "> <div class="containerBullet"> <div class="IconBulletText"> <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="510px" height="510px" viewbox="0 0 510 510" style="enable-background:new 0 0 510 510;" xml:space="preserve"> <g> <g id="check-circle-outline"> <path d="M150.45,206.55l-35.7,35.7L229.5,357l255-255l-35.7-35.7L229.5,285.6L150.45,206.55z M459,255c0,112.2-91.8,204-204,204
+			S51,367.2,51,255S142.8,51,255,51c20.4,0,38.25,2.55,56.1,7.65l40.801-40.8C321.3,7.65,288.15,0,255,0C114.75,0,0,114.75,0,255
+			s114.75,255,255,255s255-114.75,255-255H459z"></path> 
+</g> 
+</g> 
+ <g></g> 
+ <g></g> 
+ <g></g> 
+ <g></g> 
+ <g></g> 
+ <g></g> 
+ <g></g> 
+ <g></g> 
+ <g></g> 
+ <g></g> 
+ <g></g> 
+ <g></g> 
+ <g></g> 
+ <g></g> 
+ <g></g> 
+</svg> 
+</div> 
+ <div class="bulltext" style="line-height:1.5;"><p class="rteBlock">ABN: 70 633 588 646</p></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1646841059 dmRespCol small-12 large-4 medium-4" id="1646841059"> <div class="u_1936786425 dmNewParagraph hide-for-large hide-for-medium" data-element-type="paragraph" data-version="5" id="1936786425" style="transition: none 0s ease 0s; text-align: left; display: block;"><p class="m-text-align-left"><a href="/request-support" runtime_url="/request-support" type="page" style="color: rgb(255, 255, 255); display: unset;">Request Support</a></p><p class="m-text-align-left"><a href="/privacy" runtime_url="/privacy" type="page" style="color: rgb(255, 255, 255); display: unset;">Privacy</a></p><p class="m-text-align-left"><a href="/terms-of-use" runtime_url="/terms-of-use" type="page" style="color: rgb(255, 255, 255); display: unset;">Terms of Use</a></p><p class="m-text-align-left"><a href="/feedback" runtime_url="/newpage8e9cb1f9" type="page" style="color: rgb(255, 255, 255); display: unset;">Feedback &amp; Complaints</a></p></div> 
+ <nav class="u_1714226090 unifiednav_vertical effect-background hide-for-small main-navigation unifiednav dmLinksMenu" role="navigation" layout-main="vertical_nav_layout_3" layout-sub="" data-show-vertical-sub-items="HOVER" id="1714226090" dmle_extension="onelinksmenu" data-element-type="onelinksmenu" data-logo-src="https://irp-cdn.multiscreensite.com/md/dmtmpl/5d5e38ed-97f3-47f1-87a8-5cdfcc6b6809/dms3rep/multi/desktop/logo-02.svg" alt="" data-nav-structure="VERTICAL" wr="true" icon="true" surround="true" adwords="" navigation-id="unifiedNav"> <ul role="menubar" class="unifiednav__container  " data-auto="navigation-pages"> <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/request-support" class="unifiednav__item    " target="" data-target-page-alias="referral"> <span class="nav-item-text " data-link-text="
+         Request Support
+        " data-auto="page-text-style">Request Support<span class="icon icon-angle-down" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/privacy" class="unifiednav__item    " target="" data-target-page-alias="privacy"> <span class="nav-item-text " data-link-text="
+         Privacy
+        " data-auto="page-text-style">Privacy<span class="icon icon-angle-down" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/terms-of-use" class="unifiednav__item    " target="" data-target-page-alias="terms-of-use"> <span class="nav-item-text " data-link-text="
+         Terms of Use
+        " data-auto="page-text-style">Terms of Use<span class="icon icon-angle-down" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/feedback" class="unifiednav__item    " target="" data-target-page-alias="newpage8e9cb1f9"> <span class="nav-item-text " data-link-text="
+         Feedback & Complaints
+        " data-auto="page-text-style">Feedback &amp; Complaints<span class="icon icon-angle-down" data-hidden-on-mobile="" data-hidden-on-desktop="" data-hidden-on-tablet=""></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</nav> 
+</div> 
+ <div class="u_1948721191 dmRespCol small-12 large-3 medium-3" id="1948721191"> <div class="u_1961166231 dmNewParagraph hide-for-small" data-element-type="paragraph" data-version="5" id="1961166231" style="transition: opacity 1s ease-in-out 0s;"><p class="text-align-center"><span style="display: unset; color: rgb(255, 255, 255);">Find Us</span></p></div> 
+ <div class="u_1953744524 default dmDefaultGradient align-center inlineMap" data-type="inlineMap" data-lat="-37.97552" data-lng="145.20569" data-address="13-15 David St, Dandenong, VIC, Australia" data-height="" data-msid="" data-mapurl="" data-lang="en" data-color-scheme="" data-zoom="11" data-layout="" data-popup-display="" data-popup-show="false" data-popup-title="" data-popup-title-visible="false" data-popup-description="" data-popup-description-visible="false" id="1953744524" dmle_extension="mapextension" data-element-type="mapextension" modedesktop="map" modemobile="button" addresstodisplay="13-15 David St, Dandenong, VIC, Australia" geocompleteaddress="13-15 David St, Dandenong, VIC, Australia" data-popup-display-desktop="" zoom="11" data-popup-display-mobile="" data-display-type="block" dmmapsource="dm" modetablet="map" wr="true" icon="true" surround="true" description="Find Us" adwords="" icon-name="icon-map-marker" business="Deer Disability Services Pty Ltd" provider="mapbox" lon="145.20569" lat="-37.97552"> <div class="mapContainer" style="height: 100%; width: 100%; overflow: hidden; z-index: 0;"></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow fullBleedChanged fullBleedMode u_1643503952" id="1643503952"> <div class="dmRespColsWrapper" id="1786604597"> <div class="dmRespCol large-12 medium-12 small-12" id="1244978943"> <div class="u_1652937630 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1652937630"><img src="https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Untitled+design+-+2022-01-12T125906.035-309w.png" alt="" id="1888279153" class="" data-dm-image-path="https://irp.cdn-website.com/6f4dfe18/dms3rep/multi/Untitled+design+-+2022-01-12T125906.035.png" onerror="handleImageLoadError(this)" height="77.390625" width="258.0"/></div> 
+ <div class="u_1480541397 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1480541397" style="transition: opacity 1s ease-in-out 0s;"><p class="text-align-center"><span style="color: rgb(255, 255, 255); display: unset;">Allied Priority Care would like to acknowledge the Australian Aboriginal and Torres Strait Islander peoples as the first inhabitants of the nation and the traditional custodians of the lands where we live, learn and work. We pay our respects to ancestors and Elders, past and present. We are committed to supporting the Aboriginal and Torres Strait Islander children and young people to connect to their cultures, countries and communities.</span><span style="color: rgb(255, 255, 255); display: initial;"><br/><br/></span><span style="color: rgb(255, 255, 255); display: unset;">Allied Priority Care strongly supports equality for all and is committed to the principles of social justice. We embrace diversity and condemn any kind of discrimination, be it on the basis of race, religion, ethnicity, sexual orientation, gender identity or disability.</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1908505385 dmRespRow" style="text-align: center;" id="1908505385"> <div class="dmRespColsWrapper" id="1523998264"> <div class="dmRespCol small-12 medium-6 large-6" id="1462967864"> <div class="u_1455132685 widget-1f5975 dmCustomWidget" data-lazy-load="" data-title="" id="1455132685" dmle_extension="custom_extension" data-element-type="custom_extension" icon="false" surround="false" data-widget-id="1f5975986930429f819d4cd2154b5c4a" data-widget-version="24" data-widget-config="eyJjb3B5cmlnaHRUZXh0IjoiPHAgY2xhc3M9XCJydGVCbG9ja1wiPkFsbCBSaWdodHMgUmVzZXJ2ZWQgfCBBbGxpZWQgUHJpb3JpdHkgQ2FyZSBQdHkgTHRkPC9wPiJ9"> <div class="copyright"> <span class="copyright-year">&copy; 2025&nbsp;</span> 
+ <span><p class="rteBlock">All Rights Reserved | Allied Priority Care Pty Ltd</p></span> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespCol small-12 medium-6 large-6" id="1158582452"> <div class="u_1939496062 dmNewParagraph" data-element-type="paragraph" id="1939496062" style="transition: none 0s ease 0s; text-align: right; display: block;" data-version="5"> <h5 class="m-size-9 text-align-right m-text-align-center size-13"><a href="https://www.2brownies.com.au/" runtime_url="https://www.2brownies.com.au/" type="url" class="m-font-size-9 font-size-13" style="font-weight: 300; display: initial;" target="_blank">Website powered with ❤ by 2Brownies</a></h5> 
+</div></div> 
+</div> 
+</div> 
+</div> 
+ <div id="1236746004" dmle_extension="powered_by" data-element-type="powered_by" icon="true" surround="false"></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+
+    </div>
+</div>
+<!--  Add full CSS and Javascript before the close tag of the body if needed -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Google Fonts Include -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- loadCSS function fonts.jsp-->
+
+
+
+<link rel="preload" href="https://irp.cdn-website.com/fonts/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;subset=latin-ext&amp;display=swap"  as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+
+
+
+
+<!-- RT CSS Include d-css-runtime-desktop-one-package-structured-global-->
+<link rel="preload" as="style" fetchpriority="low" onload="loadCSS(this)" href="https://static.cdn-website.com/mnlt/production/5939/_dm/s/rt/dist/css/d-css-runtime-desktop-one-package-structured-global.min.css" />
+
+<!-- End of RT CSS Include -->
+
+<link rel="preload" href="https://irp.cdn-website.com/WIDGET_CSS/69bf1da7df8b4b59cffcd50536de8a18.css" id="widgetCSS" as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+<!-- Support `img` size attributes -->
+<style>img[width][height] {
+  height: auto;
+}</style>
+
+<!-- Support showing sticky element on page only -->
+<style>
+  body[data-page-alias="home"] #dm [data-show-on-page-only="home"] {
+    display: block !important;
+  }
+</style>
+
+<!-- This is populated in Ajax navigation -->
+<style id="pageAdditionalWidgetsCss" type="text/css">
+</style>
+
+
+
+
+<!-- Site CSS -->
+<link rel="preload" href="https://irp.cdn-website.com/6f4dfe18/files/6f4dfe18_withFlex_1.min.css?v=30" id="siteGlobalCss" as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+
+
+<style id="customWidgetStyle" type="text/css">
+    
+</style>
+<style id="innerPagesStyle" type="text/css">
+    
+</style>
+
+
+<style
+        id="additionalGlobalCss" type="text/css"
+>
+</style>
+
+<!-- Page CSS -->
+<link rel="preload" href="https://irp.cdn-website.com/6f4dfe18/files/6f4dfe18_home_withFlex_1.min.css?v=30" id="homeCssLink" as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+<style id="pagestyle" type="text/css">
+    
+</style>
+
+<style id="pagestyleDevice" type="text/css">
+    
+</style>
+
+<!-- Flex Sections CSS -->
+
+
+
+
+
+<style id="globalFontSizeStyle" type="text/css">
+    .font-size-30, .size-30, .size-30 > font { font-size: 30px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-13, .size-13, .size-13 > font { font-size: 13px !important; }
+</style>
+<style id="pageFontSizeStyle" type="text/css">
+</style>
+
+<!-- ========= JS Section ========= -->
+<script>
+    var isWLR = true;
+
+    window.customWidgetsFunctions = {};
+    window.customWidgetsStrings = {};
+    window.collections = {};
+    window.currentLanguage = "ENGLISH"
+    window.isSitePreview = false;
+</script>
+<script>
+    window.customWidgetsFunctions["1f5975986930429f819d4cd2154b5c4a~24"] = function (element, data, api) {
+        null
+    };
+</script>
+<script>
+    window.customWidgetsFunctions["b7f1b57e747c4d16ab3c6ce0e96f364e~1"] = function (element, data, api) {
+        /* 
+    * List Icons
+    * September 25 2018
+    * Version 1.0.0
+
+    *Upon purchase of this widget, you acquire the right to use it; you're not actually 
+    acquiring the widget itself.TheCamel.co is the owner of the intellectual property of this widget.
+    The widget is for use only, it is not to be on sold, lent, rented, given away, gifted you can’t 
+    even put it in your will. It is for use for your sites only on the duda dashboard we install the item in.
+    
+    *Kindly refer to our Terms and Conditions for more info - http://www.thecamel.co/terms-and-conditions.
+
+*/
+
+    };
+</script>
+<script type="text/javascript">
+
+    var d_version = "production_5939";
+    var build = "2025-11-17T13_48_15";
+    window['v' + 'ersion'] = d_version;
+
+    function buildEditorParent() {
+        window.isMultiScreen = true;
+        window.editorParent = {};
+        window.previewParent = {};
+        window.assetsCacheQueryParam = "?version=2025-11-17T13_48_15";
+        try {
+            var _p = window.parent;
+            if (_p && _p.document && _p.$ && _p.$.dmfw) {
+                window.editorParent = _p;
+            } else if (_p.isSitePreview) {
+                window.previewParent = _p;
+            }
+        } catch (e) {
+
+        }
+    }
+
+    buildEditorParent();
+</script>
+
+<!-- Load jQuery -->
+<script type="text/javascript" id='d-js-jquery'
+        src="https://static.cdn-website.com/libs/jquery/jquery-3.7.0.min.js"></script>
+<!-- End Load jQuery -->
+<!-- Injecting site-wide before scripts -->
+<!-- End Injecting site-wide to the head -->
+
+
+<script>
+    var _jquery = window.$;
+
+    var jqueryAliases = ['$', 'jquery', 'jQuery'];
+
+    jqueryAliases.forEach((alias) => {
+        Object.defineProperty(window, alias, {
+            get() {
+                return _jquery;
+            },
+            set() {
+                console.warn("Trying to over-write the global jquery object!");
+            }
+        });
+    });
+    window.jQuery.migrateMute = true;
+</script>
+<script>
+    window.cookiesNotificationMarkupPreview = 'null';
+</script>
+
+<!-- HEAD RT JS Include -->
+<script id='d-js-params'>
+    window.INSITE = window.INSITE || {};
+    window.INSITE.device = "desktop";
+
+    window.rtCommonProps = {};
+    rtCommonProps["rt.ajax.ajaxScriptsFix"] =true;
+    rtCommonProps["rt.pushnotifs.sslframe.encoded"] = 'aHR0cHM6Ly97c3ViZG9tYWlufS5wdXNoLW5vdGlmcy5jb20=';
+    rtCommonProps["runtimecollector.url"] = 'https://rtc.multiscreensite.com';
+    rtCommonProps["performance.tabletPreview.removeScroll"] = 'false';
+    rtCommonProps["inlineEditGrid.snap"] =true;
+    rtCommonProps["popup.insite.cookie.ttl"] = '0.5';
+    rtCommonProps["rt.pushnotifs.force.button"] =true;
+    rtCommonProps["common.mapbox.token"] = 'pk.eyJ1IjoiZGFubnliMTIzIiwiYSI6ImNqMGljZ256dzAwMDAycXBkdWxwbDgzeXYifQ.Ck5P-0NKPVKAZ6SH98gxxw';
+    rtCommonProps["common.mapbox.js.override"] =false;
+    rtCommonProps["common.here.appId"] = 'iYvDjIQ2quyEu0rg0hLo';
+    rtCommonProps["common.here.appCode"] = '1hcIxLJcbybmtBYTD9Z1UA';
+    rtCommonProps["isCoverage.test"] =false;
+    rtCommonProps["ecommerce.ecwid.script"] = 'https://app.multiscreenstore.com/script.js';
+    rtCommonProps["feature.flag.mappy.kml"] =false;
+    rtCommonProps["common.resources.dist.cdn"] =true;
+    rtCommonProps["common.build.dist.folder"] = 'production/5939';
+    rtCommonProps["common.resources.cdn.host"] = 'https://static.cdn-website.com';
+    rtCommonProps["common.resources.folder"] = 'https://static.cdn-website.com/mnlt/production/5939';
+    rtCommonProps["feature.flag.runtime.backgroundSlider.preload.slowly"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.jitAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.sites.google.analytics.gtag"] =true;
+    rtCommonProps["feature.flag.runOnReadyNewTask"] =true;
+    rtCommonProps["isAutomation.test"] =false;
+    rtCommonProps["booking.cal.api.domain"] = 'api.cal.com';
+
+    
+    rtCommonProps['common.mapsProvider'] = 'mapbox';
+    
+    rtCommonProps['common.mapsProvider.version'] = '0.52.0';
+    rtCommonProps['common.geocodeProvider'] = 'mapbox';
+    rtCommonProps['common.map.defaults.radiusSize'] = '1500';
+    rtCommonProps['common.map.defaults.radiusBg'] = 'rgba(255, 255, 255, 0.4)';
+    rtCommonProps['common.map.defaults.strokeColor'] = 'rgba(255, 255, 255, 1)';
+    rtCommonProps['common.map.defaults.strokeSize'] = '2';
+    rtCommonProps['server.for.resources'] = '';
+    rtCommonProps['feature.flag.lazy.widgets'] = true;
+    rtCommonProps['feature.flag.single.wow'] = false;
+    rtCommonProps['feature.flag.disallowPopupsInEditor'] = true;
+    rtCommonProps['feature.flag.mark.anchors'] = true;
+    rtCommonProps['captcha.public.key'] = '6LffcBsUAAAAAMU-MYacU-6QHY4iDtUEYv_Ppwlz';
+    rtCommonProps['captcha.invisible.public.key'] = '6LeiWB8UAAAAAHYnVJM7_-7ap6bXCUNGiv7bBPME';
+    rtCommonProps["images.sizes.small"] =160;
+    rtCommonProps["images.sizes.mobile"] =640;
+    rtCommonProps["images.sizes.tablet"] =1280;
+    rtCommonProps["images.sizes.desktop"] =1920;
+    rtCommonProps["modules.resources.cdn"] =true;
+    rtCommonProps["import.images.storage.imageCDN"] = 'https://lirp.cdn-website.com/';
+    rtCommonProps["feature.flag.runtime.inp.threshold"] =150;
+    rtCommonProps["feature.flag.performance.logs"] =true;
+    rtCommonProps["site.widget.form.captcha.type"] = 'g_recaptcha';
+    rtCommonProps["friendly.captcha.site.key"] = 'FCMGSQG9GVNMFS8K';
+    rtCommonProps["cookiebot.mapbox.consent.category"] = 'marketing';
+    // feature flags that's used out of runtime module (in  legacy files)
+    rtCommonProps["platform.monolith.personalization.dateTimeCondition.popupMsgAction.moveToclient.enabled"] =true;
+    rtCommonProps["streamline.monolith.personalization.skipRuleConditionsForPreview.enabled"] =true;
+    rtCommonProps["streamline.personalization.decodeTimeZone.enabled"] =true;
+
+    window.rtFlags = {};
+    rtFlags["unsuspendEcwidStoreOnRuntime.enabled"] =true;
+    rtFlags["scripts.widgetCount.enabled"] =true;
+    rtFlags["fnb.animations.tracking.enabled"] =true;
+    rtFlags["ecom.ecwidNewUrlStructure.enabled"] = false;
+    rtFlags["ecom.ecwid.accountPage.emptyBaseUrl.enabled"] = true;
+    rtFlags["ecom.ecwid.pages.links.disable.listeners"] = true;
+    rtFlags["ecom.ecwid.storefrontV3.enabled"] = false;
+    rtFlags["ecom.ecwid.old.store.fix.facebook.share"] = true;
+    rtFlags["feature.flag.photo.gallery.exact.size"] =true;
+    rtFlags["geocode.search.localize"] =false;
+    rtFlags["feature.flag.runtime.newAnimation.asyncInit.setTimeout.enabled"] =false;
+    rtFlags["twitter.heightLimit.enabled"] = true;
+    rtFlags["runtime.lottieOverflow"] =false;
+    rtFlags["runtime.monitoring.sentry.ignoreErrors"] = "";
+    rtFlags["contact.form.browserValidation.enabled"] =true;
+    rtFlags["streamline.monolith.personalization.supportMultipleConditions.enabled"] =false;
+    rtFlags["runtime.cwv.report.cls.enabled"] =true;
+    rtFlags["runtime.cwv.report.lcp.enabled"] =false;
+    rtFlags["flex.runtime.popup.with.show"] =true;
+    rtFlags["contact.form.useActiveForm"] =true;
+    rtFlags["runtime.ssr.productStore.internal.observer"] =true;
+    rtFlags["runtime.ssr.productCustomizations"] =true;
+</script>
+<script src="https://static.cdn-website.com/mnlt/production/5939/_dm/s/rt/dist/scripts/d-js-one-runtime-unified-desktop.min.js"  id="d-js-core"></script>
+<!-- End of HEAD RT JS Include -->
+<script src="https://static.cdn-website.com/mnlt/production/5939/_dm/s/rt/dist/scripts/d-js-jquery-migrate.min.js" ></script>
+<script>
+    
+    $(window).bind("orientationchange", function (e) {
+        $.layoutManager.initLayout();
+        
+    });
+    $(document).resize(function () {
+        
+    });
+</script>
+<script type="text/javascript" id="d_track_campaign">
+(function() {
+    if (!window.location.search) {
+        return;
+    }
+	const cleanParams = window.location.search.substring(1); // Strip ?
+	const queryParams = cleanParams.split('&');
+
+	const expires = 'expires=' + new Date().getTime() + 24 * 60 * 60 * 1000;
+	const domain = 'domain=' + window.location.hostname;
+	const path = "path=/";
+
+	queryParams.forEach((param) => {
+		const [key, value = ''] = param.split('=');
+		if (key.startsWith('utm_')) {
+			const cookieName = "_dm_rt_" + key.substring(4);
+			const cookie = cookieName + "=" + value;
+			const joined = [cookie, expires, domain, path].join(";");
+			document.cookie = joined;
+		}
+	});
+}());
+</script>
+<script type="text/javascript" >
+  var _dm_gaq = {};
+  var _gaq = _gaq || [];
+  var _dm_insite = [];
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6NW3TEY7VJ"></script>
+<script type="text/javascript" id="d_track_ga">
+  _dm_gaq.siteAlias = '6f4dfe18';
+  _dm_gaq.systemAggregatedGaqID = '';
+  _dm_gaq.externalGaqID = 'G-6NW3TEY7VJ';
+  _dm_gaq.gaAggregatedEventAttributes = {
+	  'site_alias':  _dm_gaq.siteAlias,
+	  'product': 'DM_DIRECT',
+	  'plan': 'BUSINESS_PLUS',
+	  'dfooter': 'false',
+	  'sitetype': '1',
+	  'pwaEnabled': 'true'
+  }
+
+  _dm_gaq.pushEvent = function(trackingId, event, category, label, value, additionalParams = {}) {
+	  const eventProps = {
+		  send_to: trackingId,
+		  event_category: category,
+		  event_label: label,
+		  value,
+		  ...additionalParams,
+		  ...(trackingId === _dm_gaq.systemAggregatedGaqID
+				  ? _dm_gaq.gaAggregatedEventAttributes : {})
+	  };
+	  gtag('event', event, eventProps);
+  }
+
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+  function pushInsiteImpressions(id) {
+	  _dm_insite.forEach((rule) => {
+		  _dm_gaq.pushEvent(id, 'insite_impression', 'insite', rule.ruleType + '__' + rule.ruleId);
+	  });
+  }
+
+if(_dm_gaq.systemAggregatedGaqID){
+	// track aggregated account
+	gtag('config', '', {
+		'send_page_view': false,
+		'anonymize_ip': true,
+		'transport_type': 'beacon',
+		'custom_map': {'dimension1': 'site_alias', 'dimension2': 'product', 'dimension3': 'dFooter', 'dimension4': 'sitetype'}
+	});
+	gtag('set', 'developer_id.dMDU5Nj', true);
+
+	_dm_gaq.pushEvent('', 'page_view');
+	pushInsiteImpressions(_dm_gaq.systemAggregatedGaqID);
+}
+
+if(_dm_gaq.externalGaqID && _dm_gaq.externalGaqID!= '') {
+	gtag('config', 'G-6NW3TEY7VJ', {
+		'send_page_view': false,
+		'anonymize_ip': true,
+		'transport_type': 'beacon',
+		'linker': {
+			'domains': ['alliedprioritycare.com.au']
+		}
+	});
+	_dm_gaq.pushEvent('G-6NW3TEY7VJ', 'page_view');
+	pushInsiteImpressions(_dm_gaq.externalGaqID);
+}
+</script>
+<script type="text/javascript" id="d_track_sp">
+;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d32hwlnfiv2gyn.cloudfront.net/sp-2.0.0-dm-0.1.min.js","snowplow"));
+window.dmsnowplow  = window.snowplow;
+
+dmsnowplow('newTracker', 'cf', 'd32hwlnfiv2gyn.cloudfront.net', { // Initialise a tracker
+  appId: '6f4dfe18'
+});
+
+// snowplow queries element styles so we wait until CSS calculations are done.
+requestAnimationFrame(() => {
+	dmsnowplow('trackPageView');
+	_dm_insite.forEach((rule) => {
+		// Specifically in popup only the client knows if it is shown or not so we don't always want to track its impression here
+		// the tracking is in popup.js
+		if (rule.actionName !== "popup") {
+			dmsnowplow('trackStructEvent', 'insite', 'impression', rule.ruleType, rule.ruleId);
+		}
+		window?.waitForDeferred?.('dmAjax', () => {
+			$.DM.events.trigger('event-ruleTriggered', {value: rule});
+		});
+	});
+});
+</script>
+   <div style="display:none;" id="P6iryBW0Wu"></div>
+
+<!-- photoswipe markup -->
+
+
+
+
+
+
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="fb-root"
+        data-locale="en"></div>
+<!-- Alias: 6f4dfe18 -->
+<div class="dmPopupMask" id="dmPopupMask"></div>
+<div id="dmPopup" class="dmPopup">
+	<div class="dmPopupCloseWrapper"> <div class="dmPopupClose dm-common-icons-close oneIcon" onclick="dmHidePopup(event);"></div> </div>
+ 	<div class="dmPopupTitle"> <span></span> Share by:</div> 
+	<div class="data"></div>
+</div><script id="d_track_personalization">
+	window?.waitForDeferred?.('dmAjax', () => {
+		// Collects client data and updates cookies used by smart sites
+		window.expireDays = 365;
+		window.visitLength = 30 * 60000;
+		$.setCookie("dm_timezone_offset", (new Date()).getTimezoneOffset(), window.expireDays);
+			setSmartSiteCookiesInternal("dm_this_page_view","dm_last_page_view","dm_total_visits","dm_last_visit");
+	});
+</script>
+<script type="text/javascript">
+    
+    Parameters.NavigationAreaParams.MoreButtonText = 'MORE';
+    
+    Parameters.NavigationAreaParams.LessButtonText = 'LESS';
+    Parameters.HomeLinkText = 'Home';
+    </script>
+<!--  End Script tags -->
+<!--  Begin Body End Markup -->
+<script>(function(d){var s = d.createElement("script");s.setAttribute("data-account", "xWqaZJJPIN");s.setAttribute("src", "https://cdn.userway.org/widget.js");(d.body || d.head).appendChild(s);})(document)</script><noscript>Please ensure Javascript is enabled for purposes of <a href="https://userway.org">website accessibility</a></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Allied Priority Care",
+  "image": "https://lirp.cdn-website.com/6f4dfe18/dms3rep/multi/opt/Allied-Priority-Care-Logo-fcb601e1-1920w.png",
+  "@id": "https://www.alliedprioritycare.com.au/",
+  "url": "https://www.alliedprioritycare.com.au/",
+  "telephone": "1300 272 365",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "13-15 David St",
+    "addressLocality": "Dandenong",
+    "addressRegion": "VIC",
+    "postalCode": "3175",
+    "addressCountry": "AU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -37.987461,
+    "longitude": 145.214859
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  } 
+}
+</script><!--  End Body End Markup -->
+<!--  Site Wide Html Markup -->
+<!--  Site Wide Html Markup -->
+</body>
+</html>

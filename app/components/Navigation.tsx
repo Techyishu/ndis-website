@@ -1,10 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -14,104 +27,215 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { 
-      href: "/services", 
-      label: "Services",
-      submenu: [
-        { href: "/services#core", label: "Core Supports" },
-        { href: "/services#capacity", label: "Capacity Building" },
-      ]
+  const menuItems = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    {
+      name: "Services",
+      dropdown: [
+        { name: "Core Supports", href: "/services/core-supports" },
+        { name: "Capacity Building", href: "/services/capacity-building" },
+      ],
     },
-    { href: "/testimonials", label: "Testimonials" },
-    { href: "/contact", label: "Contact" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-md py-2" : "bg-white/95 backdrop-blur-sm py-4"
+        }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 sm:h-20">
-          <Link href="/" className="flex items-center">
-            <span className="text-xl sm:text-2xl font-bold text-emerald-600">ECS</span>
-            <span className="ml-2 text-xs sm:text-sm text-gray-600 hidden sm:inline">
-              EverCare Community Support
-            </span>
-          </Link>
+        <div className="flex justify-between items-center h-20">
+          {/* Logo */}
+          <div className="flex-shrink-0 flex items-center">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative w-16 h-16 transition-transform duration-300 group-hover:scale-105">
+                <Image
+                  src="/images/logo.jpg"
+                  alt="EverCare Logo"
+                  width={64}
+                  height={64}
+                  className="object-contain rounded-lg"
+                  priority
+                />
+              </div>
+              <span className="text-2xl font-bold text-primary tracking-tight group-hover:text-primary-light transition-colors">
+                EverCare
+              </span>
+            </Link>
+          </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <div key={link.href} className="relative group">
-                <Link
-                  href={link.href}
-                  className="text-gray-700 hover:text-emerald-600 transition-colors duration-200 font-medium"
-                >
-                  {link.label}
-                </Link>
+            {menuItems.map((item) => (
+              <div key={item.name} className="relative group">
+                {item.dropdown ? (
+                  <Link
+                    href="/services"
+                    className="flex items-center text-gray-700 hover:text-secondary font-medium transition-colors py-2 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    {item.name}
+                    <svg
+                      className="ml-1 w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </Link>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="text-gray-700 hover:text-secondary font-medium transition-colors relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    {item.name}
+                  </Link>
+                )}
+
+                {/* Dropdown */}
+                {item.dropdown && (
+                  <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left border-t-4 border-secondary z-50">
+                    {item.dropdown.map((subItem) => (
+                      <Link
+                        key={subItem.name}
+                        href={subItem.href}
+                        className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-secondary transition-colors"
+                      >
+                        {subItem.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
             <Link
               href="/contact"
-              className="bg-emerald-600 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors duration-200 text-sm sm:text-base"
+              className="btn btn-accent text-white px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
             >
-              CALL NOW
+              Get Support
             </Link>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            onClick={handleToggle}
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-            aria-label="Toggle menu"
-            aria-expanded={isOpen}
-          >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-700 hover:text-primary focus:outline-none p-2"
             >
-              {isOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+              <svg
+                className="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {isOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden border-t border-gray-200">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={handleLinkClick}
-                className="block px-3 py-2 text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 rounded-md transition-colors duration-200 font-medium"
-              >
-                {link.label}
-              </Link>
-            ))}
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden bg-white border-t border-gray-100 transition-all duration-300 ease-in-out ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+          }`}
+      >
+        <div className="px-4 pt-2 pb-6 space-y-2 shadow-inner">
+          {menuItems.map((item) => (
+            <div key={item.name}>
+              {item.dropdown ? (
+                <>
+                  <div className="flex items-center gap-2">
+                    <Link
+                      href="/services"
+                      className="flex-1 px-3 py-3 text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50 rounded-md transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                    <button
+                      onClick={() => setServicesOpen(!servicesOpen)}
+                      className="px-3 py-3 text-gray-700 hover:text-secondary hover:bg-gray-50 rounded-md transition-colors"
+                      aria-label="Toggle services menu"
+                    >
+                      <svg
+                        className={`w-4 h-4 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""
+                          }`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div
+                    className={`pl-4 space-y-1 transition-all duration-200 ${servicesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+                      }`}
+                  >
+                    {item.dropdown.map((subItem) => (
+                      <Link
+                        key={subItem.name}
+                        href={subItem.href}
+                        className="block px-3 py-2 text-sm text-gray-600 hover:text-secondary hover:bg-gray-50 rounded-md transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {subItem.name}
+                      </Link>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <Link
+                  href={item.href}
+                  className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50 rounded-md transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              )}
+            </div>
+          ))}
+          <div className="pt-4">
             <Link
               href="/contact"
-              onClick={handleLinkClick}
-              className="block px-3 py-2 bg-emerald-600 text-white rounded-md font-semibold text-center"
+              className="block w-full text-center btn btn-accent text-white px-6 py-3 rounded-lg shadow-md"
+              onClick={() => setIsOpen(false)}
             >
-              CALL NOW
+              Get Support
             </Link>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
 
 export default Navigation;
+

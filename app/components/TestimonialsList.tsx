@@ -88,7 +88,7 @@ export default function TestimonialsList() {
               </div>
             )}
             <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed italic mb-4 sm:mb-6">
-              "{testimonial.content}"
+              &quot;{testimonial.content}&quot;
             </p>
             <div className="border-t border-gray-200 pt-3 sm:pt-4">
               <p className="font-bold text-gray-900 text-base sm:text-lg">{testimonial.name}</p>
