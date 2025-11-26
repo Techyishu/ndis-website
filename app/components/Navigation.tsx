@@ -117,7 +117,7 @@ const Navigation = () => {
             ))}
             <Link
               href="/contact"
-              className="btn btn-accent text-white px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
+              className="btn btn-accent text-white px-6 py-2.5 rounded-full"
             >
               Get Support
             </Link>
@@ -225,7 +225,7 @@ const Navigation = () => {
           <div className="pt-4">
             <Link
               href="/contact"
-              className="block w-full text-center btn btn-accent text-white px-6 py-3 rounded-lg shadow-md"
+              className="block w-full text-center btn btn-accent text-white px-6 py-3 rounded-lg"
               onClick={() => setIsOpen(false)}
             >
               Get Support

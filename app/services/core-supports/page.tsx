@@ -3,30 +3,31 @@ import ImagePlaceholder from "../../components/ImagePlaceholder";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Core Supports | EverCare Community Support",
-    description: "Assistance with daily living, household tasks, and community participation to help you maintain independence.",
+    title: "NDIS Core Supports Melbourne & Victoria | Daily Living Assistance | EverCare",
+    description: "NDIS core supports in Melbourne and Victoria. Daily living assistance, household tasks, personal care, community participation, and transport support. Professional NDIS registered provider serving greater Melbourne.",
+    keywords: "NDIS core supports Melbourne, daily living assistance Victoria, NDIS personal care Melbourne, household tasks support, community participation NDIS, NDIS transport support Victoria",
 };
 
 export default function CoreSupportsPage() {
     return (
         <div className="bg-white">
             {/* Hero Section */}
-            <section className="relative py-20 bg-emerald-900 text-white overflow-hidden">
+            <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-r from-primary to-primary-dark text-white overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
                     <div className="absolute inset-0 bg-[url('/patterns/circuit-board.svg')]"></div>
                 </div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up text-white">
                         Core Supports
                     </h1>
-                    <p className="text-xl text-emerald-100 max-w-3xl mx-auto animate-fade-in-up delay-100">
+                    <p className="text-xl text-white/90 max-w-3xl mx-auto animate-fade-in-up delay-100">
                         Essential assistance to help you with everyday activities and maintain your independence.
                     </p>
                 </div>
             </section>
 
             {/* Main Content */}
-            <section className="py-20">
+            <section className="py-12 sm:py-16 md:py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                         {/* Sidebar Navigation */}
@@ -80,7 +81,7 @@ export default function CoreSupportsPage() {
                                 <p className="text-lg text-gray-600 mb-4">
                                     We provide flexible support with personal care and daily activities to help you live as independently as possible at home.
                                 </p>
-                                <ul className="space-y-2 text-gray-600 list-disc list-inside marker:text-primary">
+                                <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
                                     <li>Personal hygiene and grooming</li>
                                     <li>Dressing and getting ready for the day</li>
                                     <li>Meal preparation and assistance with eating</li>
@@ -95,7 +96,7 @@ export default function CoreSupportsPage() {
                                 <p className="text-lg text-gray-600 mb-4">
                                     Keeping your home clean and organized is important for your wellbeing. Our team can assist with a range of domestic chores.
                                 </p>
-                                <ul className="space-y-2 text-gray-600 list-disc list-inside marker:text-primary">
+                                <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
                                     <li>General cleaning and tidying</li>
                                     <li>Laundry and ironing</li>
                                     <li>Changing bed linen</li>
@@ -119,7 +120,7 @@ export default function CoreSupportsPage() {
                                 <p className="text-lg text-gray-600 mb-4">
                                     Stay connected and active in your community. We support you to join in social activities, clubs, and events that you enjoy.
                                 </p>
-                                <ul className="space-y-2 text-gray-600 list-disc list-inside marker:text-primary">
+                                <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
                                     <li>Attending social groups and clubs</li>
                                     <li>Going to the movies, concerts, or sporting events</li>
                                     <li>Visiting the library or museum</li>
@@ -134,7 +135,7 @@ export default function CoreSupportsPage() {
                                 <p className="text-lg text-gray-600 mb-4">
                                     Getting around safely is key to independence. We offer transport assistance to help you get to appointments, work, or social outings.
                                 </p>
-                                <ul className="space-y-2 text-gray-600 list-disc list-inside marker:text-primary">
+                                <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
                                     <li>Transport to medical appointments</li>
                                     <li>Travel training to use public transport</li>
                                     <li>Driving you to shopping or activities</li>
@@ -147,7 +148,7 @@ export default function CoreSupportsPage() {
             </section>
 
             {/* CTA */}
-            <section className="py-20 bg-gray-50 text-center">
+            <section className="py-12 sm:py-16 md:py-20 bg-gray-50 text-center">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-gray-900 mb-6">Need help with Core Supports?</h2>
                     <p className="text-xl text-gray-600 mb-10">

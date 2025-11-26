@@ -1,0 +1,10 @@
+# Allow all search engines to index the site
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.evercare.com.au/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+

@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Terms of Service | EverCare Community Support",
-    description: "Terms and conditions for using the EverCare Community Support website.",
+    title: "Terms of Service | EverCare Community Support | NDIS Provider Melbourne Victoria",
+    description: "Terms and conditions for using the EverCare Community Support website. NDIS registered provider serving Melbourne and Victoria with professional disability support services.",
 };
 
 export default function TermsPage() {

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import DynamicHero from "./components/DynamicHero";
 import TestimonialsList from "./components/TestimonialsList";
 import WhyChooseUs from "./components/WhyChooseUs";
@@ -6,8 +7,9 @@ import FAQ from "./components/FAQ";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "EverCare Community Support | NDIS Provider Victoria",
-    description: "Compassionate, nurse-led NDIS support in Victoria. We offer core supports, capacity building, and community access tailored to your needs.",
+    title: "EverCare Community Support | NDIS Provider Melbourne & Victoria | Nurse-Led Disability Support",
+    description: "Leading NDIS provider in Melbourne and Victoria offering compassionate, nurse-led disability support services. Core supports, capacity building, community access, and support coordination across greater Melbourne. NDIS registered provider.",
+    keywords: "NDIS provider Melbourne, NDIS provider Victoria, disability support services Melbourne, NDIS registered provider, nurse-led NDIS support, NDIS support coordination Victoria, disability care Melbourne, NDIS capacity building, NDIS core supports",
 };
 
 export default function Home() {
@@ -17,9 +19,9 @@ export default function Home() {
             <DynamicHero />
 
             {/* About Snippet Section */}
-            <section className="py-20 bg-white">
+            <section className="py-12 sm:py-16 md:py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
                         <div className="animate-fade-in-up">
                             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                                 Compassionate Care, <span className="text-primary">Your Way</span>
@@ -34,12 +36,30 @@ export default function Home() {
                                 Read Our Story
                             </Link>
                         </div>
-                        <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl animate-fade-in-up delay-200 bg-gray-100">
-                            {/* Placeholder for About Image - In a real app, use Next.js Image */}
-                            <div className="absolute inset-0 bg-emerald-50 flex items-center justify-center text-emerald-200">
-                                <svg className="w-32 h-32" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                                </svg>
+                        <div className="relative h-[400px] sm:h-[450px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl animate-fade-in-up delay-200 group">
+                            <Image
+                                src="/images/about-team.png"
+                                alt="EverCare Community Support Team"
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                            />
+                            {/* Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            
+                            {/* Decorative Badge */}
+                            <div className="absolute top-6 right-6 bg-white rounded-xl shadow-lg p-4 transform translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p className="text-sm font-bold text-gray-900">Care with Heart</p>
+                                        <p className="text-xs text-gray-600">Since 2010</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -47,9 +67,9 @@ export default function Home() {
             </section>
 
             {/* Services Overview Section */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
+                    <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 animate-fade-in-up">
                         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
                         <p className="text-lg text-gray-600">
                             Tailored support designed to help you thrive at home and in the community.
@@ -57,61 +77,94 @@ export default function Home() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Service Card 1 */}
-                        <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:border-primary/20 animate-fade-in-up delay-100">
-                            <div className="w-14 h-14 bg-primary rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md">
-                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                                </svg>
+                        {/* Service Card 1 - Core Supports */}
+                        <Link href="/services/core-supports" className="group block animate-fade-in-up delay-100">
+                            <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-primary transform hover:-translate-y-2 h-full">
+                                {/* Gradient Background Accent */}
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"></div>
+                                
+                                {/* Icon */}
+                                <div className="relative w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all shadow-lg">
+                                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                    </svg>
+                                </div>
+                                
+                                <h3 className="text-2xl font-bold text-gray-900 mb-3 relative">Core Supports</h3>
+                                <p className="text-gray-600 mb-6 leading-relaxed">
+                                    Assistance with daily living activities, household tasks, and personal care to help you maintain independence.
+                                </p>
+                                
+                                <div className="flex items-center text-primary font-bold group-hover:gap-2 transition-all">
+                                    Learn More 
+                                    <svg className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </div>
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">Core Supports</h3>
-                            <p className="text-gray-600 mb-6">
-                                Assistance with daily living activities, household tasks, and personal care to help you maintain independence.
-                            </p>
-                            <Link href="/services/core-supports" className="text-primary font-semibold hover:text-primary-dark inline-flex items-center group-hover:translate-x-1 transition-transform">
-                                Learn More <span className="ml-1">&rarr;</span>
-                            </Link>
-                        </div>
+                        </Link>
 
-                        {/* Service Card 2 */}
-                        <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:border-primary/20 animate-fade-in-up delay-200">
-                            <div className="w-14 h-14 bg-secondary rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md">
-                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
+                        {/* Service Card 2 - Capacity Building */}
+                        <Link href="/services/capacity-building" className="group block animate-fade-in-up delay-200">
+                            <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-secondary transform hover:-translate-y-2 h-full">
+                                {/* Gradient Background Accent */}
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/10 to-transparent rounded-bl-full"></div>
+                                
+                                {/* Icon */}
+                                <div className="relative w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all shadow-lg">
+                                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                
+                                <h3 className="text-2xl font-bold text-gray-900 mb-3 relative">Capacity Building</h3>
+                                <p className="text-gray-600 mb-6 leading-relaxed">
+                                    Skill development, therapy support, and training to help you build independence and achieve your long-term goals.
+                                </p>
+                                
+                                <div className="flex items-center text-secondary font-bold group-hover:gap-2 transition-all">
+                                    Learn More 
+                                    <svg className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </div>
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">Capacity Building</h3>
-                            <p className="text-gray-600 mb-6">
-                                Skill development, therapy support, and training to help you build independence and achieve your long-term goals.
-                            </p>
-                            <Link href="/services/capacity-building" className="text-secondary font-semibold hover:text-secondary-dark inline-flex items-center group-hover:translate-x-1 transition-transform">
-                                Learn More <span className="ml-1">&rarr;</span>
-                            </Link>
-                        </div>
+                        </Link>
 
-                        {/* Service Card 3 */}
-                        <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group hover:border-primary/20 animate-fade-in-up delay-300">
-                            <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md">
-                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                </svg>
+                        {/* Service Card 3 - Community Access */}
+                        <Link href="/services/core-supports#community" className="group block animate-fade-in-up delay-300">
+                            <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-accent transform hover:-translate-y-2 h-full">
+                                {/* Gradient Background Accent */}
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-full"></div>
+                                
+                                {/* Icon */}
+                                <div className="relative w-16 h-16 bg-gradient-to-br from-accent to-accent-hover rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all shadow-lg">
+                                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </div>
+                                
+                                <h3 className="text-2xl font-bold text-gray-900 mb-3 relative">Community Access</h3>
+                                <p className="text-gray-600 mb-6 leading-relaxed">
+                                    Support to participate in social activities, community events, and recreational programs you enjoy.
+                                </p>
+                                
+                                <div className="flex items-center text-accent font-bold group-hover:gap-2 transition-all">
+                                    Learn More 
+                                    <svg className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </div>
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">Community Access</h3>
-                            <p className="text-gray-600 mb-6">
-                                Support to participate in social activities, community events, and recreational programs you enjoy.
-                            </p>
-                            <Link href="/services/core-supports#community" className="text-accent font-semibold hover:text-accent-hover inline-flex items-center group-hover:translate-x-1 transition-transform">
-                                Learn More <span className="ml-1">&rarr;</span>
-                            </Link>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </section>
 
             {/* Stats Section */}
-            <section className="py-16 bg-primary text-white">
+            <section className="py-10 sm:py-12 md:py-16 bg-primary text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
                         <div className="animate-fade-in-up">
                             <div className="text-4xl md:text-5xl font-bold mb-2 text-secondary-light">500+</div>
                             <div className="text-gray-300 text-sm md:text-base">Participants Supported</div>
@@ -133,9 +186,9 @@ export default function Home() {
             </section>
 
             {/* How It Works Section */}
-            <section className="py-20 bg-white">
+            <section className="py-12 sm:py-16 md:py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
+                    <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 animate-fade-in-up">
                         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How We Work With You</h2>
                         <p className="text-lg text-gray-600">
                             Starting your journey with EverCare is simple. We've streamlined our process to make it easy as possible.
@@ -180,9 +233,9 @@ export default function Home() {
             </section>
 
             {/* Benefits Section */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
+                    <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 animate-fade-in-up">
                         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">The EverCare Difference</h2>
                         <p className="text-lg text-gray-600">
                             What sets us apart as a trusted NDIS provider in Victoria.
@@ -254,9 +307,9 @@ export default function Home() {
             </section>
 
             {/* Testimonials Section */}
-            <section className="py-20 bg-white">
+            <section className="py-12 sm:py-16 md:py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
+                    <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 animate-fade-in-up">
                         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">What Our Community Says</h2>
                         <p className="text-lg text-gray-600">
                             Hearing from our participants and their families drives everything we do.
@@ -273,20 +326,20 @@ export default function Home() {
             <FAQ />
 
             {/* CTA Section */}
-            <section className="py-20 bg-primary relative overflow-hidden">
+            <section className="py-12 sm:py-16 md:py-20 bg-primary relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/patterns/circuit-board.svg')] opacity-10"></div>
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-white">
                         Ready to Start Your Journey?
                     </h2>
-                    <p className="text-xl text-emerald-100 mb-10 leading-relaxed">
+                    <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 md:mb-10 leading-relaxed">
                         We&apos;re here to answer your questions and help you navigate your NDIS plan. Let&apos;s chat about how we can support you.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/contact" className="btn btn-accent text-lg px-10 py-4 shadow-xl">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                        <Link href="/contact" className="btn btn-accent text-base sm:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 shadow-xl">
                             Contact Us Today
                         </Link>
-                        <Link href="/services" className="btn bg-white text-primary hover:bg-gray-100 text-lg px-10 py-4">
+                        <Link href="/services" className="btn bg-white text-primary hover:bg-gray-100 text-base sm:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4">
                             View All Services
                         </Link>
                     </div>

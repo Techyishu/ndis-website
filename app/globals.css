@@ -3,31 +3,46 @@
 :root {
   /* Base Colors */
   --background: #ffffff;
-  --foreground: #3d4852;
-  /* Dark Gray Text */
+  --foreground: #1a1a1a;
+  /* Darker text for better contrast */
 
-  /* Brand Colors - Extracted from Logo */
-  --primary: #002B49;
-  /* Deep Navy Blue (from logo text) */
-  --primary-light: #004d7a;
-  --primary-dark: #001829;
+  /* Brand Colors - Vibrant & Eye-catching */
+  --primary: #0066CC;
+  /* Vibrant Royal Blue - main brand color */
+  --primary-light: #3399FF;
+  /* Bright Blue */
+  --primary-dark: #004999;
+  /* Deep Blue */
 
-  --secondary: #00A99D;
-  /* Teal/Green (from logo icon) */
-  --secondary-light: #2cc7bb;
-  --secondary-dark: #008578;
+  --secondary: #00C896;
+  /* Bright Teal/Green - pops more */
+  --secondary-light: #33E6B4;
+  /* Light Bright Teal */
+  --secondary-dark: #009973;
+  /* Deep Teal */
 
-  --accent: #662D91;
-  /* Purple (from logo accent/check) */
-  --accent-hover: #532476;
+  --accent: #FF6B35;
+  /* Vibrant Orange - highly visible CTA color */
+  --accent-hover: #FF5722;
+  /* Deeper Orange */
+  --accent-light: #FF8A5C;
+  /* Lighter Orange */
 
   /* UI Colors */
-  --muted: #f7f7f7;
-  /* Light Gray Background */
-  --muted-foreground: #626262;
-  /* Medium Gray */
-  --border: #dedfe1;
-  /* Light Gray Border */
+  --muted: #f5f7fa;
+  /* Slightly cooler gray background */
+  --muted-foreground: #4a5568;
+  /* Darker gray for better readability */
+  --border: #e2e8f0;
+  /* Cooler gray border */
+  
+  /* Additional Brand Colors */
+  --success: #10B981;
+  /* Green for success states */
+  --warning: #F59E0B;
+  /* Amber for warnings */
+  --info: #3B82F6;
+  /* Blue for info */
 }
 
 @theme inline {
@@ -40,13 +55,19 @@
 
   --color-secondary: var(--secondary);
   --color-secondary-light: var(--secondary-light);
+  --color-secondary-dark: var(--secondary-dark);
 
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
 
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
+  
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
 
   --font-heading: 'Poppins', sans-serif;
   --font-body: 'Lato', sans-serif;
@@ -71,28 +92,48 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--primary);
   font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
+/* Default heading colors - but allow text-white and other utility classes to override */
+h1:not([class*="text-"]),
+h2:not([class*="text-"]),
+h3:not([class*="text-"]),
+h4:not([class*="text-"]),
+h5:not([class*="text-"]),
+h6:not([class*="text-"]) {
+  color: var(--foreground);
+}
+
+/* Make body text darker for better readability */
+p:not([class*="text-"]), 
+li:not([class*="text-"]), 
+span:not([class*="text-"]) {
+  color: var(--foreground);
+}
+
 /* Button Utilities */
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-bold text-base transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0;
   }
 
   .btn-primary {
-    @apply bg-primary text-white hover:bg-primary-dark focus:ring-primary;
+    @apply bg-primary text-white hover:bg-primary-dark focus:ring-primary-light hover:scale-105;
   }
 
   .btn-secondary {
-    @apply bg-white text-primary border-2 border-primary hover:bg-primary-light hover:text-white focus:ring-primary;
+    @apply bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary-light hover:scale-105;
   }
 
   .btn-accent {
-    @apply bg-accent text-white hover:bg-accent-hover focus:ring-accent shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+    @apply bg-accent text-white hover:bg-accent-hover focus:ring-accent-light hover:scale-105 shadow-xl;
+  }
+  
+  .btn-outline {
+    @apply bg-white text-primary border-3 border-primary hover:bg-primary hover:text-white focus:ring-primary shadow-md;
   }
 }
 

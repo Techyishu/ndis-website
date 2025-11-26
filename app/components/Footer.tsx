@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white pt-16 pb-8 border-t border-primary-light">
+    <footer className="bg-primary text-white pt-10 sm:pt-12 md:pt-16 pb-6 sm:pb-8 border-t border-primary-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-12">
           {/* Brand Column */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
@@ -124,7 +124,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-light/30 pt-8 mt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-primary-light/30 pt-6 sm:pt-8 mt-6 sm:mt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-sm">
             &copy; {new Date().getFullYear()} EverCare Community Support. All rights reserved.
           </p>

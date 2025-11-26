@@ -3,30 +3,31 @@ import ImagePlaceholder from "../../components/ImagePlaceholder";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Capacity Building | EverCare Community Support",
-    description: "Build skills, improve health and wellbeing, and achieve your goals with our capacity building supports.",
+    title: "NDIS Capacity Building Melbourne & Victoria | Support Coordination | EverCare",
+    description: "NDIS capacity building services in Melbourne and Victoria. Skill development, support coordination, health and wellbeing, employment support, and therapy services. Expert NDIS provider across greater Melbourne.",
+    keywords: "NDIS capacity building Melbourne, support coordination Victoria, NDIS skill development, NDIS employment support Melbourne, therapy support Victoria, NDIS health wellbeing",
 };
 
 export default function CapacityBuildingPage() {
     return (
         <div className="bg-white">
             {/* Hero Section */}
-            <section className="relative py-20 bg-teal-900 text-white overflow-hidden">
+            <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-r from-secondary to-secondary-dark text-white overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
                     <div className="absolute inset-0 bg-[url('/patterns/circuit-board.svg')]"></div>
                 </div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up text-white">
                         Capacity Building
                     </h1>
-                    <p className="text-xl text-teal-100 max-w-3xl mx-auto animate-fade-in-up delay-100">
+                    <p className="text-xl text-white/90 max-w-3xl mx-auto animate-fade-in-up delay-100">
                         Empowering you with the skills and confidence to achieve your long-term goals.
                     </p>
                 </div>
             </section>
 
             {/* Main Content */}
-            <section className="py-20">
+            <section className="py-12 sm:py-16 md:py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                         {/* Sidebar Navigation */}
@@ -80,7 +81,7 @@ export default function CapacityBuildingPage() {
                                 <p className="text-lg text-gray-600 mb-4">
                                     We focus on building your independence through targeted training and development. Whether it&apos;s learning to cook, manage a budget, or use public transport, we&apos;re here to guide you.
                                 </p>
-                                <ul className="space-y-2 text-gray-600 list-disc list-inside marker:text-secondary">
+                                <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
                                     <li>Life skills training (cooking, cleaning, budgeting)</li>
                                     <li>Social skills development</li>
                                     <li>Technology and computer literacy</li>
@@ -95,7 +96,7 @@ export default function CapacityBuildingPage() {
                                 <p className="text-lg text-gray-600 mb-4">
                                     Your physical and mental health are our priority. We can connect you with allied health professionals and support you to maintain a healthy lifestyle.
                                 </p>
-                                <ul className="space-y-2 text-gray-600 list-disc list-inside marker:text-secondary">
+                                <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
                                     <li>Exercise physiology and personal training</li>
                                     <li>Dietetics and nutrition advice</li>
                                     <li>Psychology and counseling support</li>
@@ -118,7 +119,7 @@ export default function CapacityBuildingPage() {
                                 <p className="text-lg text-gray-600 mb-4">
                                     Navigating the NDIS can be complex. Our Support Coordinators help you understand your plan, connect with providers, and get the most out of your funding.
                                 </p>
-                                <ul className="space-y-2 text-gray-600 list-disc list-inside marker:text-secondary">
+                                <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
                                     <li>Understanding your NDIS plan</li>
                                     <li>Connecting with service providers</li>
                                     <li>Negotiating service agreements</li>
@@ -133,7 +134,7 @@ export default function CapacityBuildingPage() {
                                 <p className="text-lg text-gray-600 mb-4">
                                     Finding and keeping a job is a major goal for many. We provide support to help you get work-ready and succeed in the workplace.
                                 </p>
-                                <ul className="space-y-2 text-gray-600 list-disc list-inside marker:text-secondary">
+                                <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
                                     <li>Resume writing and interview preparation</li>
                                     <li>Job search assistance</li>
                                     <li>On-the-job support and coaching</li>
@@ -146,7 +147,7 @@ export default function CapacityBuildingPage() {
             </section>
 
             {/* CTA */}
-            <section className="py-20 bg-gray-50 text-center">
+            <section className="py-12 sm:py-16 md:py-20 bg-gray-50 text-center">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-gray-900 mb-6">Ready to build your capacity?</h2>
                     <p className="text-xl text-gray-600 mb-10">

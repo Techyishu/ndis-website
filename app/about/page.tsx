@@ -5,30 +5,31 @@ import ImagePlaceholder from "../components/ImagePlaceholder";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | EverCare Community Support",
-  description: "Learn about our story, our nurse-led team, and our values of compassion, integrity, and empowerment.",
+  title: "About Us | EverCare Community Support | NDIS Provider Melbourne Victoria",
+  description: "Meet EverCare Community Support - your trusted NDIS registered provider in Melbourne and Victoria. Nurse-led team delivering compassionate disability support services with integrity and empowerment since establishment.",
+  keywords: "about EverCare, NDIS provider Melbourne, nurse-led disability support Victoria, NDIS registered provider, Melbourne disability services team",
 };
 
 export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 bg-emerald-900 text-white overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-r from-primary to-primary-dark text-white overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[url('/patterns/circuit-board.svg')]"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up text-white">
             Our Story
           </h1>
-          <p className="text-xl text-emerald-100 max-w-3xl mx-auto animate-fade-in-up delay-100">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-fade-in-up delay-100">
             Founded on the belief that everyone deserves compassionate, high-quality care delivered with dignity and respect.
           </p>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-20">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="animate-fade-in-up">
@@ -59,7 +60,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Values</h2>
@@ -69,8 +70,8 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-primary hover:shadow-xl transition-all duration-300">
-              <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6 text-primary">
+            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-primary hover:shadow-xl transition-all duration-300 hover:border-primary-light">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary shadow-md">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
@@ -81,8 +82,8 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-secondary hover:shadow-xl transition-all duration-300">
-              <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-6 text-secondary">
+            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-secondary hover:shadow-xl transition-all duration-300 hover:border-secondary-light">
+              <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 text-secondary shadow-md">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -93,8 +94,8 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-accent hover:shadow-xl transition-all duration-300">
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6 text-accent">
+            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-accent hover:shadow-xl transition-all duration-300 hover:border-accent-light">
+              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-6 text-accent shadow-md">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
@@ -109,7 +110,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Statement Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
@@ -124,7 +125,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Approach Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Approach</h2>
@@ -202,7 +203,7 @@ export default function AboutPage() {
       </section>
 
       {/* Accreditations Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Accreditations & Compliance</h2>
@@ -255,10 +256,10 @@ export default function AboutPage() {
       <TeamSection />
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-white text-center">
+      <section className="py-12 sm:py-16 md:py-20 bg-primary text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Join the EverCare Family</h2>
-          <p className="text-xl text-emerald-100 mb-10">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white">Join the EverCare Family</h2>
+          <p className="text-xl text-white/90 mb-10">
             Whether you need support or want to join our team, we&apos;d love to hear from you.
           </p>
           <Link href="/contact" className="btn btn-accent text-lg px-10 py-4 shadow-xl">

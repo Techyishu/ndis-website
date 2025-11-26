@@ -46,39 +46,26 @@ export default function TestimonialsList() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {testimonials.map((testimonial, index) => (
         <div
           key={testimonial.id}
-          className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-emerald-300 transform hover:-translate-y-2 animate-fade-in-up"
-          style={{ animationDelay: `${index * 0.15}s`, opacity: 0 }}
+          className="group bg-white rounded-xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden hover:border-primary/50 transform hover:-translate-y-1"
         >
-          {testimonial.image && (
-            <div className="relative h-48 sm:h-64 overflow-hidden">
-              <ImagePlaceholder
-                src={testimonial.image}
-                alt={testimonial.name}
-                width={600}
-                height={300}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-              <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.432.917-3.996 3.638-3.996 5.849h4v10h-10z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          )}
-          <div className="p-5 sm:p-6 md:p-8">
+          {/* Card Header with Quote Icon */}
+          <div className="relative bg-gradient-to-br from-primary/5 to-secondary/5 p-6">
+            <div className="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-br from-primary to-secondary opacity-10 rounded-full blur-xl"></div>
+            <svg className="w-10 h-10 text-secondary/30 mb-3" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.432.917-3.996 3.638-3.996 5.849h4v10h-10z" />
+            </svg>
+            
+            {/* Rating */}
             {testimonial.rating && (
-              <div className="flex items-center gap-1 mb-3 sm:mb-4">
+              <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
                   <svg
                     key={i}
-                    className={`w-4 h-4 sm:w-5 sm:h-5 ${i < testimonial.rating! ? "text-yellow-400" : "text-gray-300"}`}
+                    className={`w-5 h-5 ${i < testimonial.rating! ? "text-yellow-400" : "text-gray-300"}`}
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -87,17 +74,46 @@ export default function TestimonialsList() {
                 ))}
               </div>
             )}
-            <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed italic mb-4 sm:mb-6">
-              &quot;{testimonial.content}&quot;
+          </div>
+
+          {/* Card Content */}
+          <div className="p-6">
+            <p className="text-base text-gray-700 leading-relaxed mb-6 line-clamp-6">
+              "{testimonial.content}"
             </p>
-            <div className="border-t border-gray-200 pt-3 sm:pt-4">
-              <p className="font-bold text-gray-900 text-base sm:text-lg">{testimonial.name}</p>
-              {testimonial.role && testimonial.role !== "Reviewer" && (
-                <p className="text-sm sm:text-base text-gray-600">{testimonial.role}</p>
-              )}
-              {testimonial.location && (
-                <p className="text-xs sm:text-sm text-gray-500 mt-1">{testimonial.location}</p>
-              )}
+
+            {/* Author Info */}
+            <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+              <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                <span className="text-white font-bold text-lg">
+                  {testimonial.name.charAt(0)}
+                </span>
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-bold text-gray-900 truncate">{testimonial.name}</p>
+                {testimonial.role && testimonial.role !== "Reviewer" && (
+                  <p className="text-sm text-gray-600 truncate">{testimonial.role}</p>
+                )}
+                {testimonial.location && (
+                  <div className="flex items-center gap-1 text-xs text-gray-500 mt-0.5">
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <span className="truncate">{testimonial.location}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Verified Badge */}
+          <div className="bg-gradient-to-r from-secondary/10 to-primary/10 px-6 py-3 border-t border-gray-100">
+            <div className="flex items-center justify-center gap-2 text-xs font-medium text-gray-700">
+              <svg className="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              Verified Review
             </div>
           </div>
         </div>
