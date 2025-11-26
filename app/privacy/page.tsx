@@ -19,41 +19,41 @@ export default function PrivacyPage() {
                     <div>
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Information We Collect</h2>
                         <p className="text-lg leading-relaxed mb-4">
-                            We collect personal information that is necessary to provide you with NDIS services. This may include:
-                        </p>
+                        We collect personal information that is necessary to provide you with NDIS services. This may include:
+                    </p>
                         <ul className="list-disc list-inside space-y-2 text-lg ml-4">
-                            <li>Name, contact details, and date of birth</li>
-                            <li>NDIS number and plan details</li>
-                            <li>Health information and disability support needs</li>
-                            <li>Emergency contact details</li>
-                        </ul>
+                        <li>Name, contact details, and date of birth</li>
+                        <li>NDIS number and plan details</li>
+                        <li>Health information and disability support needs</li>
+                        <li>Emergency contact details</li>
+                    </ul>
                     </div>
 
                     <div>
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">2. How We Use Your Information</h2>
                         <p className="text-lg leading-relaxed mb-4">
-                            We use your information to:
-                        </p>
+                        We use your information to:
+                    </p>
                         <ul className="list-disc list-inside space-y-2 text-lg ml-4">
-                            <li>Deliver safe and effective NDIS supports</li>
-                            <li>Communicate with you and your support network</li>
-                            <li>Meet our legal and reporting obligations</li>
-                            <li>Improve our services</li>
-                        </ul>
+                        <li>Deliver safe and effective NDIS supports</li>
+                        <li>Communicate with you and your support network</li>
+                        <li>Meet our legal and reporting obligations</li>
+                        <li>Improve our services</li>
+                    </ul>
                     </div>
 
                     <div>
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Data Security</h2>
                         <p className="text-lg leading-relaxed">
-                            We take reasonable steps to protect your personal information from misuse, loss, unauthorized access, modification, or disclosure. Your data is stored securely and only accessed by authorized staff.
-                        </p>
+                        We take reasonable steps to protect your personal information from misuse, loss, unauthorized access, modification, or disclosure. Your data is stored securely and only accessed by authorized staff.
+                    </p>
                     </div>
 
                     <div>
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Contact Us</h2>
                         <p className="text-lg leading-relaxed">
-                            If you have any questions about our privacy practices or wish to access your personal information, please contact us at privacy@evercare.com.au.
-                        </p>
+                        If you have any questions about our privacy practices or wish to access your personal information, please contact us at privacy@evercare.com.au.
+                    </p>
                     </div>
                 </div>
             </div>
