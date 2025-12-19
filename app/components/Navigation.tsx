@@ -42,27 +42,23 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-md py-2" : "bg-white/95 backdrop-blur-sm py-4"
+      className={`relative z-50 w-full transition-all duration-300 ${scrolled ? "bg-white shadow-md py-2" : "bg-white/95 backdrop-blur-sm py-4"
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo - Polished and Trustworthy */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center gap-3 group" aria-label="EverCare Community Support - Home">
-              <div className="relative w-12 h-12 transition-transform duration-300 group-hover:scale-105">
+            <Link href="/" className="flex items-center group" aria-label="EverCare Community Support - Home">
+              <div className="relative w-28 h-28 sm:w-32 sm:h-32 transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/brand/logo-mark.svg"
-                  alt=""
-                  width={48}
-                  height={48}
+                  src="/brand/logo-mark.png"
+                  alt="EverCare Community Support Logo"
+                  width={128}
+                  height={128}
                   className="object-contain"
                   priority
                 />
               </div>
-              <span className="text-xl sm:text-2xl font-bold text-primary tracking-tight group-hover:text-primary-dark transition-colors">
-                EverCare
-              </span>
             </Link>
           </div>
 
