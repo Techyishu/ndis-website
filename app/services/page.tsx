@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ImagePlaceholder from "../components/ImagePlaceholder";
+import CTASection from "../components/CTASection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -42,7 +43,7 @@ export default function ServicesPage() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                
+
                 {/* Floating Icon */}
                 <div className="absolute top-6 left-6">
                   <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
@@ -69,7 +70,7 @@ export default function ServicesPage() {
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                   Essential support for your daily life. We help you with everyday tasks so you can maintain your independence and live comfortably at home.
                 </p>
-                
+
                 {/* Features List */}
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start gap-3">
@@ -97,7 +98,7 @@ export default function ServicesPage() {
                     <span className="text-gray-700">Community Access & Transport</span>
                   </li>
                 </ul>
-                
+
                 <Link href="/services/core-supports" className="btn btn-primary w-full justify-center">
                   View Core Supports
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -119,7 +120,7 @@ export default function ServicesPage() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                
+
                 {/* Floating Icon */}
                 <div className="absolute top-6 left-6">
                   <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
@@ -146,7 +147,7 @@ export default function ServicesPage() {
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                   Build your skills and independence. We work with you to develop new skills, improve your health and wellbeing, and achieve your long-term goals.
                 </p>
-                
+
                 {/* Features List */}
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start gap-3">
@@ -174,7 +175,7 @@ export default function ServicesPage() {
                     <span className="text-gray-700">Support Coordination</span>
                   </li>
                 </ul>
-                
+
                 <Link href="/services/capacity-building" className="btn btn-secondary w-full justify-center">
                   View Capacity Building
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -188,17 +189,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gray-50 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Not sure what you need?</h2>
-          <p className="text-xl text-gray-600 mb-10">
-            Our team can help you understand your NDIS plan and find the right supports for you.
-          </p>
-          <Link href="/contact" className="btn btn-accent text-lg px-10 py-4">
-            Speak to an Expert
-          </Link>
-        </div>
-      </section>
+      <CTASection />
     </div>
   );
 }

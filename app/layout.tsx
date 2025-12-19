@@ -27,8 +27,8 @@ export default function RootLayout({
     "url": "https://www.evercare.com.au",
     "logo": "https://www.evercare.com.au/images/logo.jpg",
     "image": "https://www.evercare.com.au/images/logo.jpg",
-    "telephone": "1300-XXX-XXX",
-    "email": "hello@everecare.com.au",
+    "telephone": "03 7303 7203",
+    "email": "support@evercarecommunity.com.au",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Melbourne",

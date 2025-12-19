@@ -47,20 +47,20 @@ const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
+          {/* Logo - Polished and Trustworthy */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-16 h-16 transition-transform duration-300 group-hover:scale-105">
+            <Link href="/" className="flex items-center gap-3 group" aria-label="EverCare Community Support - Home">
+              <div className="relative w-12 h-12 transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/images/logo.jpg"
-                  alt="EverCare Logo"
-                  width={64}
-                  height={64}
-                  className="object-contain rounded-lg"
+                  src="/brand/logo-mark.svg"
+                  alt=""
+                  width={48}
+                  height={48}
+                  className="object-contain"
                   priority
                 />
               </div>
-              <span className="text-2xl font-bold text-primary tracking-tight group-hover:text-primary-light transition-colors">
+              <span className="text-xl sm:text-2xl font-bold text-primary tracking-tight group-hover:text-primary-dark transition-colors">
                 EverCare
               </span>
             </Link>
@@ -117,9 +117,14 @@ const Navigation = () => {
             ))}
             <Link
               href="/contact"
-              className="btn btn-accent text-white px-6 py-2.5 rounded-full"
+              className="inline-flex items-center justify-center px-6 py-3 text-base font-bold text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 focus:ring-4 focus:ring-accent-light"
+              style={{ background: 'linear-gradient(135deg, #E8A87C 0%, #D99B6E 100%)' }}
+              aria-label="Get NDIS support - Contact us today"
             >
               Get Support
+              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </Link>
           </div>
 
@@ -225,10 +230,15 @@ const Navigation = () => {
           <div className="pt-4">
             <Link
               href="/contact"
-              className="block w-full text-center btn btn-accent text-white px-6 py-3 rounded-lg"
+              className="flex items-center justify-center w-full text-center text-white px-8 py-4 rounded-xl font-bold shadow-lg"
+              style={{ background: 'linear-gradient(135deg, #E8A87C 0%, #D99B6E 100%)' }}
               onClick={() => setIsOpen(false)}
+              aria-label="Get NDIS support - Contact us today"
             >
               Get Support
+              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </Link>
           </div>
         </div>

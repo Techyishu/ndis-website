@@ -11,12 +11,12 @@ export default function ContactPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="bg-white py-12 sm:py-16 lg:py-24">
+      <section className="bg-gradient-to-b from-white to-muted py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 sm:mb-8">
             Let&apos;s Connect
           </h1>
-          <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-medium">
             We&apos;re so glad you&apos;re here. Whether you are a participant or family member looking for
             support, a support coordinator with a referral, or someone passionate about a career in care,
             this is the right place.
@@ -57,7 +57,7 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="bg-gradient-to-br from-primary/5 to-transparent p-5 sm:p-6 rounded-lg border-l-4 border-primary">
                 <div className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -116,8 +116,8 @@ export default function ContactPage() {
                 <p className="text-white/80 text-sm">Available 24/7</p>
               </div>
               <div className="p-6 text-center">
-                <a href="tel:1300000000" className="text-2xl font-bold text-primary hover:text-primary-dark transition-colors inline-flex items-center gap-2 group">
-                  1300 XXX XXX
+                <a href="tel:0373037203" className="text-2xl font-bold text-primary hover:text-primary-dark transition-colors inline-flex items-center gap-2 group">
+                  03 7303 7203
                   <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
@@ -138,8 +138,8 @@ export default function ContactPage() {
                 <p className="text-white/80 text-sm">We respond within 24 hours</p>
               </div>
               <div className="p-6 text-center">
-                <a href="mailto:hello@everecare.com.au" className="text-lg font-bold text-secondary hover:text-secondary-dark transition-colors inline-flex items-center gap-2 group break-all">
-                  hello@everecare.com.au
+                <a href="mailto:support@evercarecommunity.com.au" className="text-lg font-bold text-secondary hover:text-secondary-dark transition-colors inline-flex items-center gap-2 group break-all">
+                  support@evercarecommunity.com.au
                   <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
@@ -183,7 +183,7 @@ export default function ContactPage() {
                     Are you a <span className="font-semibold text-gray-900">compassionate, reliable, and professional</span> person who is passionate about empowering others?
                   </p>
                 </div>
-                
+
                 <div className="flex items-start gap-3">
                   <svg className="w-6 h-6 text-accent flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

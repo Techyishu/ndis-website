@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import TeamSection from "../components/TeamSection";
 import ImagePlaceholder from "../components/ImagePlaceholder";
+import CTASection from "../components/CTASection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -256,17 +257,7 @@ export default function AboutPage() {
       <TeamSection />
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-primary text-white text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white">Join the EverCare Family</h2>
-          <p className="text-xl text-white/90 mb-10">
-            Whether you need support or want to join our team, we&apos;d love to hear from you.
-          </p>
-          <Link href="/contact" className="btn btn-accent text-lg px-10 py-4 shadow-xl">
-            Get in Touch
-          </Link>
-        </div>
-      </section>
+      <CTASection />
     </div>
   );
 }

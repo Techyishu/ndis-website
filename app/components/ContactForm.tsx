@@ -104,8 +104,10 @@ export default function ContactForm() {
                                     required
                                     value={formData.fullName}
                                     onChange={handleChange}
-                                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-900 placeholder:text-gray-400"
+                                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-900 placeholder:text-gray-400 text-base"
                                     placeholder="John Doe"
+                                    aria-required="true"
+                                    aria-label="Full name"
                                 />
                             </div>
                         </div>
@@ -123,8 +125,10 @@ export default function ContactForm() {
                                     required
                                     value={formData.email}
                                     onChange={handleChange}
-                                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-900 placeholder:text-gray-400"
+                                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-900 placeholder:text-gray-400 text-base"
                                     placeholder="john@example.com"
+                                    aria-required="true"
+                                    aria-label="Email address"
                                 />
                             </div>
                         </div>
@@ -143,8 +147,10 @@ export default function ContactForm() {
                                 required
                                 value={formData.phone}
                                 onChange={handleChange}
-                                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-900 placeholder:text-gray-400"
+                                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-900 placeholder:text-gray-400 text-base"
                                 placeholder="04XX XXX XXX"
+                                aria-required="true"
+                                aria-label="Phone number"
                             />
                         </div>
 
@@ -159,7 +165,9 @@ export default function ContactForm() {
                                 required
                                 value={formData.inquiryType}
                                 onChange={handleChange}
-                                className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-white text-gray-900"
+                                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-white text-gray-900 text-base"
+                                aria-required="true"
+                                aria-label="Inquiry type"
                             >
                                 <option value="">Please select...</option>
                                 <option value="participant">NDIS Participant</option>
@@ -182,17 +190,20 @@ export default function ContactForm() {
                             rows={5}
                             value={formData.message}
                             onChange={handleChange}
-                            className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all resize-none text-gray-900 placeholder:text-gray-400"
+                            className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-4 focus:ring-primary/20 focus:border-primary outline-none transition-all resize-none text-gray-900 placeholder:text-gray-400 text-base"
                             placeholder="Tell us how we can help you..."
+                            aria-required="true"
+                            aria-label="Your message"
                         />
                         <p className="text-xs text-gray-500">Minimum 10 characters required</p>
                     </div>
 
-                    {/* Submit Button */}
+                    {/* Submit Button - Enhanced CTA */}
                     <button
                         type="submit"
                         disabled={submitting}
-                        className="w-full btn btn-accent text-white text-base sm:text-lg py-3 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                        className="w-full btn btn-accent text-white text-lg sm:text-xl md:text-2xl py-5 sm:py-6 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 font-extrabold min-h-[64px]"
+                        aria-label={submitting ? "Submitting your message" : "Submit contact form"}
                     >
                         {submitting ? (
                             <>
