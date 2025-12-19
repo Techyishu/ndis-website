@@ -221,10 +221,10 @@ export default function ContactPage() {
                   To express your interest in joining the ECS team, please email your resume and a short cover letter to:
                 </p>
                 <a
-                  href="mailto:careers@everecare.com.au"
+                  href="mailto:support@evercarecommunity.com.au"
                   className="inline-flex items-center gap-2 text-accent hover:text-accent-hover font-bold text-base sm:text-lg md:text-xl transition-colors group break-all"
                 >
-                  careers@everecare.com.au
+                  support@evercarecommunity.com.au
                   <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>

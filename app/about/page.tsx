@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import TeamSection from "../components/TeamSection";
 import ImagePlaceholder from "../components/ImagePlaceholder";
 import CTASection from "../components/CTASection";
 import { Metadata } from "next";
@@ -252,9 +251,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Team Section */}
-      <TeamSection />
 
       {/* CTA Section */}
       <CTASection />

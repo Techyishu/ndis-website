@@ -14,10 +14,10 @@ export default async function DynamicHero() {
           priority
           quality={90}
         />
-        {/* Strong Gradient Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#4A7A6A]/95 via-[#5A8A7A]/85 to-[#6B9B8A]/70"></div>
-        {/* Additional overlay on left side for text area */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent"></div>
+        {/* Gradient Overlay for Text Readability - Lighter Weight */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#4A7A6A]/75 via-[#5A8A7A]/60 to-[#6B9B8A]/45"></div>
+        {/* Additional overlay on left side for text area - Lighter */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-black/10 to-transparent"></div>
       </div>
 
       {/* Decorative Elements */}
