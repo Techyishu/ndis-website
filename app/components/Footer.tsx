@@ -3,19 +3,19 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="text-white pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10" style={{ background: 'linear-gradient(135deg, #5A8A79 0%, #6B9B8A 50%, #6A929F 100%)' }}>
+    <footer className="text-white pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10" style={{ background: 'linear-gradient(135deg, #026189 0%, #0F897D 50%, #3B6889 100%)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-12">
           {/* Brand Column */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="relative w-12 h-12 flex items-center justify-center">
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
                 <Image
-                  src="/brand/logo-mark.svg"
-                  alt=""
-                  width={48}
-                  height={48}
-                  className="object-contain brightness-0 invert"
+                  src="/images/WhatsApp_Image_2025-11-09_at_17.33.01__4_-removebg-preview.png"
+                  alt="EverCare Community Support Logo"
+                  width={80}
+                  height={80}
+                  className="object-contain"
                 />
               </div>
               <span className="text-2xl font-bold tracking-tight">EverCare</span>

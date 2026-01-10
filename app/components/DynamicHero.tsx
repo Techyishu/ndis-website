@@ -14,9 +14,9 @@ export default async function DynamicHero() {
           priority
           quality={90}
         />
-        {/* Gradient Overlay for Text Readability - Lighter Weight */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#4A7A6A]/75 via-[#5A8A7A]/60 to-[#6B9B8A]/45"></div>
-        {/* Additional overlay on left side for text area - Lighter */}
+        {/* Gradient Overlay for Text Readability - Using New Colors */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#026189]/75 via-[#0F897D]/60 to-[#3B6889]/45"></div>
+        {/* Additional overlay on left side for text area */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-black/10 to-transparent"></div>
       </div>
 
@@ -39,13 +39,12 @@ export default async function DynamicHero() {
           </div>
 
           {/* Strong Tagline - Main Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 sm:mb-8 leading-[1.1] animate-fade-in-up delay-100 text-white" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
-            Live Your Life,{' '}
-            <span className="text-white/95">Your Way.</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold mb-6 sm:mb-8 leading-[1.1] animate-fade-in-up delay-100" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.3)', color: '#FFFFFF' }}>
+            Live Your Life, Your Way.
           </h1>
 
           {/* Supportive Subtitle */}
-          <p className="text-xl sm:text-2xl md:text-3xl mb-8 sm:mb-10 leading-relaxed text-white/95 animate-fade-in-up delay-200 font-medium max-w-2xl" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}>
+          <p className="text-lg sm:text-xl md:text-xl lg:text-xl mb-8 sm:mb-10 leading-relaxed text-white/95 animate-fade-in-up delay-200 font-medium max-w-2xl" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}>
             Compassionate NDIS support that puts your goals, your choices, and your independence first.
           </p>
 
@@ -75,27 +74,29 @@ export default async function DynamicHero() {
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-400">
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold text-white rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 focus:ring-4 focus:ring-white/30"
+              className="group inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 text-base sm:text-base md:text-base font-bold rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 focus:ring-4 focus:ring-white/30"
               style={{
-                background: 'linear-gradient(135deg, #E8A87C 0%, #D99B6E 100%)',
-                boxShadow: '0 8px 32px rgba(232, 168, 124, 0.4)'
+                background: 'linear-gradient(135deg, #4C43A0 0%, #60439F 100%)',
+                color: '#FFFFFF',
+                boxShadow: '0 8px 32px rgba(76, 67, 160, 0.4)'
               }}
               aria-label="Start your free consultation today"
             >
-              <span className="tracking-wide">Start Free Consultation</span>
-              <svg className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5} aria-hidden="true">
+              <span className="tracking-wide" style={{ color: '#FFFFFF' }}>Start Free Consultation</span>
+              <svg className="w-4 h-4 ml-2.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5} style={{ color: '#FFFFFF' }} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </Link>
             <Link
               href="tel:0373037203"
-              className="group inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold text-primary-dark bg-white rounded-xl shadow-xl hover:bg-gray-50 transition-all duration-300 hover:scale-105 focus:ring-4 focus:ring-white/50"
+              className="group inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 text-base sm:text-base md:text-base font-bold bg-white rounded-xl shadow-xl hover:bg-gray-50 transition-all duration-300 hover:scale-105 focus:ring-4 focus:ring-white/50"
+              style={{ color: '#026189' }}
               aria-label="Call us at 03 7303 7203"
             >
-              <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <svg className="w-4 h-4 mr-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} style={{ color: '#026189' }}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              <span className="tracking-wide">03 7303 7203</span>
+              <span className="tracking-wide" style={{ color: '#026189' }}>03 7303 7203</span>
             </Link>
           </div>
         </div>

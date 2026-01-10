@@ -18,10 +18,10 @@ export default function ServicesPage() {
           <div className="absolute inset-0 bg-[url('/patterns/circuit-board.svg')]"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up text-white">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-6 animate-fade-in-up text-white">
             Our Services
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-fade-in-up delay-100">
+          <p className="text-base sm:text-base md:text-lg text-white/90 max-w-3xl mx-auto animate-fade-in-up delay-100">
             Comprehensive NDIS support tailored to your unique needs and goals.
           </p>
         </div>
@@ -66,7 +66,7 @@ export default function ServicesPage() {
 
               {/* Card Content */}
               <div className="p-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Core Supports</h2>
+                <h2 className="text-2xl sm:text-2xl md:text-2xl font-bold text-gray-900 mb-4">Core Supports</h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                   Essential support for your daily life. We help you with everyday tasks so you can maintain your independence and live comfortably at home.
                 </p>
@@ -99,7 +99,7 @@ export default function ServicesPage() {
                   </li>
                 </ul>
 
-                <Link href="/services/core-supports" className="btn btn-primary w-full justify-center">
+                <Link href="/services/core-supports" className="btn btn-primary w-full justify-center text-white">
                   View Core Supports
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -143,7 +143,7 @@ export default function ServicesPage() {
 
               {/* Card Content */}
               <div className="p-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Capacity Building</h2>
+                <h2 className="text-2xl sm:text-2xl md:text-2xl font-bold text-gray-900 mb-4">Capacity Building</h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                   Build your skills and independence. We work with you to develop new skills, improve your health and wellbeing, and achieve your long-term goals.
                 </p>
@@ -176,7 +176,7 @@ export default function ServicesPage() {
                   </li>
                 </ul>
 
-                <Link href="/services/capacity-building" className="btn btn-secondary w-full justify-center">
+                <Link href="/services/capacity-building" className="btn btn-secondary w-full justify-center text-white">
                   View Capacity Building
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

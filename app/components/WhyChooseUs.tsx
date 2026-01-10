@@ -49,20 +49,20 @@ export default function WhyChooseUs() {
         <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-white to-muted">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-20">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">Why Choose Us?</h2>
-                    <p className="text-lg sm:text-xl text-gray-700 font-medium">
+                    <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">Why Choose Us?</h2>
+                    <p className="text-base sm:text-base md:text-base text-gray-700 font-medium">
                         We combine professional expertise with a personal touch to deliver support that truly makes a difference.
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                     {features.map((feature, index) => (
-                        <div key={index} className="bg-white rounded-2xl p-8 sm:p-10 hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-primary/30 hover:-translate-y-2">
-                            <div className={`w-16 h-16 ${feature.color} rounded-xl flex items-center justify-center mb-6 shadow-lg`}>
+                        <div key={index} className="bg-white rounded-2xl p-6 sm:p-7 hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-primary/30 hover:-translate-y-2">
+                            <div className={`w-14 h-14 ${feature.color} rounded-xl flex items-center justify-center mb-5 shadow-lg`}>
                                 {feature.icon}
                             </div>
-                            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                            <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
+                            <h3 className="text-lg sm:text-lg md:text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                            <p className="text-gray-700 leading-relaxed text-sm sm:text-sm md:text-base">
                                 {feature.description}
                             </p>
                         </div>

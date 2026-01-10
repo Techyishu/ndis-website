@@ -30,8 +30,8 @@ export default function Home() {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                                 </svg>
                             </div>
-                            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nurse-Led Care</h3>
-                            <p className="text-gray-700 text-base leading-relaxed">Professional healthcare expertise in every service we provide</p>
+                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">Nurse-Led Care</h3>
+                            <p className="text-gray-700 text-sm leading-relaxed">Professional healthcare expertise in every service we provide</p>
                         </div>
 
                         {/* Card 2 */}
@@ -41,8 +41,8 @@ export default function Home() {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                 </svg>
                             </div>
-                            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Personalized Support</h3>
-                            <p className="text-gray-700 text-base leading-relaxed">Tailored to your unique goals, needs, and lifestyle preferences</p>
+                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">Personalized Support</h3>
+                            <p className="text-gray-700 text-sm leading-relaxed">Tailored to your unique goals, needs, and lifestyle preferences</p>
                         </div>
 
                         {/* Card 3 */}
@@ -52,15 +52,15 @@ export default function Home() {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
-                            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">24/7 Available</h3>
-                            <p className="text-gray-700 text-base leading-relaxed">Round-the-clock support whenever you need us most</p>
+                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">24/7 Available</h3>
+                            <p className="text-gray-700 text-sm leading-relaxed">Round-the-clock support whenever you need us most</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Stats Bar */}
-            <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #6B9B8A 0%, #7BA3B0 100%)' }}>
+            <section className="py-16 sm:py-20 md:py-24 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #026189 0%, #3B6889 100%)' }}>
                 {/* Decorative Elements */}
                 <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
                 <div className="absolute bottom-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-2xl translate-y-1/2 translate-x-1/2"></div>
@@ -68,20 +68,20 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 md:gap-12 text-center">
                         <div className="animate-fade-in-up">
-                            <div className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>500+</div>
-                            <div className="text-white/90 text-sm md:text-base font-medium">Participants Supported</div>
+                            <div className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>500+</div>
+                            <div className="text-white/90 text-xs md:text-sm font-medium">Participants Supported</div>
                         </div>
                         <div className="animate-fade-in-up delay-100">
-                            <div className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>15+</div>
-                            <div className="text-white/90 text-sm md:text-base font-medium">Years Experience</div>
+                            <div className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>15+</div>
+                            <div className="text-white/90 text-xs md:text-sm font-medium">Years Experience</div>
                         </div>
                         <div className="animate-fade-in-up delay-200">
-                            <div className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>98%</div>
-                            <div className="text-white/90 text-sm md:text-base font-medium">Satisfaction Rate</div>
+                            <div className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>98%</div>
+                            <div className="text-white/90 text-xs md:text-sm font-medium">Satisfaction Rate</div>
                         </div>
                         <div className="animate-fade-in-up delay-300">
-                            <div className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>24/7</div>
-                            <div className="text-white/90 text-sm md:text-base font-medium">Support Available</div>
+                            <div className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>24/7</div>
+                            <div className="text-white/90 text-xs md:text-sm font-medium">Support Available</div>
                         </div>
                     </div>
                 </div>
@@ -95,21 +95,21 @@ export default function Home() {
                             <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold text-sm rounded-full mb-6">
                                 About Us
                             </span>
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6 leading-tight">
                                 Your Goals. Your Choices.{' '}
                                 <span className="text-primary">Your Life.</span>
                             </h2>
-                            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                            <p className="text-base sm:text-base md:text-base text-gray-600 mb-6 leading-relaxed">
                                 At EverCare Community Support, we believe everyone deserves the freedom to live life on their own terms. As a nurse-led NDIS provider, we bring professional healthcare expertise combined with genuine compassion to every interaction.
                             </p>
-                            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                            <p className="text-base sm:text-base md:text-base text-gray-600 mb-8 leading-relaxed">
                                 We're not just service providers – we're your partners in building independence, confidence, and a life you love. Our culturally diverse team understands that great support starts with truly listening to what matters most to you.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link
                                     href="/about"
-                                    className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-white"
-                                    style={{ background: 'linear-gradient(135deg, #5A8A79 0%, #4A7A69 100%)' }}
+                                    className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-white"
+                                     style={{ background: 'linear-gradient(135deg, #0F897D 0%, #087173 100%)' }}
                                     aria-label="Learn more about our story and mission"
                                 >
                                     Our Story
@@ -119,12 +119,12 @@ export default function Home() {
                                 </Link>
                                 <Link
                                     href="/contact"
-                                    className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 border-2"
-                                    style={{ borderColor: '#5A8A79', color: '#4A7A69', background: 'white' }}
+                                    className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 border-2 text-white"
+                                     style={{ borderColor: '#026189', background: 'linear-gradient(135deg, #026189 0%, #3A6899 100%)' }}
                                     aria-label="Get in touch with us"
                                 >
                                     Get in Touch
-                                </Link>
+                            </Link>
                             </div>
                         </div>
                         <div className="relative h-[400px] sm:h-[480px] lg:h-[540px] rounded-3xl overflow-hidden shadow-2xl animate-fade-in-up delay-200 group order-1 lg:order-2">
@@ -161,8 +161,8 @@ export default function Home() {
             <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-white to-muted">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 animate-fade-in-up">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-                        <p className="text-lg text-gray-600">
+                        <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
+                        <p className="text-base sm:text-base md:text-base text-gray-600">
                             Tailored support designed to help you thrive at home and in the community.
                         </p>
                     </div>
@@ -173,21 +173,21 @@ export default function Home() {
                             <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-primary transform hover:-translate-y-2 h-full">
                                 {/* Gradient Background Accent */}
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"></div>
-
+                                
                                 {/* Icon */}
                                 <div className="relative w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all shadow-lg">
                                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                                     </svg>
                                 </div>
-
-                                <h3 className="text-2xl font-bold text-gray-900 mb-3 relative">Core Supports</h3>
-                                <p className="text-gray-600 mb-6 leading-relaxed">
+                                
+                                <h3 className="text-xl sm:text-xl md:text-xl font-bold text-gray-900 mb-3 relative">Core Supports</h3>
+                                <p className="text-sm sm:text-sm md:text-base text-gray-600 mb-6 leading-relaxed">
                                     Assistance with daily living activities, household tasks, and personal care to help you maintain independence.
                                 </p>
-
+                                
                                 <div className="flex items-center text-primary font-bold group-hover:gap-2 transition-all">
-                                    Learn More
+                                    Learn More 
                                     <svg className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
@@ -200,21 +200,21 @@ export default function Home() {
                             <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-secondary transform hover:-translate-y-2 h-full">
                                 {/* Gradient Background Accent */}
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/10 to-transparent rounded-bl-full"></div>
-
+                                
                                 {/* Icon */}
                                 <div className="relative w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all shadow-lg">
                                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                                     </svg>
                                 </div>
-
-                                <h3 className="text-2xl font-bold text-gray-900 mb-3 relative">Capacity Building</h3>
-                                <p className="text-gray-600 mb-6 leading-relaxed">
+                                
+                                <h3 className="text-xl sm:text-xl md:text-xl font-bold text-gray-900 mb-3 relative">Capacity Building</h3>
+                                <p className="text-sm sm:text-sm md:text-base text-gray-600 mb-6 leading-relaxed">
                                     Skill development, therapy support, and training to help you build independence and achieve your long-term goals.
                                 </p>
-
+                                
                                 <div className="flex items-center text-secondary font-bold group-hover:gap-2 transition-all">
-                                    Learn More
+                                    Learn More 
                                     <svg className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
@@ -227,21 +227,21 @@ export default function Home() {
                             <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-accent transform hover:-translate-y-2 h-full">
                                 {/* Gradient Background Accent */}
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-full"></div>
-
+                                
                                 {/* Icon */}
                                 <div className="relative w-16 h-16 bg-gradient-to-br from-accent to-accent-hover rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all shadow-lg">
                                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                     </svg>
                                 </div>
-
-                                <h3 className="text-2xl font-bold text-gray-900 mb-3 relative">Community Access</h3>
-                                <p className="text-gray-600 mb-6 leading-relaxed">
+                                
+                                <h3 className="text-xl sm:text-xl md:text-xl font-bold text-gray-900 mb-3 relative">Community Access</h3>
+                                <p className="text-sm sm:text-sm md:text-base text-gray-600 mb-6 leading-relaxed">
                                     Support to participate in social activities, community events, and recreational programs you enjoy.
                                 </p>
-
+                                
                                 <div className="flex items-center text-accent font-bold group-hover:gap-2 transition-all">
-                                    Learn More
+                                    Learn More 
                                     <svg className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
@@ -256,8 +256,8 @@ export default function Home() {
             <section className="py-16 sm:py-20 md:py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 animate-fade-in-up">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How We Work With You</h2>
-                        <p className="text-lg text-gray-600">
+                        <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">How We Work With You</h2>
+                        <p className="text-base sm:text-base md:text-base text-gray-600">
                             Starting your journey with EverCare is simple. We've streamlined our process to make it easy as possible.
                         </p>
                     </div>
@@ -265,33 +265,33 @@ export default function Home() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* Step 1 */}
                         <div className="relative text-center animate-fade-in-up delay-100">
-                            <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 shadow-lg">
+                            <div className="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 shadow-lg">
                                 1
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">Get in Touch</h3>
-                            <p className="text-gray-600">
+                            <h3 className="text-lg font-bold text-gray-900 mb-3">Get in Touch</h3>
+                            <p className="text-sm text-gray-600">
                                 Contact us via phone, email, or our online form. We'll schedule a free consultation at your convenience.
                             </p>
                         </div>
 
                         {/* Step 2 */}
                         <div className="relative text-center animate-fade-in-up delay-200">
-                            <div className="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 shadow-lg">
+                            <div className="w-14 h-14 bg-secondary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 shadow-lg">
                                 2
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">Create Your Plan</h3>
-                            <p className="text-gray-600">
+                            <h3 className="text-lg font-bold text-gray-900 mb-3">Create Your Plan</h3>
+                            <p className="text-sm text-gray-600">
                                 We'll discuss your goals, needs, and NDIS plan to design personalized support that works for you.
                             </p>
                         </div>
 
                         {/* Step 3 */}
                         <div className="relative text-center animate-fade-in-up delay-300">
-                            <div className="w-16 h-16 bg-accent text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 shadow-lg">
+                            <div className="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 shadow-lg">
                                 3
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">Start Your Support</h3>
-                            <p className="text-gray-600">
+                            <h3 className="text-lg font-bold text-gray-900 mb-3">Start Your Support</h3>
+                            <p className="text-sm text-gray-600">
                                 Match with your dedicated support team and begin working towards your goals with confidence.
                             </p>
                         </div>
@@ -303,8 +303,8 @@ export default function Home() {
             <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-muted to-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 animate-fade-in-up">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">The EverCare Difference</h2>
-                        <p className="text-lg text-gray-600">
+                        <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">The EverCare Difference</h2>
+                        <p className="text-base sm:text-base md:text-base text-gray-600">
                             What sets us apart as a trusted NDIS provider in Victoria.
                         </p>
                     </div>
@@ -377,8 +377,8 @@ export default function Home() {
             <section className="py-16 sm:py-20 md:py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 animate-fade-in-up">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">What Our Community Says</h2>
-                        <p className="text-lg text-gray-600">
+                        <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">What Our Community Says</h2>
+                        <p className="text-base sm:text-base md:text-base text-gray-600">
                             Hearing from our participants and their families drives everything we do.
                         </p>
                     </div>

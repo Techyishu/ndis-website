@@ -19,10 +19,10 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-[url('/patterns/circuit-board.svg')]"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up text-white">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-6 animate-fade-in-up text-white">
             Our Story
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-fade-in-up delay-100">
+          <p className="text-base sm:text-base md:text-lg text-white/90 max-w-3xl mx-auto animate-fade-in-up delay-100">
             Founded on the belief that everyone deserves compassionate, high-quality care delivered with dignity and respect.
           </p>
         </div>
@@ -33,7 +33,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="animate-fade-in-up">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Who We Are</h2>
+              <h2 className="text-2xl sm:text-2xl md:text-2xl font-bold text-gray-900 mb-6">Who We Are</h2>
               <div className="prose prose-lg text-gray-600 space-y-6">
                 <p>
                   EverCare Community Support was established by a team of experienced nurses and disability support professionals who saw a need for a more personalized approach to NDIS services.
@@ -63,8 +63,8 @@ export default function AboutPage() {
       <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Values</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-2xl md:text-2xl font-bold text-gray-900 mb-4">Our Values</h2>
+            <p className="text-base sm:text-base md:text-base text-gray-600 max-w-2xl mx-auto">
               These core principles guide every interaction and decision we make.
             </p>
           </div>
@@ -113,7 +113,7 @@ export default function AboutPage() {
       <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
+            <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
               To empower every person we support to live a life of dignity, independence, and fulfillment through exceptional, personalized NDIS services.
             </p>
@@ -128,7 +128,7 @@ export default function AboutPage() {
       <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Approach</h2>
+            <h2 className="text-2xl sm:text-2xl md:text-2xl font-bold text-gray-900 mb-4">Our Approach</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Person-centered care guided by industry best practices and clinical excellence.
             </p>
@@ -206,7 +206,7 @@ export default function AboutPage() {
       <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Accreditations & Compliance</h2>
+            <h2 className="text-2xl sm:text-2xl md:text-2xl font-bold text-gray-900 mb-4">Accreditations & Compliance</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               We meet and exceed all regulatory requirements to ensure your safety and quality of care.
             </p>

@@ -49,12 +49,12 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center group" aria-label="EverCare Community Support - Home">
-              <div className="relative w-28 h-28 sm:w-32 sm:h-32 transition-transform duration-300 group-hover:scale-105">
+              <div className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/brand/logo-mark.png"
+                  src="/images/WhatsApp_Image_2025-11-09_at_17.33.01__4_-removebg-preview.png"
                   alt="EverCare Community Support Logo"
-                  width={128}
-                  height={128}
+                  width={160}
+                  height={160}
                   className="object-contain"
                   priority
                 />
@@ -114,7 +114,7 @@ const Navigation = () => {
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-6 py-3 text-base font-bold text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 focus:ring-4 focus:ring-accent-light"
-              style={{ background: 'linear-gradient(135deg, #E8A87C 0%, #D99B6E 100%)' }}
+              style={{ background: 'linear-gradient(135deg, #4C43A0 0%, #60439F 100%)' }}
               aria-label="Get NDIS support - Contact us today"
             >
               Get Support
@@ -227,7 +227,7 @@ const Navigation = () => {
             <Link
               href="/contact"
               className="flex items-center justify-center w-full text-center text-white px-8 py-4 rounded-xl font-bold shadow-lg"
-              style={{ background: 'linear-gradient(135deg, #E8A87C 0%, #D99B6E 100%)' }}
+              style={{ background: 'linear-gradient(135deg, #4C43A0 0%, #60439F 100%)' }}
               onClick={() => setIsOpen(false)}
               aria-label="Get NDIS support - Contact us today"
             >

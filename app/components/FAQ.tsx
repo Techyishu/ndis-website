@@ -56,10 +56,10 @@ export default function FAQ() {
         <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-muted to-white" aria-labelledby="faq-heading">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12 sm:mb-16 md:mb-20">
-                    <h2 id="faq-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    <h2 id="faq-heading" className="text-2xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                         Frequently Asked Questions
                     </h2>
-                    <p className="text-lg sm:text-xl text-gray-700 font-medium">
+                    <p className="text-base sm:text-base md:text-base text-gray-700 font-medium">
                         Common questions about our services, the NDIS, and compliance.
                     </p>
                 </div>
@@ -74,9 +74,9 @@ export default function FAQ() {
                                 aria-controls={`faq-answer-${index}`}
                                 id={`faq-question-${index}`}
                             >
-                                <span className="text-lg sm:text-xl font-bold text-gray-900 pr-4">{faq.question}</span>
+                                <span className="text-base sm:text-base md:text-lg font-bold text-gray-900 pr-4">{faq.question}</span>
                                 <span className={`flex-shrink-0 transform transition-transform duration-200 ${openIndex === index ? 'rotate-180' : ''}`} aria-hidden="true">
-                                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                                     </svg>
                                 </span>
@@ -87,7 +87,7 @@ export default function FAQ() {
                                 aria-labelledby={`faq-question-${index}`}
                                 className={`transition-all duration-300 ease-in-out overflow-hidden ${openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
                             >
-                                <div className="px-6 sm:px-8 pb-6 sm:pb-8 text-gray-700 leading-relaxed text-base sm:text-lg">
+                                <div className="px-6 sm:px-8 pb-6 sm:pb-8 text-gray-700 leading-relaxed text-sm sm:text-base">
                                     {faq.answer}
                                 </div>
                             </div>
@@ -97,11 +97,11 @@ export default function FAQ() {
 
                 {/* Compliance Information */}
                 <div className="mt-12 sm:mt-16 bg-primary/5 rounded-2xl p-6 sm:p-8 border-2 border-primary/20">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Compliance & Quality Assurance</h3>
-                    <p className="text-gray-700 leading-relaxed mb-4 text-base sm:text-lg">
+                    <h3 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">Compliance & Quality Assurance</h3>
+                    <p className="text-gray-700 leading-relaxed mb-4 text-sm sm:text-base">
                         EverCare Community Support is a registered NDIS provider committed to the highest standards of quality and safety. We comply with:
                     </p>
-                    <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4 text-base sm:text-lg">
+                    <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4 text-sm sm:text-base">
                         <li>NDIS Practice Standards and Quality Indicators</li>
                         <li>NDIS Code of Conduct</li>
                         <li>Privacy Act 1988 (Cth)</li>
@@ -109,10 +109,10 @@ export default function FAQ() {
                         <li>Work Health and Safety legislation</li>
                     </ul>
                     <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                        <a href="/privacy" className="text-primary font-bold hover:underline text-base sm:text-lg">
+                        <a href="/privacy" className="text-primary font-bold hover:underline text-sm sm:text-base">
                             View Privacy Policy →
                         </a>
-                        <a href="/terms" className="text-primary font-bold hover:underline text-base sm:text-lg">
+                        <a href="/terms" className="text-primary font-bold hover:underline text-sm sm:text-base">
                             View Terms of Service →
                         </a>
                     </div>

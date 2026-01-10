@@ -17,7 +17,7 @@ export default function CoreSupportsPage() {
                     <div className="absolute inset-0 bg-[url('/patterns/circuit-board.svg')]"></div>
                 </div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up text-white">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-6 animate-fade-in-up text-white">
                         Core Supports
                     </h1>
                     <p className="text-xl text-white/90 max-w-3xl mx-auto animate-fade-in-up delay-100">
@@ -57,7 +57,7 @@ export default function CoreSupportsPage() {
                                     </li>
                                 </ul>
                                 <div className="mt-8">
-                                    <Link href="/contact" className="btn btn-primary w-full text-center">
+                                    <Link href="/contact" className="btn btn-primary w-full text-center text-white">
                                         Get Support Now
                                     </Link>
                                 </div>
@@ -77,7 +77,7 @@ export default function CoreSupportsPage() {
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
-                                <h2 className="text-3xl font-bold text-gray-900 mb-4">Assistance with Daily Life</h2>
+                                <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">Assistance with Daily Life</h2>
                                 <p className="text-lg text-gray-600 mb-4">
                                     We provide flexible support with personal care and daily activities to help you live as independently as possible at home.
                                 </p>
@@ -92,7 +92,7 @@ export default function CoreSupportsPage() {
 
                             {/* Household Tasks */}
                             <div id="household" className="scroll-mt-24">
-                                <h2 className="text-3xl font-bold text-gray-900 mb-4">Household Tasks</h2>
+                                <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">Household Tasks</h2>
                                 <p className="text-lg text-gray-600 mb-4">
                                     Keeping your home clean and organized is important for your wellbeing. Our team can assist with a range of domestic chores.
                                 </p>
@@ -116,7 +116,7 @@ export default function CoreSupportsPage() {
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
-                                <h2 className="text-3xl font-bold text-gray-900 mb-4">Community Participation</h2>
+                                <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">Community Participation</h2>
                                 <p className="text-lg text-gray-600 mb-4">
                                     Stay connected and active in your community. We support you to join in social activities, clubs, and events that you enjoy.
                                 </p>
@@ -131,7 +131,7 @@ export default function CoreSupportsPage() {
 
                             {/* Transport */}
                             <div id="transport" className="scroll-mt-24">
-                                <h2 className="text-3xl font-bold text-gray-900 mb-4">Transport Support</h2>
+                                <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">Transport Support</h2>
                                 <p className="text-lg text-gray-600 mb-4">
                                     Getting around safely is key to independence. We offer transport assistance to help you get to appointments, work, or social outings.
                                 </p>
@@ -150,11 +150,11 @@ export default function CoreSupportsPage() {
             {/* CTA */}
             <section className="py-12 sm:py-16 md:py-20 bg-gray-50 text-center">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Need help with Core Supports?</h2>
+                    <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-6">Need help with Core Supports?</h2>
                     <p className="text-xl text-gray-600 mb-10">
                         Contact us today to discuss how we can tailor our services to your NDIS plan.
                     </p>
-                    <Link href="/contact" className="btn btn-accent text-lg px-10 py-4">
+                    <Link href="/contact" className="btn btn-accent text-lg px-10 py-4 text-white">
                         Get in Touch
                     </Link>
                 </div>

@@ -25,8 +25,8 @@ export default function RootLayout({
     "name": "EverCare Community Support",
     "description": "NDIS registered provider in Melbourne and Victoria offering nurse-led disability support services",
     "url": "https://www.evercare.com.au",
-    "logo": "https://www.evercare.com.au/images/logo.jpg",
-    "image": "https://www.evercare.com.au/images/logo.jpg",
+    "logo": "https://www.evercare.com.au/images/WhatsApp_Image_2025-11-09_at_17.33.01__4_-removebg-preview.png",
+    "image": "https://www.evercare.com.au/images/WhatsApp_Image_2025-11-09_at_17.33.01__4_-removebg-preview.png",
     "telephone": "03 7303 7203",
     "email": "support@evercarecommunity.com.au",
     "address": {
