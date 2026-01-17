@@ -48,8 +48,8 @@ export default function AboutPage() {
             </div>
             <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl animate-fade-in-up delay-200">
               <ImagePlaceholder
-                src="/images/about-team.png"
-                alt="The EverCare Team"
+                src="/images/man-wheelchair-work-front-view.jpg"
+                alt="Support worker assisting a person in a wheelchair in a professional setting"
                 width={800}
                 height={600}
                 className="w-full h-full object-cover"

@@ -70,8 +70,8 @@ export default function CapacityBuildingPage() {
                             <div id="skills" className="scroll-mt-24">
                                 <div className="relative h-[300px] rounded-xl overflow-hidden mb-6 shadow-lg">
                                     <ImagePlaceholder
-                                        src="/images/services-capacity.png"
-                                        alt="Skill Development"
+                                        src="/images/inclusive-education-concept.jpg"
+                                        alt="Inclusive education and skill development support"
                                         width={800}
                                         height={400}
                                         className="w-full h-full object-cover"

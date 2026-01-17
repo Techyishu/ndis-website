@@ -70,8 +70,8 @@ export default function CoreSupportsPage() {
                             <div id="daily-living" className="scroll-mt-24">
                                 <div className="relative h-[300px] rounded-xl overflow-hidden mb-6 shadow-lg">
                                     <ImagePlaceholder
-                                        src="/images/services-core.png"
-                                        alt="Assistance with Daily Life"
+                                        src="/images/pexels-mikhail-nilov-7698019.jpg"
+                                        alt="Support worker assisting a person with daily life activities"
                                         width={800}
                                         height={400}
                                         className="w-full h-full object-cover"
