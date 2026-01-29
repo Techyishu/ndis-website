@@ -42,11 +42,11 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`relative z-50 w-full transition-all duration-300 ${scrolled ? "bg-white shadow-md py-2" : "bg-white/95 backdrop-blur-sm py-4"
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${scrolled ? "bg-white shadow-md py-2" : "bg-white/95 backdrop-blur-sm py-4"
         }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="flex justify-between items-center h-24">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center group" aria-label="EverCare Community Support - Home">
               <div className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 transition-transform duration-300 group-hover:scale-105">

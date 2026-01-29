@@ -9,7 +9,7 @@ interface ContainerProps {
 export default function Container({
     children,
     className = '',
-    maxWidth = '7xl',
+    maxWidth = '6xl',
 }: ContainerProps) {
     const widthClasses = {
         sm: 'max-w-sm',
@@ -25,7 +25,7 @@ export default function Container({
     };
 
     return (
-        <div className={`${widthClasses[maxWidth]} mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
+        <div className={`${widthClasses[maxWidth]} mx-auto px-6 sm:px-8 lg:px-12 ${className}`}>
             {children}
         </div>
     );

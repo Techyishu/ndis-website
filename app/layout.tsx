@@ -87,7 +87,7 @@ export default function RootLayout({
       </head>
       <body>
         <Navigation />
-        <main>{children}</main>
+        <main className="pt-32 md:pt-36">{children}</main>
         <Footer />
       </body>
     </html>

@@ -12,7 +12,7 @@ export default function ContactPage() {
     <div className="bg-white">
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-white to-muted py-16 sm:py-20 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 sm:mb-8">
             Let&apos;s Connect
           </h1>

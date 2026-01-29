@@ -20,7 +20,7 @@ export default function Home() {
 
             {/* Feature Cards Section */}
             <section className="py-12 sm:py-16 md:py-20 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                         {/* Card 1 */}
                         <div className="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-primary/30">
@@ -64,7 +64,7 @@ export default function Home() {
                 <div className="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
                 <div className="absolute bottom-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-2xl translate-y-1/2 translate-x-1/2"></div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
                     <div className="grid grid-cols-3 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 text-center">
                         <div className="animate-fade-in-up">
                             <div className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>5+</div>
@@ -84,7 +84,7 @@ export default function Home() {
 
             {/* About Snippet Section */}
             <section className="py-20 sm:py-24 md:py-32 bg-muted">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 md:gap-20 items-center">
                         <div className="animate-fade-in-up order-2 lg:order-1">
                             <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold text-sm rounded-full mb-6">
@@ -154,7 +154,7 @@ export default function Home() {
 
             {/* Services Overview Section */}
             <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-white to-muted">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
                     <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 animate-fade-in-up">
                         <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
                         <p className="text-base sm:text-base md:text-base text-gray-600">
@@ -249,7 +249,7 @@ export default function Home() {
 
             {/* How It Works Section */}
             <section className="py-16 sm:py-20 md:py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
                     <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 animate-fade-in-up">
                         <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">How We Work With You</h2>
                         <p className="text-base sm:text-base md:text-base text-gray-600">
@@ -296,7 +296,7 @@ export default function Home() {
 
             {/* Benefits Section */}
             <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-muted to-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
                     <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 animate-fade-in-up">
                         <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">The EverCare Difference</h2>
                         <p className="text-base sm:text-base md:text-base text-gray-600">

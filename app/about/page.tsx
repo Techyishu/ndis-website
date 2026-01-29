@@ -18,7 +18,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[url('/patterns/circuit-board.svg')]"></div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-6 animate-fade-in-up text-white">
             Our Story
           </h1>
@@ -30,7 +30,7 @@ export default function AboutPage() {
 
       {/* Main Content */}
       <section className="py-12 sm:py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="animate-fade-in-up">
               <h2 className="text-2xl sm:text-2xl md:text-2xl font-bold text-gray-900 mb-6">Who We Are</h2>
@@ -61,7 +61,7 @@ export default function AboutPage() {
 
       {/* Values Section */}
       <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="text-2xl sm:text-2xl md:text-2xl font-bold text-gray-900 mb-4">Our Values</h2>
             <p className="text-base sm:text-base md:text-base text-gray-600 max-w-2xl mx-auto">
@@ -111,7 +111,7 @@ export default function AboutPage() {
 
       {/* Mission Statement Section */}
       <section className="py-12 sm:py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
             <p className="text-xl text-gray-700 leading-relaxed mb-6">
@@ -126,7 +126,7 @@ export default function AboutPage() {
 
       {/* Our Approach Section */}
       <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="text-2xl sm:text-2xl md:text-2xl font-bold text-gray-900 mb-4">Our Approach</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -204,7 +204,7 @@ export default function AboutPage() {
 
       {/* Accreditations Section */}
       <section className="py-12 sm:py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-2xl md:text-2xl font-bold text-gray-900 mb-4">Accreditations & Compliance</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">

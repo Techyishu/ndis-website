@@ -4,7 +4,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="text-white pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10" style={{ background: 'linear-gradient(135deg, #026189 0%, #0F897D 50%, #3B6889 100%)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-12">
           {/* Brand Column */}
           <div className="space-y-6">
