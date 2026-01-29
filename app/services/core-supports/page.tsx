@@ -3,8 +3,8 @@ import ImagePlaceholder from "../../components/ImagePlaceholder";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "NDIS Core Supports Melbourne & Victoria | Daily Living Assistance | EverCare",
-    description: "NDIS core supports in Melbourne and Victoria. Daily living assistance, household tasks, personal care, community participation, and transport support. Professional NDIS registered provider serving greater Melbourne.",
+    title: "Core Supports | Daily Living & Community Access | EverCare",
+    description: "Reliable daily living assistance, personal care, and community participation support. Helping you live independently with confidence.",
     keywords: "NDIS core supports Melbourne, daily living assistance Victoria, NDIS personal care Melbourne, household tasks support, community participation NDIS, NDIS transport support Victoria",
 };
 

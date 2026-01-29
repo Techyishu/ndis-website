@@ -48,11 +48,11 @@ const Navigation = () => {
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex justify-between items-center h-24">
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center group" aria-label="EverCare Community Support - Home">
+            <Link href="/" className="flex items-center group" aria-label="EverCare Community - Home">
               <div className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src="/images/WhatsApp_Image_2025-11-09_at_17.33.01__4_-removebg-preview.png"
-                  alt="EverCare Community Support Logo"
+                  alt="EverCare Community Logo"
                   width={160}
                   height={160}
                   className="object-contain"

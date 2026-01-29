@@ -4,8 +4,8 @@ import Accordion from '../components/Accordion';
 import Button from '../components/Button';
 
 export const metadata: Metadata = {
-    title: 'Frequently Asked Questions | EverCare Community Support',
-    description: 'Find answers to common questions about our NDIS services, eligibility, pricing, service areas, and how to get started with EverCare Community Support.',
+    title: 'FAQ | NDIS Questions Answered | EverCare Community',
+    description: 'Find answers to common NDIS questions. Learn about eligibility, funding, and how EverCare Community can support your journey.',
 };
 
 const faqData = [
@@ -51,7 +51,7 @@ const faqData = [
         title: 'What areas do you service?',
         content: (
             <p>
-                EverCare Community Support provides services across Melbourne and greater Victoria.
+                EverCare Community provides services across Melbourne and greater Victoria.
                 We work with participants in metro Melbourne, regional Victoria, and surrounding areas.
                 Contact us to confirm we service your specific location.
             </p>

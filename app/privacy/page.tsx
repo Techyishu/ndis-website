@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Privacy Policy | EverCare Community Support | NDIS Provider Melbourne Victoria",
-    description: "EverCare Community Support privacy policy. Learn how we protect your personal information in accordance with the Privacy Act 1988 (Cth) and Australian Privacy Principles (APPs). NDIS registered provider in Melbourne and Victoria.",
+    title: "Privacy Policy | Data Protection | EverCare Community",
+    description: "How EverCare Community protects your personal information. Compliant with Australian Privacy Principles and NDIS safeguards.",
 };
 
 export default function PrivacyPage() {

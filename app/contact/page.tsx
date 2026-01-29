@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import ContactForm from "../components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Us | NDIS Provider Melbourne & Victoria | EverCare Community Support",
-  description: "Contact EverCare Community Support for NDIS services in Melbourne and Victoria. Free consultation available. Serving participants across greater Melbourne region. NDIS registered provider ready to help.",
+  title: "Contact Us | Get NDIS Support Today | EverCare Community",
+  description: "Get in touch with EverCare Community for personalized NDIS support in Melbourne. Free consultation for participants and families.",
   keywords: "contact NDIS provider Melbourne, NDIS services Victoria contact, NDIS provider near me Melbourne, NDIS consultation Victoria, EverCare contact",
 };
 
@@ -52,7 +52,7 @@ export default function ContactPage() {
                       Acknowledgement of Country
                     </h4>
                     <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                      EverCare Community Support (ECS) respectfully acknowledges the Traditional Custodians of the lands on which we work and live across Victoria. We pay our deepest respects to Elders past, present, and emerging. We extend this respect to all Aboriginal and Torres Strait Islander peoples and are committed to building a culturally safe service.
+                      EverCare Community (ECS) respectfully acknowledges the Traditional Custodians of the lands on which we work and live across Victoria. We pay our deepest respects to Elders past, present, and emerging. We extend this respect to all Aboriginal and Torres Strait Islander peoples and are committed to building a culturally safe service.
                     </p>
                   </div>
                 </div>

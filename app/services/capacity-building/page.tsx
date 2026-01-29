@@ -3,8 +3,8 @@ import ImagePlaceholder from "../../components/ImagePlaceholder";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "NDIS Capacity Building Melbourne & Victoria | Support Coordination | EverCare",
-    description: "NDIS capacity building services in Melbourne and Victoria. Skill development, support coordination, health and wellbeing, employment support, and therapy services. Expert NDIS provider across greater Melbourne.",
+    title: "Capacity Building | Support Coordination & Skills | EverCare",
+    description: "Expert Support Coordination and skill development services. Building your capacity to manage your NDIS plan and achieve your life goals.",
     keywords: "NDIS capacity building Melbourne, support coordination Victoria, NDIS skill development, NDIS employment support Melbourne, therapy support Victoria, NDIS health wellbeing",
 };
 

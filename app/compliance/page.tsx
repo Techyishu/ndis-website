@@ -4,8 +4,8 @@ import Card from '../components/Card';
 import Button from '../components/Button';
 
 export const metadata: Metadata = {
-    title: 'Compliance & Standards | EverCare Community Support',
-    description: 'Learn about our commitment to NDIS Quality and Safeguards standards, accessibility, and our feedback and complaints process.',
+    title: 'Compliance & Standards | Quality Assurance | EverCare',
+    description: 'Our commitment to NDIS Practice Standards, safety, and quality. Learn about our feedback processes and participant rights.',
 };
 
 export default function Compliance() {
@@ -28,7 +28,7 @@ export default function Compliance() {
                             <div className="flex-1">
                                 <h2 className="text-2xl font-bold mb-3">NDIS Quality & Safeguards Compliance</h2>
                                 <p className="text-muted-foreground leading-relaxed mb-4">
-                                    EverCare Community Support is a registered NDIS provider, fully committed to meeting the{' '}
+                                    EverCare Community is a registered NDIS provider, fully committed to meeting the{' '}
                                     <a href="https://www.ndiscommission.gov.au/providers/registered-ndis-providers/provider-obligations-and-requirements/ndis-practice-standards" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark underline">
                                         NDIS Practice Standards
                                     </a>{' '}
@@ -66,7 +66,7 @@ export default function Compliance() {
                             <div className="flex-1">
                                 <h2 className="text-2xl font-bold mb-3">Accessibility Statement</h2>
                                 <p className="text-muted-foreground leading-relaxed mb-4">
-                                    EverCare Community Support is committed to ensuring our services and digital presence are accessible to everyone, including people with disabilities.
+                                    EverCare Community is committed to ensuring our services and digital presence are accessible to everyone, including people with disabilities.
                                 </p>
 
                                 <h3 className="text-lg font-semibold mb-2">Website Accessibility:</h3>

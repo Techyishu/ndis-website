@@ -12,13 +12,13 @@ const Footer = () => {
               <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
                 <Image
                   src="/images/WhatsApp_Image_2025-11-09_at_17.33.01__4_-removebg-preview.png"
-                  alt="EverCare Community Support Logo"
+                  alt="EverCare Community Logo"
                   width={80}
                   height={80}
                   className="object-contain"
                 />
               </div>
-              <span className="text-2xl font-bold tracking-tight">EverCare</span>
+              <span className="text-2xl font-bold tracking-tight">EverCare Community</span>
             </div>
             <p className="text-gray-300 leading-relaxed">
               Empowering you to live your best life with compassionate, personalized NDIS support services across Victoria.
@@ -131,7 +131,7 @@ const Footer = () => {
 
         <div className="border-t border-white/20 pt-6 sm:pt-8 mt-6 sm:mt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/90 text-sm font-medium">
-            &copy; {new Date().getFullYear()} EverCare Community Support. All rights reserved.
+            &copy; {new Date().getFullYear()} EverCare Community. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
             <Link href="/privacy" className="text-white/90 hover:text-white transition-colors font-medium underline-offset-2 hover:underline">Privacy Policy</Link>

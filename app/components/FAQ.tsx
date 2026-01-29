@@ -22,7 +22,7 @@ export default function FAQ() {
         },
         {
             question: "Are you a registered NDIS provider?",
-            answer: "Yes, EverCare Community Support is a registered NDIS provider. This means we meet strict government quality and safety standards, giving you peace of mind about the care you receive.",
+            answer: "Yes, EverCare Community is a registered NDIS provider. This means we meet strict government quality and safety standards, giving you peace of mind about the care you receive.",
         },
         {
             question: "What is your complaint and feedback process?",
@@ -99,7 +99,7 @@ export default function FAQ() {
                 <div className="mt-12 sm:mt-16 bg-primary/5 rounded-2xl p-6 sm:p-8 border-2 border-primary/20">
                     <h3 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">Compliance & Quality Assurance</h3>
                     <p className="text-gray-700 leading-relaxed mb-4 text-sm sm:text-base">
-                        EverCare Community Support is a registered NDIS provider committed to the highest standards of quality and safety. We comply with:
+                        EverCare Community is a registered NDIS provider committed to the highest standards of quality and safety. We comply with:
                     </p>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 ml-4 text-sm sm:text-base">
                         <li>NDIS Practice Standards and Quality Indicators</li>

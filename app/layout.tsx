@@ -4,12 +4,12 @@ import Footer from "./components/Footer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "EverCare Community Support | NDIS Provider Melbourne & Victoria",
-  description: "Leading NDIS registered provider in Melbourne and Victoria. Nurse-led disability support services including core supports, capacity building, and community access across greater Melbourne.",
+  title: "EverCare Community | NDIS Provider Melbourne & Victoria",
+  description: "Empathetic, nurse-led NDIS disability support in Melbourne. Core supports, capacity building & community access tailored to your goals.",
   keywords: "NDIS provider Melbourne, NDIS services Victoria, disability support Melbourne, NDIS registered provider",
   openGraph: {
-    title: "EverCare Community Support | NDIS Provider Melbourne & Victoria",
-    description: "Leading NDIS registered provider in Melbourne and Victoria offering compassionate, nurse-led disability support services.",
+    title: "EverCare Community | NDIS Provider Melbourne & Victoria",
+    description: "Empathetic, nurse-led NDIS disability support in Melbourne. Core supports, capacity building & community access tailored to your goals.",
     type: "website",
   },
 };
@@ -22,7 +22,7 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
-    "name": "EverCare Community Support",
+    "name": "EverCare Community",
     "description": "NDIS registered provider in Melbourne and Victoria offering nurse-led disability support services",
     "url": "https://www.evercare.com.au",
     "logo": "https://www.evercare.com.au/images/WhatsApp_Image_2025-11-09_at_17.33.01__4_-removebg-preview.png",

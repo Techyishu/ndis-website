@@ -3,8 +3,8 @@ import TestimonialsList from "../components/TestimonialsList";
 import CTASection from "../components/CTASection";
 
 export const metadata = {
-  title: "Testimonials & Reviews | NDIS Provider Melbourne Victoria | EverCare Community Support",
-  description: "Read real testimonials and reviews from NDIS participants and families across Melbourne and Victoria. See why EverCare is a trusted NDIS registered provider with 98% satisfaction rate.",
+  title: "Reviews & Stories | Participant Experiences | EverCare Community",
+  description: "Read real stories from satisfied participants. See why families across Victoria trust EverCare Community for their disability support.",
   keywords: "NDIS provider reviews Melbourne, EverCare testimonials, NDIS support reviews Victoria, disability services testimonials Melbourne, NDIS provider ratings",
 };
 
