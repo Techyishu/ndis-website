@@ -132,6 +132,14 @@ export default function AdminDashboard() {
             <p className="text-gray-600">Manage contact form dropdown options</p>
           </Link>
 
+          <Link
+            href="/admin/change-password"
+            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-2 border-gray-100 hover:border-emerald-300"
+          >
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Change Password</h3>
+            <p className="text-gray-600">Update your admin account password</p>
+          </Link>
+
         </div>
       </div>
     </div>
