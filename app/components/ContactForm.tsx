@@ -1,8 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { InquiryType } from "@/lib/types";
 
 export default function ContactForm() {
+    const [inquiryTypes, setInquiryTypes] = useState<InquiryType[]>([]);
+
+    useEffect(() => {
+        fetch("/api/inquiry-types")
+            .then((res) => (res.ok ? res.json() : []))
+            .then((data) => setInquiryTypes(data))
+            .catch(() => setInquiryTypes([]));
+    }, []);
+
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
@@ -170,10 +180,18 @@ export default function ContactForm() {
                                 aria-label="Inquiry type"
                             >
                                 <option value="">Please select...</option>
-                                <option value="participant">NDIS Participant</option>
-                                <option value="family">Family Member</option>
-                                <option value="support-coordinator">Support Coordinator</option>
-                                <option value="other">Other</option>
+                                {inquiryTypes.length > 0 ? (
+                                    inquiryTypes.map((type) => (
+                                        <option key={type.id} value={type.value}>{type.label}</option>
+                                    ))
+                                ) : (
+                                    <>
+                                        <option value="participant">NDIS Participant</option>
+                                        <option value="family">Family Member</option>
+                                        <option value="support-coordinator">Support Coordinator</option>
+                                        <option value="other">Other</option>
+                                    </>
+                                )}
                             </select>
                         </div>
                     </div>

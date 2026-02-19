@@ -76,6 +76,62 @@ export default function AdminDashboard() {
             <p className="text-gray-600">View contact form submissions</p>
           </Link>
 
+          <Link
+            href="/admin/faq"
+            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-2 border-gray-100 hover:border-emerald-300"
+          >
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">FAQ Items</h3>
+            <p className="text-gray-600">Manage FAQ questions and answers</p>
+          </Link>
+
+          <Link
+            href="/admin/statistics"
+            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-2 border-gray-100 hover:border-emerald-300"
+          >
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Statistics</h3>
+            <p className="text-gray-600">Manage homepage stat numbers</p>
+          </Link>
+
+          <Link
+            href="/admin/site-settings"
+            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-2 border-gray-100 hover:border-emerald-300"
+          >
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Site Settings</h3>
+            <p className="text-gray-600">Contact info, social links & CTA text</p>
+          </Link>
+
+          <Link
+            href="/admin/about"
+            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-2 border-gray-100 hover:border-emerald-300"
+          >
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">About Page</h3>
+            <p className="text-gray-600">Manage values, approach & accreditations</p>
+          </Link>
+
+          <Link
+            href="/admin/service-details"
+            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-2 border-gray-100 hover:border-emerald-300"
+          >
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Service Details</h3>
+            <p className="text-gray-600">Manage core supports & capacity building pages</p>
+          </Link>
+
+          <Link
+            href="/admin/team"
+            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-2 border-gray-100 hover:border-emerald-300"
+          >
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Team Members</h3>
+            <p className="text-gray-600">Manage team profiles on the About page</p>
+          </Link>
+
+          <Link
+            href="/admin/inquiry-types"
+            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-2 border-gray-100 hover:border-emerald-300"
+          >
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Inquiry Types</h3>
+            <p className="text-gray-600">Manage contact form dropdown options</p>
+          </Link>
+
         </div>
       </div>
     </div>

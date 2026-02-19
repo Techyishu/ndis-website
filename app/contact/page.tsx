@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import ContactForm from "../components/ContactForm";
+import { supabase } from "@/lib/supabase";
 
 export const metadata: Metadata = {
   title: "Contact Us | Get NDIS Support Today | EverCare Community",
@@ -7,7 +8,21 @@ export const metadata: Metadata = {
   keywords: "contact NDIS provider Melbourne, NDIS services Victoria contact, NDIS provider near me Melbourne, NDIS consultation Victoria, EverCare contact",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const { data: contactData } = await supabase
+    .from("site_settings")
+    .select("key, value")
+    .eq("group", "contact");
+
+  const c: Record<string, string> = Object.fromEntries(
+    (contactData || []).map((r: { key: string; value: string }) => [r.key, r.value])
+  );
+
+  const phone = c.contact_phone || "03 7303 7203";
+  const email = c.contact_email || "support@evercarecommunity.com.au";
+  const hours = c.contact_hours || "Available 24/7";
+  const phoneHref = `tel:${phone.replace(/\s/g, "")}`;
+
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -113,11 +128,11 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <h4 className="text-lg font-bold text-white mb-1">Call Us</h4>
-                <p className="text-white/80 text-sm">Available 24/7</p>
+                <p className="text-white/80 text-sm">{hours}</p>
               </div>
               <div className="p-6 text-center">
-                <a href="tel:0373037203" className="text-2xl font-bold text-primary hover:text-primary-dark transition-colors inline-flex items-center gap-2 group">
-                  03 7303 7203
+                <a href={phoneHref} className="text-2xl font-bold text-primary hover:text-primary-dark transition-colors inline-flex items-center gap-2 group">
+                  {phone}
                   <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
@@ -138,8 +153,8 @@ export default function ContactPage() {
                 <p className="text-white/80 text-sm">We respond within 24 hours</p>
               </div>
               <div className="p-6 text-center">
-                <a href="mailto:support@evercarecommunity.com.au" className="text-lg font-bold text-secondary hover:text-secondary-dark transition-colors inline-flex items-center gap-2 group break-all">
-                  support@evercarecommunity.com.au
+                <a href={`mailto:${email}`} className="text-lg font-bold text-secondary hover:text-secondary-dark transition-colors inline-flex items-center gap-2 group break-all">
+                  {email}
                   <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>

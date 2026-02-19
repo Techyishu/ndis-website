@@ -1,6 +1,8 @@
 import Link from "next/link";
 import ImagePlaceholder from "../../components/ImagePlaceholder";
 import { Metadata } from "next";
+import { supabase } from "@/lib/supabase";
+import { ServiceDetail } from "@/lib/types";
 
 export const metadata: Metadata = {
     title: "Core Supports | Daily Living & Community Access | EverCare",
@@ -8,7 +10,16 @@ export const metadata: Metadata = {
     keywords: "NDIS core supports Melbourne, daily living assistance Victoria, NDIS personal care Melbourne, household tasks support, community participation NDIS, NDIS transport support Victoria",
 };
 
-export default function CoreSupportsPage() {
+export default async function CoreSupportsPage() {
+    const { data } = await supabase
+        .from("service_details")
+        .select("*")
+        .eq("service_type", "core")
+        .eq("is_active", true)
+        .order("display_order", { ascending: true });
+
+    const sections: ServiceDetail[] = (data as ServiceDetail[]) || [];
+
     return (
         <div className="bg-white">
             {/* Hero Section */}
@@ -35,26 +46,28 @@ export default function CoreSupportsPage() {
                             <div className="bg-gray-50 p-6 rounded-xl sticky top-24">
                                 <h3 className="text-lg font-bold text-gray-900 mb-4">In This Section</h3>
                                 <ul className="space-y-2">
-                                    <li>
-                                        <a href="#daily-living" className="block text-gray-600 hover:text-primary transition-colors py-2 border-b border-gray-200">
-                                            Assistance with Daily Life
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#household" className="block text-gray-600 hover:text-primary transition-colors py-2 border-b border-gray-200">
-                                            Household Tasks
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#community" className="block text-gray-600 hover:text-primary transition-colors py-2 border-b border-gray-200">
-                                            Community Participation
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#transport" className="block text-gray-600 hover:text-primary transition-colors py-2">
-                                            Transport Support
-                                        </a>
-                                    </li>
+                                    {sections.length > 0 ? (
+                                        sections.map((section, i) => {
+                                            const anchor = section.section_title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+                                            return (
+                                                <li key={section.id}>
+                                                    <a
+                                                        href={`#${anchor}`}
+                                                        className={`block text-gray-600 hover:text-primary transition-colors py-2 ${i < sections.length - 1 ? "border-b border-gray-200" : ""}`}
+                                                    >
+                                                        {section.section_title}
+                                                    </a>
+                                                </li>
+                                            );
+                                        })
+                                    ) : (
+                                        <>
+                                            <li><a href="#daily-living" className="block text-gray-600 hover:text-primary transition-colors py-2 border-b border-gray-200">Assistance with Daily Life</a></li>
+                                            <li><a href="#household" className="block text-gray-600 hover:text-primary transition-colors py-2 border-b border-gray-200">Household Tasks</a></li>
+                                            <li><a href="#community" className="block text-gray-600 hover:text-primary transition-colors py-2 border-b border-gray-200">Community Participation</a></li>
+                                            <li><a href="#transport" className="block text-gray-600 hover:text-primary transition-colors py-2">Transport Support</a></li>
+                                        </>
+                                    )}
                                 </ul>
                                 <div className="mt-8">
                                     <Link href="/contact" className="btn btn-primary w-full text-center text-white">
@@ -66,82 +79,87 @@ export default function CoreSupportsPage() {
 
                         {/* Content Area */}
                         <div className="lg:col-span-2 space-y-16">
-                            {/* Daily Living */}
-                            <div id="daily-living" className="scroll-mt-24">
-                                <div className="relative h-[300px] rounded-xl overflow-hidden mb-6 shadow-lg">
-                                    <ImagePlaceholder
-                                        src="/images/pexels-mikhail-nilov-7698019.jpg"
-                                        alt="Support worker assisting a person with daily life activities"
-                                        width={800}
-                                        height={400}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                                <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">Assistance with Daily Life</h2>
-                                <p className="text-lg text-gray-600 mb-4">
-                                    We provide flexible support with personal care and daily activities to help you live as independently as possible at home.
-                                </p>
-                                <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
-                                    <li>Personal hygiene and grooming</li>
-                                    <li>Dressing and getting ready for the day</li>
-                                    <li>Meal preparation and assistance with eating</li>
-                                    <li>Medication reminders and administration</li>
-                                    <li>Mobility and transfer assistance</li>
-                                </ul>
-                            </div>
-
-                            {/* Household Tasks */}
-                            <div id="household" className="scroll-mt-24">
-                                <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">Household Tasks</h2>
-                                <p className="text-lg text-gray-600 mb-4">
-                                    Keeping your home clean and organized is important for your wellbeing. Our team can assist with a range of domestic chores.
-                                </p>
-                                <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
-                                    <li>General cleaning and tidying</li>
-                                    <li>Laundry and ironing</li>
-                                    <li>Changing bed linen</li>
-                                    <li>Grocery shopping and meal planning</li>
-                                    <li>Gardening and basic home maintenance</li>
-                                </ul>
-                            </div>
-
-                            {/* Community Participation */}
-                            <div id="community" className="scroll-mt-24">
-                                <div className="relative h-[300px] rounded-xl overflow-hidden mb-6 shadow-lg">
-                                    <ImagePlaceholder
-                                        src="/images/core-community.png"
-                                        alt="Community Participation"
-                                        width={800}
-                                        height={400}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                                <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">Community Participation</h2>
-                                <p className="text-lg text-gray-600 mb-4">
-                                    Stay connected and active in your community. We support you to join in social activities, clubs, and events that you enjoy.
-                                </p>
-                                <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
-                                    <li>Attending social groups and clubs</li>
-                                    <li>Going to the movies, concerts, or sporting events</li>
-                                    <li>Visiting the library or museum</li>
-                                    <li>Participating in recreational activities</li>
-                                    <li>Volunteering or work experience support</li>
-                                </ul>
-                            </div>
-
-                            {/* Transport */}
-                            <div id="transport" className="scroll-mt-24">
-                                <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">Transport Support</h2>
-                                <p className="text-lg text-gray-600 mb-4">
-                                    Getting around safely is key to independence. We offer transport assistance to help you get to appointments, work, or social outings.
-                                </p>
-                                <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
-                                    <li>Transport to medical appointments</li>
-                                    <li>Travel training to use public transport</li>
-                                    <li>Driving you to shopping or activities</li>
-                                    <li>Assistance with vehicle modifications (if applicable)</li>
-                                </ul>
-                            </div>
+                            {sections.length > 0 ? (
+                                sections.map((section) => {
+                                    const anchor = section.section_title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+                                    return (
+                                        <div key={section.id} id={anchor} className="scroll-mt-24">
+                                            {section.image_url && (
+                                                <div className="relative h-[300px] rounded-xl overflow-hidden mb-6 shadow-lg">
+                                                    <ImagePlaceholder
+                                                        src={section.image_url}
+                                                        alt={section.section_title}
+                                                        width={800}
+                                                        height={400}
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                </div>
+                                            )}
+                                            <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">{section.section_title}</h2>
+                                            <p className="text-lg text-gray-600 mb-4">{section.section_description}</p>
+                                            {Array.isArray(section.items) && section.items.length > 0 && (
+                                                <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
+                                                    {section.items.map((item, i) => (
+                                                        <li key={i}>{item}</li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </div>
+                                    );
+                                })
+                            ) : (
+                                <>
+                                    <div id="daily-living" className="scroll-mt-24">
+                                        <div className="relative h-[300px] rounded-xl overflow-hidden mb-6 shadow-lg">
+                                            <ImagePlaceholder src="/images/pexels-mikhail-nilov-7698019.jpg" alt="Support worker assisting a person with daily life activities" width={800} height={400} className="w-full h-full object-cover" />
+                                        </div>
+                                        <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">Assistance with Daily Life</h2>
+                                        <p className="text-lg text-gray-600 mb-4">We provide flexible support with personal care and daily activities to help you live as independently as possible at home.</p>
+                                        <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
+                                            <li>Personal hygiene and grooming</li>
+                                            <li>Dressing and getting ready for the day</li>
+                                            <li>Meal preparation and assistance with eating</li>
+                                            <li>Medication reminders and administration</li>
+                                            <li>Mobility and transfer assistance</li>
+                                        </ul>
+                                    </div>
+                                    <div id="household" className="scroll-mt-24">
+                                        <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">Household Tasks</h2>
+                                        <p className="text-lg text-gray-600 mb-4">Keeping your home clean and organized is important for your wellbeing. Our team can assist with a range of domestic chores.</p>
+                                        <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
+                                            <li>General cleaning and tidying</li>
+                                            <li>Laundry and ironing</li>
+                                            <li>Changing bed linen</li>
+                                            <li>Grocery shopping and meal planning</li>
+                                            <li>Gardening and basic home maintenance</li>
+                                        </ul>
+                                    </div>
+                                    <div id="community" className="scroll-mt-24">
+                                        <div className="relative h-[300px] rounded-xl overflow-hidden mb-6 shadow-lg">
+                                            <ImagePlaceholder src="/images/core-community.png" alt="Community Participation" width={800} height={400} className="w-full h-full object-cover" />
+                                        </div>
+                                        <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">Community Participation</h2>
+                                        <p className="text-lg text-gray-600 mb-4">Stay connected and active in your community. We support you to join in social activities, clubs, and events that you enjoy.</p>
+                                        <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
+                                            <li>Attending social groups and clubs</li>
+                                            <li>Going to the movies, concerts, or sporting events</li>
+                                            <li>Visiting the library or museum</li>
+                                            <li>Participating in recreational activities</li>
+                                            <li>Volunteering or work experience support</li>
+                                        </ul>
+                                    </div>
+                                    <div id="transport" className="scroll-mt-24">
+                                        <h2 className="text-xl sm:text-xl md:text-2xl font-bold text-gray-900 mb-4">Transport Support</h2>
+                                        <p className="text-lg text-gray-600 mb-4">Getting around safely is key to independence. We offer transport assistance to help you get to appointments, work, or social outings.</p>
+                                        <ul className="space-y-2 text-gray-700 list-disc list-inside marker:text-secondary">
+                                            <li>Transport to medical appointments</li>
+                                            <li>Travel training to use public transport</li>
+                                            <li>Driving you to shopping or activities</li>
+                                            <li>Assistance with vehicle modifications (if applicable)</li>
+                                        </ul>
+                                    </div>
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>

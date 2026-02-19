@@ -5,6 +5,8 @@ import WhyChooseUs from "./components/WhyChooseUs";
 import FAQ from "./components/FAQ";
 import CTASection from "./components/CTASection";
 import { Metadata } from "next";
+import { supabase } from "@/lib/supabase";
+import { Statistic, SiteSetting } from "@/lib/types";
 
 export const metadata: Metadata = {
     title: "EverCare Community | NDIS Provider Melbourne & Victoria",
@@ -12,7 +14,17 @@ export const metadata: Metadata = {
     keywords: "NDIS provider Melbourne, NDIS provider Victoria, disability support services Melbourne, NDIS registered provider, nurse-led NDIS support, NDIS support coordination Victoria, disability care Melbourne, NDIS capacity building, NDIS core supports",
 };
 
-export default function Home() {
+export default async function Home() {
+    const [{ data: statsData }, { data: ctaData }] = await Promise.all([
+        supabase.from("statistics").select("*").eq("is_active", true).order("display_order", { ascending: true }),
+        supabase.from("site_settings").select("key, value").eq("group", "cta"),
+    ]);
+
+    const stats: Statistic[] = statsData || [];
+    const cta: Record<string, string> = Object.fromEntries(
+        ((ctaData as SiteSetting[]) || []).map((r) => [r.key, r.value])
+    );
+
     return (
         <div className="flex flex-col min-h-screen">
             {/* Hero Section */}
@@ -65,19 +77,30 @@ export default function Home() {
                 <div className="absolute bottom-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-2xl translate-y-1/2 translate-x-1/2"></div>
 
                 <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-                    <div className="grid grid-cols-3 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 text-center">
-                        <div className="animate-fade-in-up">
-                            <div className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>5+</div>
-                            <div className="text-white/90 text-xs md:text-sm font-medium">Years Experience</div>
-                        </div>
-                        <div className="animate-fade-in-up delay-100">
-                            <div className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>98%</div>
-                            <div className="text-white/90 text-xs md:text-sm font-medium">Satisfaction Rate</div>
-                        </div>
-                        <div className="animate-fade-in-up delay-200">
-                            <div className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>24/7</div>
-                            <div className="text-white/90 text-xs md:text-sm font-medium">Support Available</div>
-                        </div>
+                    <div className={`grid grid-cols-${stats.length > 0 ? Math.min(stats.length, 3) : 3} md:grid-cols-${stats.length > 0 ? Math.min(stats.length, 3) : 3} gap-8 sm:gap-10 md:gap-12 text-center`}>
+                        {stats.length > 0 ? (
+                            stats.map((stat, i) => (
+                                <div key={stat.id} className={`animate-fade-in-up${i > 0 ? ` delay-${i * 100}` : ''}`}>
+                                    <div className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>{stat.value}</div>
+                                    <div className="text-white/90 text-xs md:text-sm font-medium">{stat.label}</div>
+                                </div>
+                            ))
+                        ) : (
+                            <>
+                                <div className="animate-fade-in-up">
+                                    <div className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>5+</div>
+                                    <div className="text-white/90 text-xs md:text-sm font-medium">Years Experience</div>
+                                </div>
+                                <div className="animate-fade-in-up delay-100">
+                                    <div className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>98%</div>
+                                    <div className="text-white/90 text-xs md:text-sm font-medium">Satisfaction Rate</div>
+                                </div>
+                                <div className="animate-fade-in-up delay-200">
+                                    <div className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3 text-white" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>24/7</div>
+                                    <div className="text-white/90 text-xs md:text-sm font-medium">Support Available</div>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </div>
             </section>
@@ -377,7 +400,14 @@ export default function Home() {
             <FAQ />
 
             {/* CTA Section */}
-            <CTASection />
+            <CTASection
+                heading={cta.cta_heading}
+                subheading={cta.cta_subheading}
+                button1Text={cta.cta_button1_text}
+                button1Link={cta.cta_button1_link}
+                button2Text={cta.cta_button2_text}
+                button2Link={cta.cta_button2_link}
+            />
         </div>
     );
 }

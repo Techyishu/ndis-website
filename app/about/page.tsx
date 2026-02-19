@@ -3,6 +3,8 @@ import Image from "next/image";
 import ImagePlaceholder from "../components/ImagePlaceholder";
 import CTASection from "../components/CTASection";
 import { Metadata } from "next";
+import { supabase } from "@/lib/supabase";
+import { AboutSection, SiteSetting, TeamMember } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "About Us | EverCare Community | Trusted NDIS Provider",
@@ -10,7 +12,23 @@ export const metadata: Metadata = {
   keywords: "about EverCare, NDIS provider Melbourne, nurse-led disability support Victoria, NDIS registered provider, Melbourne disability services team",
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const [{ data: aboutData }, { data: ctaData }, { data: teamData }] = await Promise.all([
+    supabase.from("about_sections").select("*").eq("is_active", true).order("display_order", { ascending: true }),
+    supabase.from("site_settings").select("key, value").eq("group", "cta"),
+    supabase.from("team_members").select("*").eq("is_active", true).order("display_order", { ascending: true }),
+  ]);
+
+  const allSections: AboutSection[] = (aboutData as AboutSection[]) || [];
+  const values = allSections.filter((s) => s.section_type === "value");
+  const approaches = allSections.filter((s) => s.section_type === "approach");
+  const accreditations = allSections.filter((s) => s.section_type === "accreditation");
+
+  const team: TeamMember[] = (teamData as TeamMember[]) || [];
+  const cta: Record<string, string> = Object.fromEntries(
+    ((ctaData as SiteSetting[]) || []).map((r) => [r.key, r.value])
+  );
+
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -69,43 +87,55 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-primary hover:shadow-xl transition-all duration-300 hover:border-primary-light">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary shadow-md">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Compassion First</h3>
-              <p className="text-gray-600">
-                We lead with kindness and empathy in everything we do, ensuring you always feel heard and valued.
-              </p>
+          {values.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {values.map((v, i) => {
+                const colors = ["border-primary", "border-secondary", "border-accent"];
+                const bgColors = ["bg-primary/10 text-primary", "bg-secondary/10 text-secondary", "bg-accent/10 text-accent"];
+                const color = colors[i % colors.length];
+                const bgColor = bgColors[i % bgColors.length];
+                return (
+                  <div key={v.id} className={`bg-white p-8 rounded-xl shadow-md border-t-4 ${color} hover:shadow-xl transition-all duration-300`}>
+                    <div className={`w-12 h-12 ${bgColor} rounded-lg flex items-center justify-center mb-6 shadow-md text-2xl`}>
+                      {v.icon || "★"}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{v.title}</h3>
+                    <p className="text-gray-600">{v.content}</p>
+                  </div>
+                );
+              })}
             </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-secondary hover:shadow-xl transition-all duration-300 hover:border-secondary-light">
-              <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 text-secondary shadow-md">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-primary hover:shadow-xl transition-all duration-300 hover:border-primary-light">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary shadow-md">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Compassion First</h3>
+                <p className="text-gray-600">We lead with kindness and empathy in everything we do, ensuring you always feel heard and valued.</p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Integrity & Trust</h3>
-              <p className="text-gray-600">
-                We are transparent, honest, and reliable. You can count on us to deliver on our promises every single day.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-accent hover:shadow-xl transition-all duration-300 hover:border-accent-light">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-6 text-accent shadow-md">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+              <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-secondary hover:shadow-xl transition-all duration-300 hover:border-secondary-light">
+                <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 text-secondary shadow-md">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Integrity & Trust</h3>
+                <p className="text-gray-600">We are transparent, honest, and reliable. You can count on us to deliver on our promises every single day.</p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Empowerment</h3>
-              <p className="text-gray-600">
-                Our goal is to empower you to make your own choices and live life on your own terms.
-              </p>
+              <div className="bg-white p-8 rounded-xl shadow-md border-t-4 border-accent hover:shadow-xl transition-all duration-300 hover:border-accent-light">
+                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-6 text-accent shadow-md">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Empowerment</h3>
+                <p className="text-gray-600">Our goal is to empower you to make your own choices and live life on your own terms.</p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
@@ -134,71 +164,62 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
+          {approaches.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {approaches.map((a, i) => {
+                const bgColors = ["bg-primary/10", "bg-secondary/10", "bg-accent/10", "bg-primary/10"];
+                const textColors = ["text-primary", "text-secondary", "text-accent", "text-primary"];
+                return (
+                  <div key={a.id} className="bg-white p-8 rounded-xl shadow-md">
+                    <div className="flex items-start gap-4">
+                      <div className={`flex-shrink-0 w-12 h-12 ${bgColors[i % bgColors.length]} rounded-lg flex items-center justify-center text-2xl ${textColors[i % textColors.length]}`}>
+                        {a.icon || "●"}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-3">{a.title}</h3>
+                        <p className="text-gray-600">{a.content}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div className="bg-white p-8 rounded-xl shadow-md">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                  </div>
+                  <div><h3 className="text-xl font-bold text-gray-900 mb-3">Person-Centered Planning</h3><p className="text-gray-600">We start by listening. Your goals, preferences, and dreams shape every aspect of your support plan.</p></div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Person-Centered Planning</h3>
-                  <p className="text-gray-600">
-                    We start by listening. Your goals, preferences, and dreams shape every aspect of your support plan. We believe you are the expert on your own life.
-                  </p>
+              </div>
+              <div className="bg-white p-8 rounded-xl shadow-md">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                  </div>
+                  <div><h3 className="text-xl font-bold text-gray-900 mb-3">Evidence-Based Practice</h3><p className="text-gray-600">Our nurse-led team brings clinical expertise and evidence-based approaches to every interaction.</p></div>
+                </div>
+              </div>
+              <div className="bg-white p-8 rounded-xl shadow-md">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                  </div>
+                  <div><h3 className="text-xl font-bold text-gray-900 mb-3">Continuous Improvement</h3><p className="text-gray-600">We regularly review and adapt our services based on feedback, outcomes, and the latest research.</p></div>
+                </div>
+              </div>
+              <div className="bg-white p-8 rounded-xl shadow-md">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  </div>
+                  <div><h3 className="text-xl font-bold text-gray-900 mb-3">Community Connection</h3><p className="text-gray-600">We help you build meaningful connections within your community, fostering social inclusion.</p></div>
                 </div>
               </div>
             </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
-                  <svg className="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Evidence-Based Practice</h3>
-                  <p className="text-gray-600">
-                    Our nurse-led team brings clinical expertise and evidence-based approaches to every interaction, ensuring the highest standard of care.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                  <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Continuous Improvement</h3>
-                  <p className="text-gray-600">
-                    We regularly review and adapt our services based on feedback, outcomes, and the latest disability support research and innovations.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">Community Connection</h3>
-                  <p className="text-gray-600">
-                    We help you build meaningful connections within your community, fostering relationships and opportunities for social inclusion.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </section>
 
@@ -212,48 +233,91 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-gray-50 rounded-xl border-2 border-gray-200 hover:border-primary transition-colors">
-              <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">NDIS Registered</h3>
-              <p className="text-gray-600 text-sm">
-                Fully registered and compliant with NDIS Quality and Safeguards Commission standards
-              </p>
+          {accreditations.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {accreditations.map((a, i) => {
+                const bgColors = ["bg-primary", "bg-secondary", "bg-accent"];
+                const borderColors = ["hover:border-primary", "hover:border-secondary", "hover:border-accent"];
+                return (
+                  <div key={a.id} className={`text-center p-8 bg-gray-50 rounded-xl border-2 border-gray-200 ${borderColors[i % borderColors.length]} transition-colors`}>
+                    <div className={`w-16 h-16 ${bgColors[i % bgColors.length]} text-white rounded-full flex items-center justify-center mx-auto mb-4 text-3xl`}>
+                      {a.icon || "✓"}
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">{a.title}</h3>
+                    <p className="text-gray-600 text-sm">{a.content}</p>
+                  </div>
+                );
+              })}
             </div>
-
-            <div className="text-center p-8 bg-gray-50 rounded-xl border-2 border-gray-200 hover:border-secondary transition-colors">
-              <div className="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center p-8 bg-gray-50 rounded-xl border-2 border-gray-200 hover:border-primary transition-colors">
+                <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">NDIS Registered</h3>
+                <p className="text-gray-600 text-sm">Fully registered and compliant with NDIS Quality and Safeguards Commission standards</p>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Worker Screening</h3>
-              <p className="text-gray-600 text-sm">
-                All team members hold current NDIS Worker Screening Checks and Working with Children Checks
-              </p>
-            </div>
-
-            <div className="text-center p-8 bg-gray-50 rounded-xl border-2 border-gray-200 hover:border-accent transition-colors">
-              <div className="w-16 h-16 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
+              <div className="text-center p-8 bg-gray-50 rounded-xl border-2 border-gray-200 hover:border-secondary transition-colors">
+                <div className="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Worker Screening</h3>
+                <p className="text-gray-600 text-sm">All team members hold current NDIS Worker Screening Checks and Working with Children Checks</p>
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Continuous Training</h3>
-              <p className="text-gray-600 text-sm">
-                Ongoing professional development and training in disability support best practices
-              </p>
+              <div className="text-center p-8 bg-gray-50 rounded-xl border-2 border-gray-200 hover:border-accent transition-colors">
+                <div className="w-16 h-16 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Continuous Training</h3>
+                <p className="text-gray-600 text-sm">Ongoing professional development and training in disability support best practices</p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
+      {/* Team Members Section - only shown when members are added via admin */}
+      {team.length > 0 && (
+        <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+          <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-2xl md:text-2xl font-bold text-gray-900 mb-4">Meet Our Team</h2>
+              <p className="text-base text-gray-600 max-w-2xl mx-auto">
+                Dedicated professionals committed to your wellbeing and independence.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {team.map((member) => (
+                <div key={member.id} className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-xl transition-all duration-300">
+                  {member.image_url ? (
+                    <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 shadow-md">
+                      <img src={member.image_url} alt={member.name} className="w-full h-full object-cover" />
+                    </div>
+                  ) : (
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-secondary mx-auto mb-4 flex items-center justify-center shadow-md">
+                      <span className="text-white text-3xl font-bold">{member.name.charAt(0)}</span>
+                    </div>
+                  )}
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
+                  <p className="text-sm font-medium text-primary mb-3">{member.role}</p>
+                  <p className="text-sm text-gray-600 leading-relaxed">{member.bio}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA Section */}
-      <CTASection />
+      <CTASection
+        heading={cta.cta_heading}
+        subheading={cta.cta_subheading}
+        button1Text={cta.cta_button1_text}
+        button1Link={cta.cta_button1_link}
+        button2Text={cta.cta_button2_text}
+        button2Link={cta.cta_button2_link}
+      />
     </div>
   );
 }
