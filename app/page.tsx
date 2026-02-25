@@ -14,16 +14,36 @@ export const metadata: Metadata = {
     keywords: "NDIS provider Melbourne, NDIS provider Victoria, disability support services Melbourne, NDIS registered provider, nurse-led NDIS support, NDIS support coordination Victoria, disability care Melbourne, NDIS capacity building, NDIS core supports",
 };
 
+const cardGradients = [
+    { bg: "from-primary to-secondary", hover: "hover:border-primary/30" },
+    { bg: "from-secondary to-accent", hover: "hover:border-secondary/30" },
+    { bg: "from-accent to-primary", hover: "hover:border-accent/30 sm:col-span-2 md:col-span-1" },
+];
+
+const cardIcons = [
+    <path key="0" strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />,
+    <path key="1" strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />,
+    <path key="2" strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />,
+];
+
+const fallbackCards = [
+    { title: "Nurse-Led Care", description: "Professional healthcare expertise in every service we provide" },
+    { title: "Personalized Support", description: "Tailored to your unique goals, needs, and lifestyle preferences" },
+    { title: "24/7 Available", description: "Round-the-clock support whenever you need us most" },
+];
+
 export default async function Home() {
-    const [{ data: statsData }, { data: ctaData }] = await Promise.all([
+    const [{ data: statsData }, { data: ctaData }, { data: featuresData }] = await Promise.all([
         supabase.from("statistics").select("*").eq("is_active", true).order("display_order", { ascending: true }),
         supabase.from("site_settings").select("key, value").eq("group", "cta"),
+        supabase.from("features").select("id, title, description").eq("is_active", true).order("display_order", { ascending: true }).limit(3),
     ]);
 
     const stats: Statistic[] = statsData || [];
     const cta: Record<string, string> = Object.fromEntries(
         ((ctaData as SiteSetting[]) || []).map((r) => [r.key, r.value])
     );
+    const featureCards = featuresData && featuresData.length > 0 ? featuresData : fallbackCards;
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -34,38 +54,20 @@ export default async function Home() {
             <section className="py-12 sm:py-16 md:py-20 bg-white">
                 <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-                        {/* Card 1 */}
-                        <div className="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-primary/30">
-                            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg">
-                                <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">Nurse-Led Care</h3>
-                            <p className="text-gray-700 text-sm leading-relaxed">Professional healthcare expertise in every service we provide</p>
-                        </div>
-
-                        {/* Card 2 */}
-                        <div className="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-secondary/30">
-                            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg">
-                                <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                </svg>
-                            </div>
-                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">Personalized Support</h3>
-                            <p className="text-gray-700 text-sm leading-relaxed">Tailored to your unique goals, needs, and lifestyle preferences</p>
-                        </div>
-
-                        {/* Card 3 */}
-                        <div className="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:border-accent/30 sm:col-span-2 md:col-span-1">
-                            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg">
-                                <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">24/7 Available</h3>
-                            <p className="text-gray-700 text-sm leading-relaxed">Round-the-clock support whenever you need us most</p>
-                        </div>
+                        {featureCards.map((card, i) => {
+                            const g = cardGradients[i % cardGradients.length];
+                            return (
+                                <div key={i} className={`group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 ${g.hover}`}>
+                                    <div className={`w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br ${g.bg} rounded-xl flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
+                                        <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                                            {cardIcons[i % cardIcons.length]}
+                                        </svg>
+                                    </div>
+                                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{card.title}</h3>
+                                    <p className="text-gray-700 text-sm leading-relaxed">{card.description}</p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>

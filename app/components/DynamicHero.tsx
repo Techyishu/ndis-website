@@ -1,7 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
+import { supabase } from "@/lib/supabase";
 
 export default async function DynamicHero() {
+  const { data } = await supabase
+    .from("hero_section")
+    .select("title, subtitle, button_text, button_link")
+    .eq("is_active", true)
+    .order("created_at", { ascending: false })
+    .limit(1)
+    .single();
+
+  const title = data?.title || "Live Your Life, Your Way.";
+  const subtitle = data?.subtitle || "Compassionate NDIS support that puts your goals, your choices, and your independence first.";
+  const buttonText = data?.button_text || "Start Free Consultation";
+  const buttonLink = data?.button_link || "/contact";
+
   return (
     <section className="relative min-h-[600px] sm:min-h-[680px] md:min-h-[720px] lg:min-h-[800px] overflow-hidden flex items-center">
       {/* Full Background Image */}
@@ -14,9 +28,7 @@ export default async function DynamicHero() {
           priority
           quality={90}
         />
-        {/* Gradient Overlay for Text Readability - Using New Colors */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#026189]/75 via-[#0F897D]/60 to-[#3B6889]/45"></div>
-        {/* Additional overlay on left side for text area */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-black/10 to-transparent"></div>
       </div>
 
@@ -26,9 +38,8 @@ export default async function DynamicHero() {
 
       {/* Main Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 sm:py-20 md:py-24">
-        {/* Left-Aligned Content */}
         <div className="max-w-3xl">
-          {/* Trust Badge - NDIS Registered */}
+          {/* Trust Badge */}
           <div className="mb-6 sm:mb-8 animate-fade-in-up">
             <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/95 backdrop-blur-sm rounded-full shadow-lg text-sm font-semibold text-primary-dark">
               <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -38,60 +49,44 @@ export default async function DynamicHero() {
             </span>
           </div>
 
-          {/* Strong Tagline - Main Heading */}
+          {/* Main Heading */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold mb-6 sm:mb-8 leading-[1.1] animate-fade-in-up delay-100" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.3)', color: '#FFFFFF' }}>
-            Live Your Life, Your Way.
+            {title}
           </h1>
 
-          {/* Supportive Subtitle */}
+          {/* Subtitle */}
           <p className="text-lg sm:text-xl md:text-xl lg:text-xl mb-8 sm:mb-10 leading-relaxed text-white/95 animate-fade-in-up delay-200 font-medium max-w-2xl" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}>
-            Compassionate NDIS support that puts your goals, your choices, and your independence first.
+            {subtitle}
           </p>
 
           {/* Value Propositions */}
           <div className="flex flex-wrap gap-3 sm:gap-4 mb-10 sm:mb-12 animate-fade-in-up delay-300">
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span className="text-white text-sm sm:text-base font-medium">Nurse-Led Care</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span className="text-white text-sm sm:text-base font-medium">24/7 Support</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span className="text-white text-sm sm:text-base font-medium">Melbourne & Victoria</span>
-            </div>
+            {["Nurse-Led Care", "24/7 Support", "Melbourne & Victoria"].map((label) => (
+              <div key={label} className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+                <span className="text-white text-sm sm:text-base font-medium">{label}</span>
+              </div>
+            ))}
           </div>
 
-          {/* Enhanced CTA Buttons */}
+          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-400">
             <Link
-              href="/contact"
-              className="group inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 text-base sm:text-base md:text-base font-bold rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 focus:ring-4 focus:ring-white/30"
-              style={{
-                background: 'linear-gradient(135deg, #4C43A0 0%, #60439F 100%)',
-                color: '#FFFFFF',
-                boxShadow: '0 8px 32px rgba(76, 67, 160, 0.4)'
-              }}
-              aria-label="Start your free consultation today"
+              href={buttonLink}
+              className="group inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 text-base font-bold rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 focus:ring-4 focus:ring-white/30"
+              style={{ background: 'linear-gradient(135deg, #4C43A0 0%, #60439F 100%)', color: '#FFFFFF', boxShadow: '0 8px 32px rgba(76, 67, 160, 0.4)' }}
             >
-              <span className="tracking-wide" style={{ color: '#FFFFFF' }}>Start Free Consultation</span>
-              <svg className="w-4 h-4 ml-2.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5} style={{ color: '#FFFFFF' }} aria-hidden="true">
+              <span className="tracking-wide" style={{ color: '#FFFFFF' }}>{buttonText}</span>
+              <svg className="w-4 h-4 ml-2.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5} style={{ color: '#FFFFFF' }}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </Link>
             <Link
               href="tel:0373037203"
-              className="group inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 text-base sm:text-base md:text-base font-bold bg-white rounded-xl shadow-xl hover:bg-gray-50 transition-all duration-300 hover:scale-105 focus:ring-4 focus:ring-white/50"
+              className="group inline-flex items-center justify-center px-6 sm:px-7 py-3 sm:py-3.5 text-base font-bold bg-white rounded-xl shadow-xl hover:bg-gray-50 transition-all duration-300 hover:scale-105 focus:ring-4 focus:ring-white/50"
               style={{ color: '#026189' }}
-              aria-label="Call us at 03 7303 7203"
             >
               <svg className="w-4 h-4 mr-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} style={{ color: '#026189' }}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
