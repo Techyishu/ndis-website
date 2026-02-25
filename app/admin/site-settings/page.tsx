@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 
 type TabKey = "contact" | "social" | "cta";
 
@@ -41,6 +42,7 @@ export default function AdminSiteSettings() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [savedTab, setSavedTab] = useState<TabKey | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
@@ -52,16 +54,19 @@ export default function AdminSiteSettings() {
   }, [router]);
 
   const fetchSettings = async () => {
+    setError(null);
     try {
-      const response = await fetch("/api/site-settings");
-      if (response.ok) {
-        const data: { key: string; value: string }[] = await response.json();
-        const map: Record<string, string> = {};
-        data.forEach((row) => { map[row.key] = row.value; });
-        setSettings(map);
-      }
-    } catch (error) {
-      console.error("Error fetching settings:", error);
+      const { data, error } = await supabase
+        .from("site_settings")
+        .select("key, value");
+      if (error) throw error;
+      const map: Record<string, string> = {};
+      (data || []).forEach((row: { key: string; value: string }) => {
+        map[row.key] = row.value;
+      });
+      setSettings(map);
+    } catch (err: any) {
+      setError(err.message || "Failed to load settings");
     } finally {
       setLoading(false);
     }
@@ -75,26 +80,23 @@ export default function AdminSiteSettings() {
     setSaving(true);
     try {
       const fields = TAB_FIELDS[tab];
-      const payload = fields.map((f) => ({
+      const rows = fields.map((f) => ({
         key: f.key,
         value: settings[f.key] || "",
         group: tab,
+        updated_at: new Date().toISOString(),
       }));
 
-      const response = await fetch("/api/site-settings", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const { error } = await supabase
+        .from("site_settings")
+        .upsert(rows, { onConflict: "key" });
 
-      if (response.ok) {
-        setSavedTab(tab);
-        setTimeout(() => setSavedTab(null), 3000);
-      } else {
-        alert("Error saving settings");
-      }
-    } catch {
-      alert("Error saving settings");
+      if (error) throw error;
+
+      setSavedTab(tab);
+      setTimeout(() => setSavedTab(null), 3000);
+    } catch (err: any) {
+      alert("Error saving settings: " + (err.message || "Unknown error"));
     } finally {
       setSaving(false);
     }
@@ -122,6 +124,12 @@ export default function AdminSiteSettings() {
         <p className="text-sm text-gray-500 mb-6">
           Changes here update the contact info in the footer and contact page, social media links, and the CTA banner text sitewide.
         </p>
+
+        {error && (
+          <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+            Error: {error}
+          </div>
+        )}
 
         {/* Tab Navigation */}
         <div className="flex border-b border-gray-200 mb-8">

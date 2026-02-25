@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 import { Statistic } from "@/lib/types";
 
 const defaultForm: Statistic = {
@@ -17,6 +18,7 @@ export default function AdminStatistics() {
   const router = useRouter();
   const [items, setItems] = useState<Statistic[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [editingItem, setEditingItem] = useState<Statistic | null>(null);
   const [formData, setFormData] = useState<Statistic>(defaultForm);
@@ -31,14 +33,16 @@ export default function AdminStatistics() {
   }, [router]);
 
   const fetchItems = async () => {
+    setError(null);
     try {
-      const response = await fetch("/api/statistics?all=true");
-      if (response.ok) {
-        const data = await response.json();
-        setItems(data);
-      }
-    } catch (error) {
-      console.error("Error fetching statistics:", error);
+      const { data, error } = await supabase
+        .from("statistics")
+        .select("*")
+        .order("display_order", { ascending: true });
+      if (error) throw error;
+      setItems(data || []);
+    } catch (err: any) {
+      setError(err.message || "Failed to load statistics");
     } finally {
       setLoading(false);
     }
@@ -47,21 +51,24 @@ export default function AdminStatistics() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const method = editingItem ? "PUT" : "POST";
-      const body = editingItem ? { ...formData, id: editingItem.id } : formData;
-      const response = await fetch("/api/statistics", {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      if (response.ok) {
-        fetchItems();
-        setShowForm(false);
-        setEditingItem(null);
-        setFormData(defaultForm);
+      if (editingItem?.id) {
+        const { error } = await supabase
+          .from("statistics")
+          .update({ ...formData, updated_at: new Date().toISOString() })
+          .eq("id", editingItem.id);
+        if (error) throw error;
+      } else {
+        const { error } = await supabase
+          .from("statistics")
+          .insert([{ ...formData, updated_at: new Date().toISOString() }]);
+        if (error) throw error;
       }
-    } catch {
-      alert("Error saving statistic");
+      fetchItems();
+      setShowForm(false);
+      setEditingItem(null);
+      setFormData(defaultForm);
+    } catch (err: any) {
+      alert("Error saving statistic: " + (err.message || "Unknown error"));
     }
   };
 
@@ -74,24 +81,25 @@ export default function AdminStatistics() {
 
   const handleToggleActive = async (id: string, currentState: boolean) => {
     try {
-      await fetch("/api/statistics", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id, is_active: !currentState }),
-      });
+      const { error } = await supabase
+        .from("statistics")
+        .update({ is_active: !currentState, updated_at: new Date().toISOString() })
+        .eq("id", id);
+      if (error) throw error;
       fetchItems();
-    } catch {
-      alert("Error updating status");
+    } catch (err: any) {
+      alert("Error updating status: " + (err.message || "Unknown error"));
     }
   };
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this statistic?")) return;
     try {
-      const response = await fetch(`/api/statistics?id=${id}`, { method: "DELETE" });
-      if (response.ok) fetchItems();
-    } catch {
-      alert("Error deleting statistic");
+      const { error } = await supabase.from("statistics").delete().eq("id", id);
+      if (error) throw error;
+      fetchItems();
+    } catch (err: any) {
+      alert("Error deleting statistic: " + (err.message || "Unknown error"));
     }
   };
 
@@ -109,11 +117,7 @@ export default function AdminStatistics() {
             </Link>
             <h1 className="text-2xl font-bold text-gray-900">Manage Statistics</h1>
             <button
-              onClick={() => {
-                setShowForm(true);
-                setEditingItem(null);
-                setFormData(defaultForm);
-              }}
+              onClick={() => { setShowForm(true); setEditingItem(null); setFormData(defaultForm); }}
               className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700"
             >
               Add New
@@ -124,6 +128,12 @@ export default function AdminStatistics() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <p className="text-sm text-gray-500 mb-6">These statistics appear in the banner on the homepage (e.g. "5+ Years", "98% Satisfaction").</p>
+
+        {error && (
+          <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+            Error: {error}
+          </div>
+        )}
 
         {showForm && (
           <div className="bg-white rounded-lg shadow-md p-8 mb-8">
@@ -205,7 +215,7 @@ export default function AdminStatistics() {
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.length === 0 && (
+          {items.length === 0 && !error && (
             <div className="col-span-3 bg-white rounded-lg shadow-md p-8 text-center text-gray-500">
               No statistics yet. Click "Add New" to create one.
             </div>
@@ -222,24 +232,14 @@ export default function AdminStatistics() {
               <div className="text-4xl font-bold text-gray-900 mb-1">{item.value}</div>
               <div className="text-gray-600 text-sm mb-4">{item.label}</div>
               <div className="flex gap-2 flex-wrap">
-                <button
-                  onClick={() => handleEdit(item)}
-                  className="px-3 py-1.5 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 text-sm"
-                >
-                  Edit
-                </button>
+                <button onClick={() => handleEdit(item)} className="px-3 py-1.5 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 text-sm">Edit</button>
                 <button
                   onClick={() => handleToggleActive(item.id!, item.is_active)}
                   className={`px-3 py-1.5 rounded-lg text-sm text-white ${item.is_active ? "bg-yellow-500 hover:bg-yellow-600" : "bg-green-600 hover:bg-green-700"}`}
                 >
                   {item.is_active ? "Deactivate" : "Activate"}
                 </button>
-                <button
-                  onClick={() => item.id && handleDelete(item.id)}
-                  className="px-3 py-1.5 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm"
-                >
-                  Delete
-                </button>
+                <button onClick={() => item.id && handleDelete(item.id)} className="px-3 py-1.5 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm">Delete</button>
               </div>
             </div>
           ))}

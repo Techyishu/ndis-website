@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 
 interface Service {
   id?: string;
@@ -18,6 +19,7 @@ export default function AdminServices() {
   const router = useRouter();
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [editingService, setEditingService] = useState<Service | null>(null);
   const [formData, setFormData] = useState<Service>({
@@ -39,14 +41,16 @@ export default function AdminServices() {
   }, [router]);
 
   const fetchServices = async () => {
+    setError(null);
     try {
-      const response = await fetch("/api/services");
-      if (response.ok) {
-        const data = await response.json();
-        setServices(data);
-      }
-    } catch (error) {
-      console.error("Error fetching services:", error);
+      const { data, error } = await supabase
+        .from("services")
+        .select("*")
+        .order("display_order", { ascending: true });
+      if (error) throw error;
+      setServices(data || []);
+    } catch (err: any) {
+      setError(err.message || "Failed to load services");
     } finally {
       setLoading(false);
     }
@@ -55,28 +59,24 @@ export default function AdminServices() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const method = editingService ? "PUT" : "POST";
-      const response = await fetch("/api/services", {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(editingService ? { ...formData, id: editingService.id } : formData),
-      });
-
-      if (response.ok) {
-        fetchServices();
-        setShowForm(false);
-        setEditingService(null);
-        setFormData({
-          title: "",
-          description: "",
-          image: "",
-          category: "core",
-          display_order: 0,
-          is_active: true,
-        });
+      if (editingService?.id) {
+        const { error } = await supabase
+          .from("services")
+          .update({ ...formData, updated_at: new Date().toISOString() })
+          .eq("id", editingService.id);
+        if (error) throw error;
+      } else {
+        const { error } = await supabase
+          .from("services")
+          .insert([{ ...formData, updated_at: new Date().toISOString() }]);
+        if (error) throw error;
       }
-    } catch (error) {
-      alert("Error saving service");
+      fetchServices();
+      setShowForm(false);
+      setEditingService(null);
+      setFormData({ title: "", description: "", image: "", category: "core", display_order: 0, is_active: true });
+    } catch (err: any) {
+      alert("Error saving service: " + (err.message || "Unknown error"));
     }
   };
 
@@ -89,12 +89,14 @@ export default function AdminServices() {
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this service?")) return;
     try {
-      const response = await fetch(`/api/services?id=${id}`, { method: "DELETE" });
-      if (response.ok) {
-        fetchServices();
-      }
-    } catch (error) {
-      alert("Error deleting service");
+      const { error } = await supabase
+        .from("services")
+        .update({ is_active: false, updated_at: new Date().toISOString() })
+        .eq("id", id);
+      if (error) throw error;
+      fetchServices();
+    } catch (err: any) {
+      alert("Error deleting service: " + (err.message || "Unknown error"));
     }
   };
 
@@ -115,14 +117,7 @@ export default function AdminServices() {
               onClick={() => {
                 setShowForm(true);
                 setEditingService(null);
-                setFormData({
-                  title: "",
-                  description: "",
-                  image: "",
-                  category: "core",
-                  display_order: 0,
-                  is_active: true,
-                });
+                setFormData({ title: "", description: "", image: "", category: "core", display_order: 0, is_active: true });
               }}
               className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700"
             >
@@ -133,6 +128,12 @@ export default function AdminServices() {
       </nav>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {error && (
+          <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+            Error: {error}
+          </div>
+        )}
+
         {showForm && (
           <div className="bg-white rounded-lg shadow-md p-8 mb-8">
             <h2 className="text-xl font-bold mb-4">
@@ -185,7 +186,7 @@ export default function AdminServices() {
                 <input
                   type="number"
                   value={formData.display_order}
-                  onChange={(e) => setFormData({ ...formData, display_order: parseInt(e.target.value) })}
+                  onChange={(e) => setFormData({ ...formData, display_order: parseInt(e.target.value) || 0 })}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                 />
               </div>
@@ -199,18 +200,10 @@ export default function AdminServices() {
                 <label className="ml-2 text-sm text-gray-700">Active</label>
               </div>
               <div className="flex gap-4">
-                <button
-                  type="submit"
-                  className="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700"
-                >
-                  Save
-                </button>
+                <button type="submit" className="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700">Save</button>
                 <button
                   type="button"
-                  onClick={() => {
-                    setShowForm(false);
-                    setEditingService(null);
-                  }}
+                  onClick={() => { setShowForm(false); setEditingService(null); }}
                   className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300"
                 >
                   Cancel
@@ -221,23 +214,24 @@ export default function AdminServices() {
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.length === 0 && !error && (
+            <div className="col-span-3 bg-white rounded-lg shadow-md p-8 text-center text-gray-500">
+              No services yet. Click "Add New" to create one.
+            </div>
+          )}
           {services.map((service) => (
             <div key={service.id} className="bg-white rounded-lg shadow-md p-6">
+              <div className="flex items-center gap-2 mb-2">
+                <span className={`inline-block px-2 py-0.5 text-xs rounded-full ${service.is_active ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}>
+                  {service.is_active ? "Active" : "Inactive"}
+                </span>
+                <span className="text-xs text-gray-400 capitalize">{service.category}</span>
+              </div>
               <h3 className="text-xl font-bold mb-2">{service.title}</h3>
               <p className="text-gray-600 mb-4 text-sm">{service.description}</p>
               <div className="flex gap-2">
-                <button
-                  onClick={() => handleEdit(service)}
-                  className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 text-sm"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => service.id && handleDelete(service.id)}
-                  className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm"
-                >
-                  Delete
-                </button>
+                <button onClick={() => handleEdit(service)} className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 text-sm">Edit</button>
+                <button onClick={() => service.id && handleDelete(service.id)} className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm">Delete</button>
               </div>
             </div>
           ))}
@@ -246,4 +240,3 @@ export default function AdminServices() {
     </div>
   );
 }
-

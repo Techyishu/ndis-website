@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 import { InquiryType } from "@/lib/types";
 
 const defaultForm: InquiryType = {
@@ -16,6 +17,7 @@ export default function AdminInquiryTypes() {
   const router = useRouter();
   const [items, setItems] = useState<InquiryType[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [editingItem, setEditingItem] = useState<InquiryType | null>(null);
   const [formData, setFormData] = useState<InquiryType>(defaultForm);
@@ -30,14 +32,16 @@ export default function AdminInquiryTypes() {
   }, [router]);
 
   const fetchItems = async () => {
+    setError(null);
     try {
-      const response = await fetch("/api/inquiry-types?all=true");
-      if (response.ok) {
-        const data = await response.json();
-        setItems(data);
-      }
-    } catch (error) {
-      console.error("Error fetching inquiry types:", error);
+      const { data, error } = await supabase
+        .from("inquiry_types")
+        .select("*")
+        .order("display_order", { ascending: true });
+      if (error) throw error;
+      setItems(data || []);
+    } catch (err: any) {
+      setError(err.message || "Failed to load inquiry types");
     } finally {
       setLoading(false);
     }
@@ -46,21 +50,24 @@ export default function AdminInquiryTypes() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const method = editingItem ? "PUT" : "POST";
-      const body = editingItem ? { ...formData, id: editingItem.id } : formData;
-      const response = await fetch("/api/inquiry-types", {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      if (response.ok) {
-        fetchItems();
-        setShowForm(false);
-        setEditingItem(null);
-        setFormData(defaultForm);
+      if (editingItem?.id) {
+        const { error } = await supabase
+          .from("inquiry_types")
+          .update({ ...formData, updated_at: new Date().toISOString() })
+          .eq("id", editingItem.id);
+        if (error) throw error;
+      } else {
+        const { error } = await supabase
+          .from("inquiry_types")
+          .insert([{ ...formData, updated_at: new Date().toISOString() }]);
+        if (error) throw error;
       }
-    } catch {
-      alert("Error saving inquiry type");
+      fetchItems();
+      setShowForm(false);
+      setEditingItem(null);
+      setFormData(defaultForm);
+    } catch (err: any) {
+      alert("Error saving inquiry type: " + (err.message || "Unknown error"));
     }
   };
 
@@ -73,24 +80,25 @@ export default function AdminInquiryTypes() {
 
   const handleToggleActive = async (id: string, currentState: boolean) => {
     try {
-      await fetch("/api/inquiry-types", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id, is_active: !currentState }),
-      });
+      const { error } = await supabase
+        .from("inquiry_types")
+        .update({ is_active: !currentState, updated_at: new Date().toISOString() })
+        .eq("id", id);
+      if (error) throw error;
       fetchItems();
-    } catch {
-      alert("Error updating status");
+    } catch (err: any) {
+      alert("Error updating status: " + (err.message || "Unknown error"));
     }
   };
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this inquiry type?")) return;
     try {
-      const response = await fetch(`/api/inquiry-types?id=${id}`, { method: "DELETE" });
-      if (response.ok) fetchItems();
-    } catch {
-      alert("Error deleting inquiry type");
+      const { error } = await supabase.from("inquiry_types").delete().eq("id", id);
+      if (error) throw error;
+      fetchItems();
+    } catch (err: any) {
+      alert("Error deleting inquiry type: " + (err.message || "Unknown error"));
     }
   };
 
@@ -108,11 +116,7 @@ export default function AdminInquiryTypes() {
             </Link>
             <h1 className="text-2xl font-bold text-gray-900">Manage Inquiry Types</h1>
             <button
-              onClick={() => {
-                setShowForm(true);
-                setEditingItem(null);
-                setFormData(defaultForm);
-              }}
+              onClick={() => { setShowForm(true); setEditingItem(null); setFormData(defaultForm); }}
               className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700"
             >
               Add New
@@ -124,6 +128,12 @@ export default function AdminInquiryTypes() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <p className="text-sm text-gray-500 mb-6">These options appear in the "I am a..." dropdown on the contact form.</p>
 
+        {error && (
+          <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+            Error: {error}
+          </div>
+        )}
+
         {showForm && (
           <div className="bg-white rounded-lg shadow-md p-8 mb-8">
             <h2 className="text-xl font-bold mb-4">
@@ -132,69 +142,34 @@ export default function AdminInquiryTypes() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Label <span className="text-gray-400">(shown to users)</span>
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.label}
-                    onChange={(e) => setFormData({ ...formData, label: e.target.value })}
-                    required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                    placeholder="e.g. NDIS Participant"
-                  />
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Label <span className="text-gray-400">(shown to users)</span></label>
+                  <input type="text" value={formData.label} onChange={(e) => setFormData({ ...formData, label: e.target.value })} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="e.g. NDIS Participant" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Value <span className="text-gray-400">(internal identifier, no spaces)</span>
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.value}
-                    onChange={(e) => setFormData({ ...formData, value: e.target.value.toLowerCase().replace(/\s+/g, '-') })}
-                    required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                    placeholder="e.g. participant"
-                  />
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Value <span className="text-gray-400">(internal, no spaces)</span></label>
+                  <input type="text" value={formData.value} onChange={(e) => setFormData({ ...formData, value: e.target.value.toLowerCase().replace(/\s+/g, '-') })} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="e.g. participant" />
                 </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Display Order</label>
-                  <input
-                    type="number"
-                    value={formData.display_order}
-                    onChange={(e) => setFormData({ ...formData, display_order: parseInt(e.target.value) || 0 })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                  />
+                  <input type="number" value={formData.display_order} onChange={(e) => setFormData({ ...formData, display_order: parseInt(e.target.value) || 0 })} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" />
                 </div>
                 <div className="flex items-center mt-6">
-                  <input
-                    type="checkbox"
-                    checked={formData.is_active}
-                    onChange={(e) => setFormData({ ...formData, is_active: e.target.checked })}
-                    className="w-4 h-4 text-emerald-600"
-                    id="inq-active"
-                  />
+                  <input type="checkbox" checked={formData.is_active} onChange={(e) => setFormData({ ...formData, is_active: e.target.checked })} className="w-4 h-4 text-emerald-600" id="inq-active" />
                   <label htmlFor="inq-active" className="ml-2 text-sm text-gray-700">Active</label>
                 </div>
               </div>
               <div className="flex gap-4">
                 <button type="submit" className="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700">Save</button>
-                <button
-                  type="button"
-                  onClick={() => { setShowForm(false); setEditingItem(null); }}
-                  className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300"
-                >
-                  Cancel
-                </button>
+                <button type="button" onClick={() => { setShowForm(false); setEditingItem(null); }} className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300">Cancel</button>
               </div>
             </form>
           </div>
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.length === 0 && (
+          {items.length === 0 && !error && (
             <div className="col-span-3 bg-white rounded-lg shadow-md p-8 text-center text-gray-500">
               No inquiry types yet. Click "Add New" to create one.
             </div>
@@ -210,24 +185,14 @@ export default function AdminInquiryTypes() {
               <h3 className="text-lg font-bold text-gray-900 mb-1">{item.label}</h3>
               <p className="text-sm text-gray-500 mb-4">value: <code className="bg-gray-100 px-1 rounded">{item.value}</code></p>
               <div className="flex gap-2 flex-wrap">
-                <button
-                  onClick={() => handleEdit(item)}
-                  className="px-3 py-1.5 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 text-sm"
-                >
-                  Edit
-                </button>
+                <button onClick={() => handleEdit(item)} className="px-3 py-1.5 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 text-sm">Edit</button>
                 <button
                   onClick={() => handleToggleActive(item.id!, item.is_active)}
                   className={`px-3 py-1.5 rounded-lg text-sm text-white ${item.is_active ? "bg-yellow-500 hover:bg-yellow-600" : "bg-green-600 hover:bg-green-700"}`}
                 >
                   {item.is_active ? "Deactivate" : "Activate"}
                 </button>
-                <button
-                  onClick={() => item.id && handleDelete(item.id)}
-                  className="px-3 py-1.5 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm"
-                >
-                  Delete
-                </button>
+                <button onClick={() => item.id && handleDelete(item.id)} className="px-3 py-1.5 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm">Delete</button>
               </div>
             </div>
           ))}

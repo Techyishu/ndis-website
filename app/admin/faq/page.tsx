@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 import { FaqItem } from "@/lib/types";
 
 const defaultForm: FaqItem = {
@@ -16,6 +17,7 @@ export default function AdminFaq() {
   const router = useRouter();
   const [items, setItems] = useState<FaqItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [editingItem, setEditingItem] = useState<FaqItem | null>(null);
   const [formData, setFormData] = useState<FaqItem>(defaultForm);
@@ -30,14 +32,16 @@ export default function AdminFaq() {
   }, [router]);
 
   const fetchItems = async () => {
+    setError(null);
     try {
-      const response = await fetch("/api/faq?all=true");
-      if (response.ok) {
-        const data = await response.json();
-        setItems(data);
-      }
-    } catch (error) {
-      console.error("Error fetching FAQ items:", error);
+      const { data, error } = await supabase
+        .from("faq_items")
+        .select("*")
+        .order("display_order", { ascending: true });
+      if (error) throw error;
+      setItems(data || []);
+    } catch (err: any) {
+      setError(err.message || "Failed to load FAQ items");
     } finally {
       setLoading(false);
     }
@@ -46,21 +50,24 @@ export default function AdminFaq() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const method = editingItem ? "PUT" : "POST";
-      const body = editingItem ? { ...formData, id: editingItem.id } : formData;
-      const response = await fetch("/api/faq", {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      if (response.ok) {
-        fetchItems();
-        setShowForm(false);
-        setEditingItem(null);
-        setFormData(defaultForm);
+      if (editingItem?.id) {
+        const { error } = await supabase
+          .from("faq_items")
+          .update({ ...formData, updated_at: new Date().toISOString() })
+          .eq("id", editingItem.id);
+        if (error) throw error;
+      } else {
+        const { error } = await supabase
+          .from("faq_items")
+          .insert([{ ...formData, updated_at: new Date().toISOString() }]);
+        if (error) throw error;
       }
-    } catch {
-      alert("Error saving FAQ item");
+      fetchItems();
+      setShowForm(false);
+      setEditingItem(null);
+      setFormData(defaultForm);
+    } catch (err: any) {
+      alert("Error saving FAQ item: " + (err.message || "Unknown error"));
     }
   };
 
@@ -73,24 +80,25 @@ export default function AdminFaq() {
 
   const handleToggleActive = async (id: string, currentState: boolean) => {
     try {
-      await fetch("/api/faq", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id, is_active: !currentState }),
-      });
+      const { error } = await supabase
+        .from("faq_items")
+        .update({ is_active: !currentState, updated_at: new Date().toISOString() })
+        .eq("id", id);
+      if (error) throw error;
       fetchItems();
-    } catch {
-      alert("Error updating status");
+    } catch (err: any) {
+      alert("Error updating status: " + (err.message || "Unknown error"));
     }
   };
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this FAQ item?")) return;
     try {
-      const response = await fetch(`/api/faq?id=${id}`, { method: "DELETE" });
-      if (response.ok) fetchItems();
-    } catch {
-      alert("Error deleting FAQ item");
+      const { error } = await supabase.from("faq_items").delete().eq("id", id);
+      if (error) throw error;
+      fetchItems();
+    } catch (err: any) {
+      alert("Error deleting FAQ item: " + (err.message || "Unknown error"));
     }
   };
 
@@ -108,11 +116,7 @@ export default function AdminFaq() {
             </Link>
             <h1 className="text-2xl font-bold text-gray-900">Manage FAQ</h1>
             <button
-              onClick={() => {
-                setShowForm(true);
-                setEditingItem(null);
-                setFormData(defaultForm);
-              }}
+              onClick={() => { setShowForm(true); setEditingItem(null); setFormData(defaultForm); }}
               className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700"
             >
               Add New
@@ -122,6 +126,12 @@ export default function AdminFaq() {
       </nav>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {error && (
+          <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+            Error: {error}
+          </div>
+        )}
+
         {showForm && (
           <div className="bg-white rounded-lg shadow-md p-8 mb-8">
             <h2 className="text-xl font-bold mb-4">
@@ -170,12 +180,7 @@ export default function AdminFaq() {
                 <label htmlFor="faq-active" className="ml-2 text-sm text-gray-700">Active</label>
               </div>
               <div className="flex gap-4">
-                <button
-                  type="submit"
-                  className="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700"
-                >
-                  Save
-                </button>
+                <button type="submit" className="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700">Save</button>
                 <button
                   type="button"
                   onClick={() => { setShowForm(false); setEditingItem(null); }}
@@ -189,7 +194,7 @@ export default function AdminFaq() {
         )}
 
         <div className="space-y-4">
-          {items.length === 0 && (
+          {items.length === 0 && !error && (
             <div className="bg-white rounded-lg shadow-md p-8 text-center text-gray-500">
               No FAQ items yet. Click "Add New" to create one.
             </div>

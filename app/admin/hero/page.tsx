@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 
 interface HeroData {
   id?: string;
@@ -19,6 +20,8 @@ export default function AdminHero() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [saved, setSaved] = useState(false);
   const [hero, setHero] = useState<HeroData>({
     title: "",
     subtitle: "",
@@ -35,21 +38,21 @@ export default function AdminHero() {
       router.push("/admin");
       return;
     }
-
     fetchHero();
   }, [router]);
 
   const fetchHero = async () => {
+    setError(null);
     try {
-      const response = await fetch("/api/hero");
-      if (response.ok) {
-        const data = await response.json();
-        if (data) {
-          setHero(data);
-        }
-      }
-    } catch (error) {
-      console.error("Error fetching hero:", error);
+      const { data, error } = await supabase
+        .from("hero_section")
+        .select("*")
+        .limit(1)
+        .single();
+      if (error && error.code !== "PGRST116") throw error;
+      if (data) setHero(data);
+    } catch (err: any) {
+      setError(err.message || "Failed to load hero section");
     } finally {
       setLoading(false);
     }
@@ -58,24 +61,27 @@ export default function AdminHero() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
-
+    setError(null);
     try {
-      const method = hero.id ? "PUT" : "POST";
-      const response = await fetch("/api/hero", {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(hero),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setHero(data);
-        alert("Hero section saved successfully!");
+      if (hero.id) {
+        const { error } = await supabase
+          .from("hero_section")
+          .update({ ...hero, updated_at: new Date().toISOString() })
+          .eq("id", hero.id);
+        if (error) throw error;
       } else {
-        alert("Error saving hero section");
+        const { data, error } = await supabase
+          .from("hero_section")
+          .insert([{ ...hero, updated_at: new Date().toISOString() }])
+          .select()
+          .single();
+        if (error) throw error;
+        if (data) setHero(data);
       }
-    } catch (error) {
-      alert("Error saving hero section");
+      setSaved(true);
+      setTimeout(() => setSaved(false), 3000);
+    } catch (err: any) {
+      setError(err.message || "Error saving hero section");
     } finally {
       setSaving(false);
     }
@@ -100,6 +106,17 @@ export default function AdminHero() {
       </nav>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {error && (
+          <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+            Error: {error}
+          </div>
+        )}
+        {saved && (
+          <div className="mb-6 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
+            Hero section saved successfully!
+          </div>
+        )}
+
         <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-8">
           <div className="space-y-6">
             <div>
@@ -206,4 +223,3 @@ export default function AdminHero() {
     </div>
   );
 }
-

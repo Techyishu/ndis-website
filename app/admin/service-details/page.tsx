@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 import { ServiceDetail } from "@/lib/types";
 
 type TabKey = "core" | "capacity";
@@ -27,6 +28,7 @@ export default function AdminServiceDetails() {
   const [activeTab, setActiveTab] = useState<TabKey>("core");
   const [items, setItems] = useState<ServiceDetail[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [editingItem, setEditingItem] = useState<ServiceDetail | null>(null);
   const [formData, setFormData] = useState<ServiceDetail>(defaultForm("core"));
@@ -43,14 +45,16 @@ export default function AdminServiceDetails() {
   }, [router]);
 
   const fetchItems = async () => {
+    setError(null);
     try {
-      const response = await fetch("/api/service-details?all=true");
-      if (response.ok) {
-        const data = await response.json();
-        setItems(data);
-      }
-    } catch (error) {
-      console.error("Error fetching service details:", error);
+      const { data, error } = await supabase
+        .from("service_details")
+        .select("*")
+        .order("display_order", { ascending: true });
+      if (error) throw error;
+      setItems(data || []);
+    } catch (err: any) {
+      setError(err.message || "Failed to load service details");
     } finally {
       setLoading(false);
     }
@@ -66,23 +70,26 @@ export default function AdminServiceDetails() {
       .filter((line) => line.length > 0);
 
     try {
-      const method = editingItem ? "PUT" : "POST";
       const payload = { ...formData, items: bulletItems };
-      const body = editingItem ? { ...payload, id: editingItem.id } : payload;
-      const response = await fetch("/api/service-details", {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      if (response.ok) {
-        fetchItems();
-        setShowForm(false);
-        setEditingItem(null);
-        setFormData(defaultForm(activeTab));
-        setItemsText("");
+      if (editingItem?.id) {
+        const { error } = await supabase
+          .from("service_details")
+          .update({ ...payload, updated_at: new Date().toISOString() })
+          .eq("id", editingItem.id);
+        if (error) throw error;
+      } else {
+        const { error } = await supabase
+          .from("service_details")
+          .insert([{ ...payload, updated_at: new Date().toISOString() }]);
+        if (error) throw error;
       }
-    } catch {
-      alert("Error saving service detail");
+      fetchItems();
+      setShowForm(false);
+      setEditingItem(null);
+      setFormData(defaultForm(activeTab));
+      setItemsText("");
+    } catch (err: any) {
+      alert("Error saving service detail: " + (err.message || "Unknown error"));
     }
   };
 
@@ -96,24 +103,25 @@ export default function AdminServiceDetails() {
 
   const handleToggleActive = async (id: string, currentState: boolean) => {
     try {
-      await fetch("/api/service-details", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id, is_active: !currentState }),
-      });
+      const { error } = await supabase
+        .from("service_details")
+        .update({ is_active: !currentState, updated_at: new Date().toISOString() })
+        .eq("id", id);
+      if (error) throw error;
       fetchItems();
-    } catch {
-      alert("Error updating status");
+    } catch (err: any) {
+      alert("Error updating status: " + (err.message || "Unknown error"));
     }
   };
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this section?")) return;
     try {
-      const response = await fetch(`/api/service-details?id=${id}`, { method: "DELETE" });
-      if (response.ok) fetchItems();
-    } catch {
-      alert("Error deleting section");
+      const { error } = await supabase.from("service_details").delete().eq("id", id);
+      if (error) throw error;
+      fetchItems();
+    } catch (err: any) {
+      alert("Error deleting section: " + (err.message || "Unknown error"));
     }
   };
 
@@ -157,6 +165,12 @@ export default function AdminServiceDetails() {
         <p className="text-sm text-gray-500 mb-6">
           These sections appear on the Core Supports and Capacity Building detail pages. Each section has a title, description, and bullet points.
         </p>
+
+        {error && (
+          <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+            Error: {error}
+          </div>
+        )}
 
         {/* Tab Navigation */}
         <div className="flex border-b border-gray-200 mb-8">
@@ -265,7 +279,7 @@ export default function AdminServiceDetails() {
         )}
 
         <div className="space-y-4">
-          {filteredItems.length === 0 && (
+          {filteredItems.length === 0 && !error && (
             <div className="bg-white rounded-lg shadow-md p-8 text-center text-gray-500">
               No {TAB_LABELS[activeTab]} sections yet. Click "Add New" to create one.
             </div>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 import { AboutSection } from "@/lib/types";
 
 type TabKey = "value" | "approach" | "accreditation";
@@ -27,6 +28,7 @@ export default function AdminAbout() {
   const [activeTab, setActiveTab] = useState<TabKey>("value");
   const [items, setItems] = useState<AboutSection[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [editingItem, setEditingItem] = useState<AboutSection | null>(null);
   const [formData, setFormData] = useState<AboutSection>(defaultForm("value"));
@@ -41,14 +43,16 @@ export default function AdminAbout() {
   }, [router]);
 
   const fetchItems = async () => {
+    setError(null);
     try {
-      const response = await fetch("/api/about?all=true");
-      if (response.ok) {
-        const data = await response.json();
-        setItems(data);
-      }
-    } catch (error) {
-      console.error("Error fetching about sections:", error);
+      const { data, error } = await supabase
+        .from("about_sections")
+        .select("*")
+        .order("display_order", { ascending: true });
+      if (error) throw error;
+      setItems(data || []);
+    } catch (err: any) {
+      setError(err.message || "Failed to load about sections");
     } finally {
       setLoading(false);
     }
@@ -59,21 +63,24 @@ export default function AdminAbout() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const method = editingItem ? "PUT" : "POST";
-      const body = editingItem ? { ...formData, id: editingItem.id } : formData;
-      const response = await fetch("/api/about", {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-      if (response.ok) {
-        fetchItems();
-        setShowForm(false);
-        setEditingItem(null);
-        setFormData(defaultForm(activeTab));
+      if (editingItem?.id) {
+        const { error } = await supabase
+          .from("about_sections")
+          .update({ ...formData, updated_at: new Date().toISOString() })
+          .eq("id", editingItem.id);
+        if (error) throw error;
+      } else {
+        const { error } = await supabase
+          .from("about_sections")
+          .insert([{ ...formData, updated_at: new Date().toISOString() }]);
+        if (error) throw error;
       }
-    } catch {
-      alert("Error saving section");
+      fetchItems();
+      setShowForm(false);
+      setEditingItem(null);
+      setFormData(defaultForm(activeTab));
+    } catch (err: any) {
+      alert("Error saving section: " + (err.message || "Unknown error"));
     }
   };
 
@@ -86,24 +93,25 @@ export default function AdminAbout() {
 
   const handleToggleActive = async (id: string, currentState: boolean) => {
     try {
-      await fetch("/api/about", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id, is_active: !currentState }),
-      });
+      const { error } = await supabase
+        .from("about_sections")
+        .update({ is_active: !currentState, updated_at: new Date().toISOString() })
+        .eq("id", id);
+      if (error) throw error;
       fetchItems();
-    } catch {
-      alert("Error updating status");
+    } catch (err: any) {
+      alert("Error updating status: " + (err.message || "Unknown error"));
     }
   };
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this section?")) return;
     try {
-      const response = await fetch(`/api/about?id=${id}`, { method: "DELETE" });
-      if (response.ok) fetchItems();
-    } catch {
-      alert("Error deleting section");
+      const { error } = await supabase.from("about_sections").delete().eq("id", id);
+      if (error) throw error;
+      fetchItems();
+    } catch (err: any) {
+      alert("Error deleting section: " + (err.message || "Unknown error"));
     }
   };
 
@@ -142,6 +150,12 @@ export default function AdminAbout() {
       </nav>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {error && (
+          <div className="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+            Error: {error}
+          </div>
+        )}
+
         {/* Tab Navigation */}
         <div className="flex border-b border-gray-200 mb-8">
           {(Object.keys(TAB_LABELS) as TabKey[]).map((tab) => (
@@ -236,7 +250,7 @@ export default function AdminAbout() {
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.length === 0 && (
+          {filteredItems.length === 0 && !error && (
             <div className="col-span-3 bg-white rounded-lg shadow-md p-8 text-center text-gray-500">
               No {TAB_LABELS[activeTab].toLowerCase()} yet. Click "Add New" to create one.
             </div>
