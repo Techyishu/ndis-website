@@ -4,7 +4,7 @@ import CTASection from "../components/CTASection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "NDIS Services | Disability Support Melbourne | EverCare Community",
+  title: "NDIS Services | Disability Support Melbourne | EverCare Community Support",
   description: "Comprehensive NDIS services including core supports, capacity building, and nursing care. Tailored support plans for your unique needs.",
   keywords: "NDIS services Melbourne, NDIS services Victoria, NDIS core supports Melbourne, NDIS capacity building, community access Victoria, NDIS support coordination, disability services Melbourne",
 };

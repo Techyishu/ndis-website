@@ -5,14 +5,14 @@ import Button from '../components/Button';
 import { supabase } from '@/lib/supabase';
 
 export const metadata: Metadata = {
-    title: 'FAQ | NDIS Questions Answered | EverCare Community',
-    description: 'Find answers to common NDIS questions. Learn about eligibility, funding, and how EverCare Community can support your journey.',
+    title: 'FAQ | NDIS Questions Answered | EverCare Community Support',
+    description: 'Find answers to common NDIS questions. Learn about eligibility, funding, and how EverCare Community Support can support your journey.',
 };
 
 const fallbackFaqs = [
     { id: 'what-is-ndis', question: 'What is the NDIS and am I eligible?', answer: 'The National Disability Insurance Scheme (NDIS) provides support to Australians with permanent and significant disability. You may be eligible if you are under 65, an Australian citizen or permanent resident, live in Australia, and have a permanent and significant disability.' },
     { id: 'how-to-start', question: 'How do I get started with EverCare?', answer: 'Contact us via phone (03 7303 7203), email, or our online contact form. We will schedule a free consultation to discuss your needs and NDIS plan, then create a personalized service agreement and begin services.' },
-    { id: 'service-areas', question: 'What areas do you service?', answer: 'EverCare Community provides services across Melbourne and greater Victoria, including metro Melbourne and regional areas. Contact us to confirm we service your specific location.' },
+    { id: 'service-areas', question: 'What areas do you service?', answer: 'EverCare Community Support provides services across Melbourne and greater Victoria, including metro Melbourne and regional areas. Contact us to confirm we service your specific location.' },
 ];
 
 export default async function FAQ() {

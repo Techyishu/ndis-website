@@ -9,7 +9,7 @@ import { supabase } from "@/lib/supabase";
 import { Statistic, SiteSetting } from "@/lib/types";
 
 export const metadata: Metadata = {
-    title: "EverCare Community | NDIS Provider Melbourne & Victoria",
+    title: "EverCare Community Support | NDIS Provider Melbourne & Victoria",
     description: "Empathetic, nurse-led NDIS disability support in Melbourne. Core supports, capacity building & community access tailored to your goals.",
     keywords: "NDIS provider Melbourne, NDIS provider Victoria, disability support services Melbourne, NDIS registered provider, nurse-led NDIS support, NDIS support coordination Victoria, disability care Melbourne, NDIS capacity building, NDIS core supports",
 };
@@ -120,7 +120,7 @@ export default async function Home() {
                                 <span className="text-primary">Your Life.</span>
                             </h2>
                             <p className="text-base sm:text-base md:text-base text-gray-600 mb-6 leading-relaxed">
-                                At EverCare Community, we believe everyone deserves the freedom to live life on their own terms. As a nurse-led NDIS provider, we bring professional healthcare expertise combined with genuine compassion to every interaction.
+                                At EverCare Community Support, we believe everyone deserves the freedom to live life on their own terms. As a nurse-led NDIS provider, we bring professional healthcare expertise combined with genuine compassion to every interaction.
                             </p>
                             <p className="text-base sm:text-base md:text-base text-gray-600 mb-8 leading-relaxed">
                                 We're not just service providers – we're your partners in building independence, confidence, and a life you love. Our culturally diverse team understands that great support starts with truly listening to what matters most to you.

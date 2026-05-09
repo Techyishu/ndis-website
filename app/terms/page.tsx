@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Terms of Service | User Agreement | EverCare Community",
-    description: "Terms and conditions for using the EverCare Community website and services.",
+    title: "Terms of Service | User Agreement | EverCare Community Support",
+    description: "Terms and conditions for using the EverCare Community Support website and services.",
 };
 
 export default function TermsPage() {
@@ -13,7 +13,7 @@ export default function TermsPage() {
                 <div className="space-y-8 text-gray-600">
                     <p className="text-lg">Last updated: November 2025</p>
                     <p className="text-lg leading-relaxed">
-                        Welcome to the EverCare Community website. By accessing or using our website, you agree to comply with and be bound by these Terms of Service.
+                        Welcome to the EverCare Community Support website. By accessing or using our website, you agree to comply with and be bound by these Terms of Service.
                     </p>
 
                     <div>

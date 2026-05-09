@@ -7,8 +7,8 @@ import { supabase } from "@/lib/supabase";
 import { AboutSection, SiteSetting, TeamMember } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "About Us | EverCare Community | Trusted NDIS Provider",
-  description: "Meet the experienced nurse-led team at EverCare Community. Dedicated to empowering lives through compassionate NDIS support across Victoria.",
+  title: "About Us | EverCare Community Support | Trusted NDIS Provider",
+  description: "Meet the experienced nurse-led team at EverCare Community Support. Dedicated to empowering lives through compassionate NDIS support across Victoria.",
   keywords: "about EverCare, NDIS provider Melbourne, nurse-led disability support Victoria, NDIS registered provider, Melbourne disability services team",
 };
 
@@ -54,7 +54,7 @@ export default async function AboutPage() {
               <h2 className="text-2xl sm:text-2xl md:text-2xl font-bold text-gray-900 mb-6">Who We Are</h2>
               <div className="prose prose-lg text-gray-600 space-y-6">
                 <p>
-                  EverCare Community was established by a team of experienced nurses and disability support professionals who saw a need for a more personalized approach to NDIS services.
+                  EverCare Community Support was established by a team of experienced nurses and disability support professionals who saw a need for a more personalized approach to NDIS services.
                 </p>
                 <p>
                   We noticed that many participants felt like just another number in a large system. We wanted to change that. We built EverCare to be different—to be a provider that truly listens, understands, and adapts to your unique needs.

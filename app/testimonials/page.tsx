@@ -3,8 +3,8 @@ import TestimonialsList from "../components/TestimonialsList";
 import CTASection from "../components/CTASection";
 
 export const metadata = {
-  title: "Reviews & Stories | Participant Experiences | EverCare Community",
-  description: "Read real stories from satisfied participants. See why families across Victoria trust EverCare Community for their disability support.",
+  title: "Reviews & Stories | Participant Experiences | EverCare Community Support",
+  description: "Read real stories from satisfied participants. See why families across Victoria trust EverCare Community Support for their disability support.",
   keywords: "NDIS provider reviews Melbourne, EverCare testimonials, NDIS support reviews Victoria, disability services testimonials Melbourne, NDIS provider ratings",
 };
 
@@ -29,7 +29,7 @@ export default function Testimonials() {
               Real Stories from EverCare Participants & Families
             </p>
             <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We are proud of the partnerships we are building across Victoria. At EverCare Community
+              We are proud of the partnerships we are building across Victoria. At EverCare Community Support
               Support, our goal is to provide care you can trust, support that is "easy as" to use, and
               a team that genuinely understands.
             </p>
