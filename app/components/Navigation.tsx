@@ -46,15 +46,15 @@ const Navigation = () => {
         }`}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20 overflow-hidden">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center group" aria-label="EverCare Community Support - Home">
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 transition-transform duration-300 group-hover:scale-105">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src="/images/evercare-logo-2026.jpeg"
                   alt="EverCare Community Support Logo"
-                  width={80}
-                  height={80}
+                  width={96}
+                  height={96}
                   className="object-contain w-full h-full"
                   priority
                 />
