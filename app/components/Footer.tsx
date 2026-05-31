@@ -31,7 +31,7 @@ const Footer = async () => {
             <div className="flex items-center gap-3">
               <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
                 <Image
-                  src="/images/evercare-logo.jpeg"
+                  src="/images/evercare-logo-2026.jpeg"
                   alt="EverCare Community Support Logo"
                   width={80}
                   height={80}
