@@ -51,7 +51,7 @@ const Navigation = () => {
             <Link href="/" className="flex items-center group" aria-label="EverCare Community Support - Home">
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 transition-transform duration-300 group-hover:scale-105">
                 <Image
-                  src="/images/evercare-logo-2026.jpeg"
+                  src="/images/evercare-logo.png"
                   alt="EverCare Community Support Logo"
                   width={96}
                   height={96}
